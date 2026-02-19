@@ -1,0 +1,15 @@
+{
+  "name": "play-by-text-bot",
+  "version": "1.0.0",
+  "description": "Classic plays delivered line by line via Telegram",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
