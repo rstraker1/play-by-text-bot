@@ -237,12 +237,22 @@ bot.on('callback_query', async (query) => {
     }
     
   } else if (data.startsWith('next_')) {
-    // Next line
-    const parts = data.split('_');
-    const playId = parts[1];
-    const lineIndex = parseInt(parts[2], 10);
-    
-    await sendLine(chatId, playId, lineIndex);
+      // Next line
+      const parts = data.split('_');
+      const playId = parts[1];
+      const lineIndex = parseInt(parts[2], 10);
+      
+      // Remove buttons from the previous message
+      try {
+        await bot.editMessageReplyMarkup(
+          { inline_keyboard: [] },
+          { chat_id: chatId, message_id: query.message.message_id }
+        );
+      } catch (e) {
+        // Ignore if edit fails
+      }
+      
+      await sendLine(chatId, playId, lineIndex);
     
   } else if (data.startsWith('annotate_')) {
     // Show annotation
