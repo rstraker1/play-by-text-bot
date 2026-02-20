@@ -26,7 +26,11 @@ Users chat with your bot. They choose a play, then receive it one line at a time
    - **Runtime**: `Node`
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
-6. Add **Environment Variable**:
+6. Add **Environment Variables**:
+   - Key: `TELEGRAM_BOT_TOKEN`
+   - Value: (paste your bot token from BotFather)
+   - Key: `RENDER_EXTERNAL_URL`
+   - Value: (your service URL, e.g. `https://play-by-text-bot.onrender.com`)
    - Key: `TELEGRAM_BOT_TOKEN`
    - Value: (paste your bot token from BotFather)
 7. Click **Create Web Service**
@@ -92,6 +96,12 @@ Play texts: Public domain (Shakespeare, Beckett post-copyright, etc.). Check cop
 
 - [ ] Timed delivery mode (one line per hour/day)
 - [ ] Multiple languages
-- [ ] Audio messages for lines
+- [ ] Audio for each line? (speaker button next to '?')
 - [ ] User progress persistence (database)
 - [ ] More plays!
+- [ ] different colored names?
+- [ ] Can annotation disappear upon pressing 'next' button? Or user can just delete it if they wish, as it is.
+- [ ]Pictures now and then
+- [ ]Put space either at the end of each msg, or between msgs (if possible), to create some separation. Kinda cluttered currently.
+- [ ] what other neat features does telegram have which may be utilized?
+

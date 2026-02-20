@@ -36,16 +36,19 @@ function loadPlays() {
 
 function getUserProgress(chatId) {
   if (!userProgress[chatId]) {
-    userProgress[chatId] = { currentPlay: null, currentLine: 0, lastMessageId: null };
+    // Added lastAnnotationId to track open annotation messages
+    userProgress[chatId] = { currentPlay: null, currentLine: 0, lastMessageId: null, lastAnnotationId: null };
   }
   return userProgress[chatId];
 }
 
 function formatLine(line) {
   if (line.type === 'stage') {
-    return `📍 *Stage*\n_${line.text}_`;
+    // Trailing \n for breathing room
+    return `🎭 *Stage*\n_${line.text}_\n`;
   }
-  return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}`;
+  // Trailing \n for breathing room
+  return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}\n`;
 }
 
 async function sendLine(chatId, playId, lineIndex) {
@@ -53,20 +56,20 @@ async function sendLine(chatId, playId, lineIndex) {
   if (!play) return;
   const line = play.lines[lineIndex];
   if (!line) return;
-  
+
   const progress = getUserProgress(chatId);
   const isLastLine = lineIndex >= play.lines.length - 1;
   const keyboard = [];
-  
+
   if (!isLastLine) {
-    keyboard.push([{ text: 'Next →', callback_data: `next_${playId}_${lineIndex + 1}` }]);
+    keyboard.push([{ text: 'Next ▶️', callback_data: `next_${playId}_${lineIndex + 1}` }]);
   } else {
-    keyboard.push([{ text: '✓ Fin', callback_data: 'fin' }]);
+    keyboard.push([{ text: '✅ Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
     keyboard[0].unshift({ text: '?', callback_data: `annotate_${playId}_${lineIndex}` });
   }
-  
+
   try {
     const sent = await bot.sendMessage(chatId, formatLine(line), {
       parse_mode: 'Markdown',
@@ -85,44 +88,49 @@ async function sendAnnotation(chatId, playId, lineIndex) {
   if (!play) return;
   const line = play.lines[lineIndex];
   if (!line || !line.annotation) return;
-  
+
+  const progress = getUserProgress(chatId);
+
   try {
-    await bot.sendMessage(chatId, `📖 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
+    const sent = await bot.sendMessage(chatId, `📖 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
+    // Track the annotation message so we can delete it when Next is tapped
+    progress.lastAnnotationId = sent.message_id;
   } catch (error) {
-    await bot.sendMessage(chatId, `📖 Annotation\n\n${line.annotation}`);
+    const sent = await bot.sendMessage(chatId, `📖 Annotation\n\n${line.annotation}`);
+    progress.lastAnnotationId = sent.message_id;
   }
 }
 
 async function handleMessage(msg) {
   const chatId = msg.chat.id;
   const text = msg.text;
-  
+
   if (text === '/start') {
     const progress = getUserProgress(chatId);
     progress.currentPlay = null;
     progress.currentLine = 0;
-    
+
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
     });
-    
+
     if (playList.length === 0) {
       await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
       return;
     }
-    
+
     await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play:', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `🎭 *Play by Text — Help*\n\n• Press *Next →* to advance\n• Press *?* for annotations\n\n/start — Choose a play\n/plays — List plays`,
+      `🎭 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* for annotations\n\n/start — Choose a play\n/plays — List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
     });
     await bot.sendMessage(chatId, '📚 *Available Plays*', {
       parse_mode: 'Markdown',
@@ -134,9 +142,9 @@ async function handleMessage(msg) {
 async function handleCallbackQuery(query) {
   const chatId = query.message.chat.id;
   const data = query.data;
-  
+
   await bot.answerCallbackQuery(query.id);
-  
+
   if (data.startsWith('start_')) {
     const playId = data.replace('start_', '');
     const play = plays[playId];
@@ -148,11 +156,21 @@ async function handleCallbackQuery(query) {
     const parts = data.split('_');
     const playId = parts[1];
     const lineIndex = parseInt(parts[2], 10);
-    
+
+    // Remove buttons from the previous line message
     try {
       await bot.editMessageReplyMarkup({ inline_keyboard: [] }, { chat_id: chatId, message_id: query.message.message_id });
     } catch (e) {}
-    
+
+    // Delete any open annotation message
+    const progress = getUserProgress(chatId);
+    if (progress.lastAnnotationId) {
+      try {
+        await bot.deleteMessage(chatId, progress.lastAnnotationId);
+      } catch (e) {}
+      progress.lastAnnotationId = null;
+    }
+
     await sendLine(chatId, playId, lineIndex);
   } else if (data.startsWith('annotate_')) {
     const parts = data.split('_');
