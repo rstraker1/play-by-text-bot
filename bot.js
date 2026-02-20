@@ -45,7 +45,7 @@ function getUserProgress(chatId) {
 function formatLine(line) {
   if (line.type === 'stage') {
     // Trailing \n for breathing room
-    return `🎭 *Stage*\n_${line.text}_\n`;
+    return `📍 *Stage*\n_${line.text}_\n`;
   }
   // Trailing \n for breathing room
   return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}\n`;
@@ -119,7 +119,8 @@ async function handleMessage(msg) {
       return;
     }
 
-    await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play:', {
+    await bot.sendMessage(chatId, 
+  '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Tip: Type /start anytime to return to this menu_', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
