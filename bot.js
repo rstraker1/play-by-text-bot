@@ -116,7 +116,7 @@ async function handleMessage(msg) {
     }
 
     await bot.sendMessage(chatId,
-      '📖 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Tip: Type /start anytime to return to this menu_', {
+      '📖 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30–60 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
@@ -151,6 +151,9 @@ async function handleCallbackQuery(query) {
         `📖 *${play.title}*\n_${play.author}_\n\n${play.description || ''}\n\nStarting...`,
         { parse_mode: 'Markdown' }
       );
+      if (play.image) {
+        await bot.sendPhoto(chatId, play.image);
+      }
       setTimeout(() => sendLine(chatId, playId, 0), 1000);
     }
   } else if (data.startsWith('next_')) {
