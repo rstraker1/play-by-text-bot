@@ -43,9 +43,9 @@ function getUserProgress(chatId) {
 
 function formatLine(line) {
   if (line.type === 'stage') {
-    return `🎭 *Stage*\n_${line.text}_`;
+    return `${line.avatar || '📍'} *Stage*\n_${line.text}_`;
   }
-  return `${line.avatar || '📖'} *${line.sender}*\n${line.text}`;
+  return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}`;
 }
 
 async function sendLine(chatId, playId, lineIndex) {
@@ -107,29 +107,29 @@ async function handleMessage(msg) {
     progress.currentLine = 0;
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
     });
 
     if (playList.length === 0) {
-      await bot.sendMessage(chatId, '📖 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
+      await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
       return;
     }
 
     await bot.sendMessage(chatId,
-      '📖 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30–60 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
+      '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30–60 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `📖 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* on any line for its annotation\n\n/start — Choose a play\n/plays — List plays`,
+      `🎭 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* on any line for its annotation\n\n/start — Choose a play\n/plays — List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
     });
-    await bot.sendMessage(chatId, '📚 *Available Plays*', {
+    await bot.sendMessage(chatId, '🎭 *Available Plays*', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
@@ -146,22 +146,31 @@ async function handleCallbackQuery(query) {
     const playId = data.replace('start_', '');
     const play = plays[playId];
     if (play) {
+      // 1. Title / Author
       await bot.sendMessage(
         chatId,
-        `📖 *${play.title}*\n_${play.author}_\n\n${play.description || ''}\n\nStarting...`,
+        `${play.emoji || '🎭'} *${play.title}*\n_${play.author}_`,
         { parse_mode: 'Markdown' }
       );
+      // 2. Opening image
       if (play.image) {
         await bot.sendPhoto(chatId, play.image);
       }
-      setTimeout(() => sendLine(chatId, playId, 0), 1000);
+      // 3. Scene description with Next button (leads to line 0)
+      if (play.description) {
+        await bot.sendMessage(chatId, play.description, {
+          reply_markup: { inline_keyboard: [[{ text: 'Next ▶️', callback_data: `next_${playId}_0` }]] }
+        });
+      } else {
+        setTimeout(() => sendLine(chatId, playId, 0), 500);
+      }
     }
   } else if (data.startsWith('next_')) {
     const parts = data.split('_');
     const playId = parts[1];
     const lineIndex = parseInt(parts[2], 10);
 
-    // Remove buttons from the previous line message
+    // Remove buttons from the previous message
     try {
       await bot.editMessageReplyMarkup({ inline_keyboard: [] }, { chat_id: chatId, message_id: query.message.message_id });
     } catch (e) {}
@@ -180,7 +189,7 @@ async function handleCallbackQuery(query) {
     const parts = data.split('_');
     await sendAnnotation(chatId, parts[1], parseInt(parts[2], 10));
   } else if (data === 'fin') {
-    await bot.sendMessage(chatId, '📖 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
+    await bot.sendMessage(chatId, '🎭 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
   }
 }
 
@@ -190,7 +199,7 @@ app.post(`/webhook/${token}`, (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/', (req, res) => res.send('Play by Text bot is running! 📖'));
+app.get('/', (req, res) => res.send('Play by Text bot is running! 🎭'));
 
 const PORT = process.env.PORT || 10000;
 
