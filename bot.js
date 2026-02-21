@@ -20,59 +20,6 @@ const userProgress = {};
 const plays = {};
 const playsDir = path.join(__dirname, 'plays');
 
-// Persisted map of { chatId: { lastSeen, messages: { messageId: { playId, lineIndex } } } }
-// Lets users reply to any past line with '?' to get its annotation
-const messageMapFile = path.join(__dirname, 'messageMap.json');
-let messageMap = {};
-
-const CLEANUP_AGE_DAYS = 90;
-
-function loadMessageMap() {
-  try {
-    if (fs.existsSync(messageMapFile)) {
-      messageMap = JSON.parse(fs.readFileSync(messageMapFile, 'utf8'));
-    }
-  } catch (e) {
-    console.error('Failed to load messageMap:', e.message);
-    messageMap = {};
-  }
-}
-
-function saveMessageMap() {
-  try {
-    fs.writeFileSync(messageMapFile, JSON.stringify(messageMap), 'utf8');
-  } catch (e) {
-    console.error('Failed to save messageMap:', e.message);
-  }
-}
-
-function cleanupMessageMap() {
-  const cutoff = Date.now() - CLEANUP_AGE_DAYS * 24 * 60 * 60 * 1000;
-  let removed = 0;
-  for (const chatId of Object.keys(messageMap)) {
-    const lastSeen = messageMap[chatId].lastSeen || 0;
-    if (lastSeen < cutoff) {
-      delete messageMap[chatId];
-      removed++;
-    }
-  }
-  if (removed > 0) {
-    console.log(`Cleaned up ${removed} inactive chat(s) from messageMap`);
-    saveMessageMap();
-  }
-}
-
-function recordMessage(chatId, messageId, playId, lineIndex) {
-  if (!messageMap[chatId]) messageMap[chatId] = { lastSeen: null, messages: {} };
-  messageMap[chatId].messages[messageId] = { playId, lineIndex };
-  messageMap[chatId].lastSeen = Date.now();
-  saveMessageMap();
-}
-
-function lookupMessage(chatId, messageId) {
-  return messageMap[chatId]?.messages?.[messageId] || null;
-}
-
 function loadPlays() {
   if (!fs.existsSync(playsDir)) {
     fs.mkdirSync(playsDir, { recursive: true });
@@ -96,9 +43,9 @@ function getUserProgress(chatId) {
 
 function formatLine(line) {
   if (line.type === 'stage') {
-    return `📍 *Stage*\n_${line.text}_\n`;
+    return `🎭 *Stage*\n_${line.text}_`;
   }
-  return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}\n`;
+  return `${line.avatar || '📖'} *${line.sender}*\n${line.text}`;
 }
 
 async function sendLine(chatId, playId, lineIndex) {
@@ -128,9 +75,6 @@ async function sendLine(chatId, playId, lineIndex) {
     progress.currentPlay = playId;
     progress.currentLine = lineIndex;
     progress.lastMessageId = sent.message_id;
-
-    // Persist the message→line mapping for reply-? lookups
-    recordMessage(chatId, sent.message_id, playId, lineIndex);
   } catch (error) {
     console.error('Error sending message:', error.message);
   }
@@ -145,10 +89,10 @@ async function sendAnnotation(chatId, playId, lineIndex) {
   const progress = getUserProgress(chatId);
 
   try {
-    const sent = await bot.sendMessage(chatId, `📖 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
+    const sent = await bot.sendMessage(chatId, `📝 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
     progress.lastAnnotationId = sent.message_id;
   } catch (error) {
-    const sent = await bot.sendMessage(chatId, `📖 Annotation\n\n${line.annotation}`);
+    const sent = await bot.sendMessage(chatId, `📝 Annotation\n\n${line.annotation}`);
     progress.lastAnnotationId = sent.message_id;
   }
 }
@@ -157,43 +101,33 @@ async function handleMessage(msg) {
   const chatId = msg.chat.id;
   const text = msg.text?.trim();
 
-  // Reply '?' to any past line → fetch its annotation
-  if (text === '?' && msg.reply_to_message) {
-    const repliedId = msg.reply_to_message.message_id;
-    const entry = lookupMessage(chatId, repliedId);
-    if (entry) {
-      await sendAnnotation(chatId, entry.playId, entry.lineIndex);
-    }
-    return;
-  }
-
   if (text === '/start') {
     const progress = getUserProgress(chatId);
     progress.currentPlay = null;
     progress.currentLine = 0;
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
     });
 
     if (playList.length === 0) {
-      await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
+      await bot.sendMessage(chatId, '📖 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
       return;
     }
 
     await bot.sendMessage(chatId,
-      '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Tip: Type /start anytime to return to this menu_', {
+      '📖 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Tip: Type /start anytime to return to this menu_', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `🎭 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* for the current line's annotation\n• Reply to any line with *?* to get its annotation\n\n/start — Choose a play\n/plays — List plays`,
+      `📖 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* on any line for its annotation\n\n/start — Choose a play\n/plays — List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '📖'} ${play.title}`, callback_data: `start_${id}` }];
     });
     await bot.sendMessage(chatId, '📚 *Available Plays*', {
       parse_mode: 'Markdown',
@@ -214,7 +148,7 @@ async function handleCallbackQuery(query) {
     if (play) {
       await bot.sendMessage(
         chatId,
-        `🎭 *${play.title}*\n_${play.author}_\n\n${play.description || ''}\n\n_Tip: reply to any line with ? to get its annotation._\n\nStarting...`,
+        `📖 *${play.title}*\n_${play.author}_\n\n${play.description || ''}\n\nStarting...`,
         { parse_mode: 'Markdown' }
       );
       setTimeout(() => sendLine(chatId, playId, 0), 1000);
@@ -243,17 +177,9 @@ async function handleCallbackQuery(query) {
     const parts = data.split('_');
     await sendAnnotation(chatId, parts[1], parseInt(parts[2], 10));
   } else if (data === 'fin') {
-    await bot.sendMessage(chatId, '🎭 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
+    await bot.sendMessage(chatId, '📖 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
   }
 }
-
-// Stats endpoint — visit /stats to see messageMap health
-app.get('/stats', (req, res) => {
-  const size = fs.existsSync(messageMapFile) ? fs.statSync(messageMapFile).size : 0;
-  const users = Object.keys(messageMap).length;
-  const totalMessages = Object.values(messageMap).reduce((acc, m) => acc + Object.keys(m.messages || {}).length, 0);
-  res.json({ users, totalMessages, fileSizeKB: (size / 1024).toFixed(1) });
-});
 
 app.post(`/webhook/${token}`, (req, res) => {
   if (req.body.message) handleMessage(req.body.message);
@@ -261,14 +187,12 @@ app.post(`/webhook/${token}`, (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/', (req, res) => res.send('Play by Text bot is running! 🎭'));
+app.get('/', (req, res) => res.send('Play by Text bot is running! 📖'));
 
 const PORT = process.env.PORT || 10000;
 
 async function startServer() {
   loadPlays();
-  loadMessageMap();
-  cleanupMessageMap(); // prune chats inactive for 90+ days on every startup
   app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
     if (url) {
