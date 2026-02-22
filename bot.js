@@ -1,3 +1,7 @@
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const fs = require('fs');
