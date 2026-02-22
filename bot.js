@@ -1,7 +1,3 @@
-app.get('/health', (req, res) => {
-  res.status(200).send('OK');
-});
-
 const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const fs = require('fs');
@@ -17,6 +13,10 @@ if (!token) {
 
 const app = express();
 app.use(express.json());
+
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 const bot = new TelegramBot(token);
 
