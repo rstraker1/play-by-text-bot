@@ -63,12 +63,12 @@ async function sendLine(chatId, playId, lineIndex) {
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: 'Next ▶️', callback_data: `next_${playId}_${lineIndex + 1}` }]);
+    keyboard.push([{ text: 'Next ▶️', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
     keyboard.push([{ text: '✅ Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
-    keyboard[0].unshift({ text: '?', callback_data: `annotate_${playId}_${lineIndex}` });
+    keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
   try {
@@ -93,10 +93,10 @@ async function sendAnnotation(chatId, playId, lineIndex) {
   const progress = getUserProgress(chatId);
 
   try {
-    const sent = await bot.sendMessage(chatId, `📝 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
+    const sent = await bot.sendMessage(chatId, `🔍 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
     progress.lastAnnotationId = sent.message_id;
   } catch (error) {
-    const sent = await bot.sendMessage(chatId, `📝 Annotation\n\n${line.annotation}`);
+    const sent = await bot.sendMessage(chatId, `🔍 Annotation\n\n${line.annotation}`);
     progress.lastAnnotationId = sent.message_id;
   }
 }
@@ -111,7 +111,7 @@ async function handleMessage(msg) {
     progress.currentLine = 0;
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start:${id}` }];
     });
 
     if (playList.length === 0) {
@@ -131,7 +131,7 @@ async function handleMessage(msg) {
     );
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start_${id}` }];
+      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start:${id}` }];
     });
     await bot.sendMessage(chatId, '🎭 *Available Plays*', {
       parse_mode: 'Markdown',
@@ -146,8 +146,8 @@ async function handleCallbackQuery(query) {
 
   await bot.answerCallbackQuery(query.id);
 
-  if (data.startsWith('start_')) {
-    const playId = data.replace('start_', '');
+  if (data.startsWith('start:')) {
+    const playId = data.slice('start:'.length);
     const play = plays[playId];
     if (play) {
       // 1. Title / Author
@@ -163,23 +163,21 @@ async function handleCallbackQuery(query) {
       // 3. Scene description with Next button (leads to line 0)
       if (play.description) {
         await bot.sendMessage(chatId, play.description, {
-          reply_markup: { inline_keyboard: [[{ text: 'Next ▶️', callback_data: `next_${playId}_0` }]] }
+          reply_markup: { inline_keyboard: [[{ text: 'Next ▶️', callback_data: `next:${playId}:0` }]] }
         });
       } else {
         setTimeout(() => sendLine(chatId, playId, 0), 500);
       }
     }
-  } else if (data.startsWith('next_')) {
-    const parts = data.split('_');
+  } else if (data.startsWith('next:')) {
+    const parts = data.split(':');
     const playId = parts[1];
     const lineIndex = parseInt(parts[2], 10);
 
-    // Remove buttons from the previous message
     try {
       await bot.editMessageReplyMarkup({ inline_keyboard: [] }, { chat_id: chatId, message_id: query.message.message_id });
     } catch (e) {}
 
-    // Delete any open annotation message
     const progress = getUserProgress(chatId);
     if (progress.lastAnnotationId) {
       try {
@@ -189,8 +187,8 @@ async function handleCallbackQuery(query) {
     }
 
     await sendLine(chatId, playId, lineIndex);
-  } else if (data.startsWith('annotate_')) {
-    const parts = data.split('_');
+  } else if (data.startsWith('annotate:')) {
+    const parts = data.split(':');
     await sendAnnotation(chatId, parts[1], parseInt(parts[2], 10));
   } else if (data === 'fin') {
     await bot.sendMessage(chatId, '🎭 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
@@ -198,8 +196,12 @@ async function handleCallbackQuery(query) {
 }
 
 app.post(`/webhook/${token}`, (req, res) => {
-  if (req.body.message) handleMessage(req.body.message);
-  if (req.body.callback_query) handleCallbackQuery(req.body.callback_query);
+  try {
+    if (req.body.message) handleMessage(req.body.message);
+    if (req.body.callback_query) handleCallbackQuery(req.body.callback_query);
+  } catch (error) {
+    console.error('Webhook handler error:', error);
+  }
   res.sendStatus(200);
 });
 
