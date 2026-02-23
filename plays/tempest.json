@@ -5,11 +5,12 @@
   "emoji": "🌊",
   "description": "Act I, Scene I — A ship at sea, caught in a violent storm.",
   "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/tempest-1-opening-storm.jpg",
+  "introAnnotation": "Written around 1610–11, The Tempest is believed to be the last play Shakespeare wrote on his own. It was partly inspired by real accounts of the Sea Venture, an English ship wrecked on Bermuda in 1609 while sailing to the Virginia colony. The play explores power, forgiveness, colonialism, and the nature of art itself — themes that feel remarkably current four centuries later. Unusually for Shakespeare, the plot appears to be entirely original rather than adapted from an existing source.",
   "lines": [
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
+      "avatar": "📜",
       "text": "A ship at sea. A tempestuous noise of thunder and lightning heard.",
       "annotation": "The play opens in medias res — in the middle of the action. We're thrown immediately into chaos. This storm is not natural; we will learn it was conjured by Prospero, the rightful Duke of Milan, to shipwreck his enemies."
     },
@@ -37,7 +38,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
+      "avatar": "📜",
       "text": "Enter Mariners.",
       "annotation": "The common sailors enter, ready to work the ship through the storm."
     },
@@ -58,7 +59,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
+      "avatar": "📜",
       "text": "Enter Alonso, Sebastian, Antonio, Ferdinand, Gonzalo, and others.",
       "annotation": "The nobles stumble onto deck. Alonso is King of Naples. Sebastian is his brother. Antonio is Prospero's brother who usurped his dukedom (the villain). Ferdinand is the King's son. Gonzalo is an honest old counselor. They're about to get in the way of the sailors trying to save the ship."
     },
@@ -128,7 +129,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
+      "avatar": "📜",
       "text": "Exit.",
       "annotation": "The Boatswain leaves to continue his work, dismissing the nobles entirely."
     },
@@ -149,7 +150,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
+      "avatar": "📜",
       "text": "End of excerpt. The scene continues with the ship apparently sinking — though all will survive, as we'll learn.",
       "annotation": "The full scene ends with everyone believing they'll drown. But this tempest is an illusion, controlled by Prospero from his island. No one is harmed. The play's title comes from this opening storm, which is both literal and metaphorical — a disruption that will lead to reconciliation and restoration."
     }

@@ -56,12 +56,12 @@ function getUserProgress(chatId) {
 
 function formatLine(line) {
   if (line.type === 'stage') {
-    return `${line.avatar || '📍'} *Stage*\n_${line.text}_`;
+    return `${line.avatar || '\u{1F4DC}'} *Stage*\n_${line.text}_`;
   }
-  return `${line.avatar || '🎭'} *${line.sender}*\n${line.text}`;
+  return `${line.avatar || '\u{1F3AD}'} *${line.sender}*\n${line.text}`;
 }
 
-const MODE_EMOJI = { manual: '👆', ambient: '🕯️', active: '⚡' };
+const MODE_EMOJI = { manual: '\u{1F446}', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
 function clearTimers(progress) {
@@ -95,16 +95,15 @@ function scheduleNextLine(chatId, playId, lineIndex) {
   } else if (progress.deliveryMode === 'active') {
     const prevWords = wordCount(play.lines[lineIndex - 1]);
     const readingTime = (prevWords / 200) * 60 * 1000;
-    const beat = 2000 + Math.random() * 1500;   // 2–3.5s dramatic pause
+    const beat = 2000 + Math.random() * 1500;
     delay = Math.min(Math.max(readingTime + beat, 3000), 45000);
   }
 
-  // Typing lead scales with the upcoming line's length
   const nextWords = wordCount(play.lines[lineIndex]);
   const typingLead = Math.min(
-    Math.max(nextWords * 120, 600),   // 600ms floor, ~120ms per word
-    4000,                              // 4s ceiling
-    delay - 300                        // never fire after delivery
+    Math.max(nextWords * 120, 600),
+    4000,
+    delay - 300
   );
 
   const typingDelay = Math.max(delay - typingLead, 0);
@@ -117,11 +116,11 @@ function scheduleNextLine(chatId, playId, lineIndex) {
 
   progress.pendingTimer = setTimeout(async () => {
     progress.pendingTimer = null;
-    await sendLine(chatId, playId, lineIndex);
+    await sendLine(chatId, playId, lineIndex, false);
   }, delay);
 }
 
-async function cleanupPrevious(chatId) {
+async function cleanupPrevious(chatId, manualAdvance = false) {
   const progress = getUserProgress(chatId);
 
   if (progress.lastMessageId) {
@@ -134,7 +133,7 @@ async function cleanupPrevious(chatId) {
     progress.lastMessageId = null;
   }
 
-  if (progress.lastAnnotationId && progress.deliveryMode === 'manual') {
+  if (progress.lastAnnotationId && (progress.deliveryMode === 'manual' || manualAdvance)) {
     try {
       await bot.deleteMessage(chatId, progress.lastAnnotationId);
     } catch (e) {}
@@ -142,7 +141,7 @@ async function cleanupPrevious(chatId) {
   }
 }
 
-async function sendLine(chatId, playId, lineIndex) {
+async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const play = plays[playId];
   if (!play) return;
   const line = play.lines[lineIndex];
@@ -150,15 +149,15 @@ async function sendLine(chatId, playId, lineIndex) {
 
   const progress = getUserProgress(chatId);
 
-  await cleanupPrevious(chatId);
+  await cleanupPrevious(chatId, manualAdvance);
 
   const isLastLine = lineIndex >= play.lines.length - 1;
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: 'Next ▶️', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
-    keyboard.push([{ text: '✅  Fin', callback_data: 'fin' }]);
+    keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
     keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:${lineIndex}` });
@@ -193,16 +192,25 @@ async function sendLine(chatId, playId, lineIndex) {
 async function sendAnnotation(chatId, playId, lineIndex) {
   const play = plays[playId];
   if (!play) return;
-  const line = play.lines[lineIndex];
-  if (!line || !line.annotation) return;
+
+  let annotationText;
+  if (lineIndex === 'intro') {
+    annotationText = play.introAnnotation;
+  } else {
+    const line = play.lines[lineIndex];
+    if (!line || !line.annotation) return;
+    annotationText = line.annotation;
+  }
+
+  if (!annotationText) return;
 
   const progress = getUserProgress(chatId);
 
   try {
-    const sent = await bot.sendMessage(chatId, `📍 *Annotation*\n\n${line.annotation}`, { parse_mode: 'Markdown' });
+    const sent = await bot.sendMessage(chatId, `\u{1F4DD} *Annotation*\n\n${annotationText}`, { parse_mode: 'Markdown' });
     progress.lastAnnotationId = sent.message_id;
   } catch (error) {
-    const sent = await bot.sendMessage(chatId, `📍 Annotation\n\n${line.annotation}`);
+    const sent = await bot.sendMessage(chatId, `\u{1F4DD} Annotation\n\n${annotationText}`);
     progress.lastAnnotationId = sent.message_id;
   }
 }
@@ -239,29 +247,29 @@ async function handleMessage(msg) {
     progress.messageMap = {};
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start:${id}` }];
+      return [{ text: `${play.emoji || '\u{1F3AD}'} ${play.title}`, callback_data: `start:${id}` }];
     });
 
     if (playList.length === 0) {
-      await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
+      await bot.sendMessage(chatId, '\u{1F3AD} *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
       return;
     }
 
     await bot.sendMessage(chatId,
-      '🎭 *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30–60 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
+      '\u{1F3AD} *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30\u201360 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `🎭 *Play by Text — Help*\n\n• Press *Next ▶️* to advance\n• Press *?* on any line for its annotation\n• Reply to any line with *?* to get its annotation later\n• Press the mode button to cycle delivery:\n    👆 Manual — tap Next yourself\n    🕯️ Ambient — next line arrives in 10–60 min\n    ⚡ Active — next line arrives in ~20 sec\n\n/start — Choose a play\n/plays — List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *Next \u25B6\uFE0F* to advance\n\u2022 Press *?* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u{1F446} Manual \u2014 tap Next yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '🎭'} ${play.title}`, callback_data: `start:${id}` }];
+      return [{ text: `${play.emoji || '\u{1F3AD}'} ${play.title}`, callback_data: `start:${id}` }];
     });
-    await bot.sendMessage(chatId, '🎭 *Available Plays*', {
+    await bot.sendMessage(chatId, '\u{1F3AD} *Available Plays*', {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
@@ -277,20 +285,34 @@ async function handleCallbackQuery(query) {
     const playId = data.slice('start:'.length);
     const play = plays[playId];
     if (play) {
+      const progress = getUserProgress(chatId);
+      clearTimers(progress);
+
       await bot.sendMessage(
         chatId,
-        `${play.emoji || '🎭'} *${play.title}*\n_${play.author}_`,
+        `${play.emoji || '\u{1F3AD}'} *${play.title}*\n_${play.author}_`,
         { parse_mode: 'Markdown' }
       );
       if (play.image) {
         await bot.sendPhoto(chatId, play.image);
       }
       if (play.description) {
-        await bot.sendMessage(chatId, play.description, {
-          reply_markup: { inline_keyboard: [[{ text: 'Next ▶️', callback_data: `next:${playId}:0` }]] }
+        const keyboard = [[{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:0` }]];
+        if (play.introAnnotation) {
+          keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:intro` });
+        }
+        keyboard[0].push({
+          text: MODE_EMOJI[progress.deliveryMode],
+          callback_data: `mode:${playId}:0`
         });
+
+        const sent = await bot.sendMessage(chatId, play.description, {
+          reply_markup: { inline_keyboard: keyboard }
+        });
+        progress.lastMessageId = sent.message_id;
+        progress.currentPlay = playId;
       } else {
-        setTimeout(() => sendLine(chatId, playId, 0), 500);
+        setTimeout(() => sendLine(chatId, playId, 0, true), 500);
       }
     }
 
@@ -303,12 +325,13 @@ async function handleCallbackQuery(query) {
     const progress = getUserProgress(chatId);
     clearTimers(progress);
 
-    await sendLine(chatId, playId, lineIndex);
+    await sendLine(chatId, playId, lineIndex, true);
 
   } else if (data.startsWith('annotate:')) {
     await bot.answerCallbackQuery(query.id);
     const parts = data.split(':');
-    await sendAnnotation(chatId, parts[1], parseInt(parts[2], 10));
+    const lineIndex = parts[2] === 'intro' ? 'intro' : parseInt(parts[2], 10);
+    await sendAnnotation(chatId, parts[1], lineIndex);
 
   } else if (data.startsWith('mode:')) {
     const parts = data.split(':');
@@ -325,15 +348,20 @@ async function handleCallbackQuery(query) {
     const play = plays[playId];
     if (play && progress.lastMessageId) {
       const currentLineIndex = nextLineIndex - 1;
-      const line = play.lines[currentLineIndex];
-      const isLastLine = currentLineIndex >= play.lines.length - 1;
+      const isDescription = currentLineIndex < 0;
+      const line = isDescription ? null : play.lines[currentLineIndex];
+      const isLastLine = !isDescription && currentLineIndex >= play.lines.length - 1;
 
-      if (!isLastLine) {
+      if (isDescription || !isLastLine) {
         const keyboard = [];
-        keyboard.push([{ text: 'Next ▶️', callback_data: `next:${playId}:${nextLineIndex}` }]);
-        if (line && line.annotation) {
+        keyboard.push([{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:${nextLineIndex}` }]);
+
+        if (isDescription && play.introAnnotation) {
+          keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:intro` });
+        } else if (line && line.annotation) {
           keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:${currentLineIndex}` });
         }
+
         keyboard[0].push({
           text: MODE_EMOJI[newMode],
           callback_data: `mode:${playId}:${nextLineIndex}`
@@ -354,7 +382,7 @@ async function handleCallbackQuery(query) {
 
   } else if (data === 'fin') {
     await bot.answerCallbackQuery(query.id);
-    await bot.sendMessage(chatId, '🎭 *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
+    await bot.sendMessage(chatId, '\u{1F3AD} *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
   }
 }
 
@@ -368,7 +396,7 @@ app.post(`/webhook/${token}`, (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/', (req, res) => res.send('Play by Text bot is running! 🎭'));
+app.get('/', (req, res) => res.send('Play by Text bot is running! \u{1F3AD}'));
 
 const PORT = process.env.PORT || 10000;
 
