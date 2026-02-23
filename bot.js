@@ -47,6 +47,7 @@ function getUserProgress(chatId) {
       lastAnnotationId: null,
       deliveryMode: 'manual',
       pendingTimer: null,
+      typingTimer: null,
       messageMap: {}
     };
   }
@@ -63,13 +64,25 @@ function formatLine(line) {
 const MODE_EMOJI = { manual: '👆', ambient: '🕯️', active: '⚡' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
-function scheduleNextLine(chatId, playId, lineIndex) {
-  const progress = getUserProgress(chatId);
-
+function clearTimers(progress) {
   if (progress.pendingTimer) {
     clearTimeout(progress.pendingTimer);
     progress.pendingTimer = null;
   }
+  if (progress.typingTimer) {
+    clearTimeout(progress.typingTimer);
+    progress.typingTimer = null;
+  }
+}
+
+function wordCount(line) {
+  return line?.text?.split(/\s+/).length || 10;
+}
+
+function scheduleNextLine(chatId, playId, lineIndex) {
+  const progress = getUserProgress(chatId);
+
+  clearTimers(progress);
 
   if (progress.deliveryMode === 'manual') return;
 
@@ -80,10 +93,27 @@ function scheduleNextLine(chatId, playId, lineIndex) {
   if (progress.deliveryMode === 'ambient') {
     delay = (10 + Math.random() * 50) * 60 * 1000;
   } else if (progress.deliveryMode === 'active') {
-    const prevLine = play.lines[lineIndex - 1];
-    const words = prevLine?.text?.split(' ').length || 20;
-    delay = Math.min(Math.max((words / 200) * 60 * 1000, 8000), 45000);
+    const prevWords = wordCount(play.lines[lineIndex - 1]);
+    const readingTime = (prevWords / 200) * 60 * 1000;
+    const beat = 2000 + Math.random() * 1500;   // 2–3.5s dramatic pause
+    delay = Math.min(Math.max(readingTime + beat, 3000), 45000);
   }
+
+  // Typing lead scales with the upcoming line's length
+  const nextWords = wordCount(play.lines[lineIndex]);
+  const typingLead = Math.min(
+    Math.max(nextWords * 120, 600),   // 600ms floor, ~120ms per word
+    4000,                              // 4s ceiling
+    delay - 300                        // never fire after delivery
+  );
+
+  const typingDelay = Math.max(delay - typingLead, 0);
+  progress.typingTimer = setTimeout(async () => {
+    progress.typingTimer = null;
+    try {
+      await bot.sendChatAction(chatId, 'typing');
+    } catch (e) {}
+  }, typingDelay);
 
   progress.pendingTimer = setTimeout(async () => {
     progress.pendingTimer = null;
@@ -150,7 +180,6 @@ async function sendLine(chatId, playId, lineIndex) {
     progress.currentLine = lineIndex;
     progress.lastMessageId = sent.message_id;
 
-    // Store playId alongside lineIndex so reply-? works across plays
     progress.messageMap[sent.message_id] = { playId, lineIndex };
   } catch (error) {
     console.error('Error sending message:', error.message);
@@ -182,7 +211,6 @@ async function handleMessage(msg) {
   const chatId = msg.chat.id;
   const text = msg.text?.trim();
 
-  // Reply-? : user replied to any previous line message with a lone '?'
   if (text === '?' && msg.reply_to_message) {
     const progress = getUserProgress(chatId);
     const repliedId = msg.reply_to_message.message_id;
@@ -203,10 +231,7 @@ async function handleMessage(msg) {
   if (text === '/start') {
     const progress = getUserProgress(chatId);
 
-    if (progress.pendingTimer) {
-      clearTimeout(progress.pendingTimer);
-      progress.pendingTimer = null;
-    }
+    clearTimers(progress);
 
     progress.currentPlay = null;
     progress.currentLine = 0;
@@ -276,10 +301,7 @@ async function handleCallbackQuery(query) {
     const lineIndex = parseInt(parts[2], 10);
 
     const progress = getUserProgress(chatId);
-    if (progress.pendingTimer) {
-      clearTimeout(progress.pendingTimer);
-      progress.pendingTimer = null;
-    }
+    clearTimers(progress);
 
     await sendLine(chatId, playId, lineIndex);
 
@@ -297,10 +319,7 @@ async function handleCallbackQuery(query) {
     const newMode = MODE_NEXT[progress.deliveryMode];
     progress.deliveryMode = newMode;
 
-    if (progress.pendingTimer) {
-      clearTimeout(progress.pendingTimer);
-      progress.pendingTimer = null;
-    }
+    clearTimers(progress);
     scheduleNextLine(chatId, playId, nextLineIndex);
 
     const play = plays[playId];
