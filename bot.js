@@ -62,7 +62,7 @@ function formatLine(play, line) {
   return `${avatar} *${line.sender}*\n${line.text}`;
 }
 
-const MODE_EMOJI = { manual: '\u{1F446}', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
+const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
 function clearTimers(progress) {
@@ -156,7 +156,7 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: '﹀', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: '▽', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
     keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
@@ -262,7 +262,7 @@ async function handleMessage(msg) {
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\uFE40* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u{1F446} Manual \u2014 tap \uFE40 yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
@@ -297,7 +297,7 @@ async function handleCallbackQuery(query) {
         await bot.sendPhoto(chatId, play.image);
       }
       if (play.description) {
-        const keyboard = [[{ text: '﹀', callback_data: `next:${playId}:0` }]];
+        const keyboard = [[{ text: '▽', callback_data: `next:${playId}:0` }]];
         if (play.introAnnotation) {
           keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
         }
@@ -354,7 +354,7 @@ async function handleCallbackQuery(query) {
 
       if (isDescription || !isLastLine) {
         const keyboard = [];
-        keyboard.push([{ text: '﹀', callback_data: `next:${playId}:${nextLineIndex}` }]);
+        keyboard.push([{ text: '▽', callback_data: `next:${playId}:${nextLineIndex}` }]);
 
         if (isDescription && play.introAnnotation) {
           keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
