@@ -54,11 +54,12 @@ function getUserProgress(chatId) {
   return userProgress[chatId];
 }
 
-function formatLine(line) {
+function formatLine(play, line) {
+  const avatar = play.characters?.[line.sender] || '\u{1F3AD}';
   if (line.type === 'stage') {
-    return `${line.avatar || '\u{1F4DC}'} *Stage*\n_${line.text}_`;
+    return `${avatar} *Stage*\n_${line.text}_`;
   }
-  return `${line.avatar || '\u{1F3AD}'} *${line.sender}*\n${line.text}`;
+  return `${avatar} *${line.sender}*\n${line.text}`;
 }
 
 const MODE_EMOJI = { manual: '\u{1F446}', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
@@ -155,12 +156,12 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: '﹀', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
     keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
-    keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:${lineIndex}` });
+    keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
   if (!isLastLine) {
@@ -171,7 +172,7 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   }
 
   try {
-    const sent = await bot.sendMessage(chatId, formatLine(line), {
+    const sent = await bot.sendMessage(chatId, formatLine(play, line), {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: keyboard }
     });
@@ -207,10 +208,10 @@ async function sendAnnotation(chatId, playId, lineIndex) {
   const progress = getUserProgress(chatId);
 
   try {
-    const sent = await bot.sendMessage(chatId, `\u{1F4DD} *Annotation*\n\n${annotationText}`, { parse_mode: 'Markdown' });
+    const sent = await bot.sendMessage(chatId, `\u{1F50D} *Annotation*\n\n${annotationText}`, { parse_mode: 'Markdown' });
     progress.lastAnnotationId = sent.message_id;
   } catch (error) {
-    const sent = await bot.sendMessage(chatId, `\u{1F4DD} Annotation\n\n${annotationText}`);
+    const sent = await bot.sendMessage(chatId, `\u{1F50D} Annotation\n\n${annotationText}`);
     progress.lastAnnotationId = sent.message_id;
   }
 }
@@ -256,13 +257,12 @@ async function handleMessage(msg) {
     }
 
     await bot.sendMessage(chatId,
-      '\u{1F3AD} *Play by Text*\n\nClassic plays, delivered line by line.\n\nChoose a play to begin:\n\n_Note: After 15min of inactivity, the first button press wakes the bot (takes 30\u201360 sec). Just wait, then press again!_\n\n_Tip: Type /start anytime to return to this menu_', {
-      parse_mode: 'Markdown',
+'     \u{1F3AD} Choose a play to begin:\n\n_Type /start anytime to return here, & /help for more info._', {      parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *Next \u25B6\uFE0F* to advance\n\u2022 Press *?* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u{1F446} Manual \u2014 tap Next yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\uFE40* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u{1F446} Manual \u2014 tap \uFE40 yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/plays') {
@@ -297,9 +297,9 @@ async function handleCallbackQuery(query) {
         await bot.sendPhoto(chatId, play.image);
       }
       if (play.description) {
-        const keyboard = [[{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:0` }]];
+        const keyboard = [[{ text: '﹀', callback_data: `next:${playId}:0` }]];
         if (play.introAnnotation) {
-          keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
         }
         keyboard[0].push({
           text: MODE_EMOJI[progress.deliveryMode],
@@ -354,12 +354,12 @@ async function handleCallbackQuery(query) {
 
       if (isDescription || !isLastLine) {
         const keyboard = [];
-        keyboard.push([{ text: 'Next \u25B6\uFE0F', callback_data: `next:${playId}:${nextLineIndex}` }]);
+        keyboard.push([{ text: '﹀', callback_data: `next:${playId}:${nextLineIndex}` }]);
 
         if (isDescription && play.introAnnotation) {
-          keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
         } else if (line && line.annotation) {
-          keyboard[0].unshift({ text: '?', callback_data: `annotate:${playId}:${currentLineIndex}` });
+          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:${currentLineIndex}` });
         }
 
         keyboard[0].push({
