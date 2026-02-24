@@ -1,50 +1,34 @@
 # Play by Text 🎭
 
-Classic plays delivered line by line via Telegram.
+Great plays delivered line by line via Telegram.
 
 ## How it works
 
-Users chat with your bot. They choose a play, then receive it one line at a time, pressing "Next →" to advance. They can press "?" to get annotations explaining archaic language or context.
+Users find 'Play by Text' on Telegram via username or direct link.. They choose a play, then receive it one line at a time — like reading a text conversation. Each line has optional annotations explaining unobvious language, context, or other significance.
 
-## Setup
+### Buttons
 
-### 1. Create a Telegram Bot
+| Button | Function |
+|--------|----------|
+| ▽ | Advance to next line |
+| 🔍 | Show annotation for current line |
+| ⏸ | Manual mode — tap ▽ yourself |
+| 🕯️ | Ambient mode — next line arrives in 10–60 min |
+|  ▶ | Active mode — next line arrives in ~20 sec |
 
-1. Open Telegram and search for `@BotFather`
-2. Send `/newbot`
-3. Follow the prompts to name your bot
-4. Copy the **token** BotFather gives you (looks like `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
+Tapping the mode button cycles through all three. Replying `?` to any past line also retrieves its annotation.
 
-### 2. Deploy to Render
+### Commands
 
-1. Push this code to a GitHub repository
-2. Go to [render.com](https://render.com) and sign in
-3. Click **New +** → **Web Service**
-4. Connect your GitHub repo
-5. Configure:
-   - **Name**: `play-by-text-bot` (or whatever you like)
-   - **Runtime**: `Node`
-   - **Build Command**: `npm install`
-   - **Start Command**: `npm start`
-6. Add **Environment Variables**:
-   - Key: `TELEGRAM_BOT_TOKEN`
-   - Value: (paste your bot token from BotFather)
-   - Key: `RENDER_EXTERNAL_URL`
-   - Value: (your service URL, e.g. `https://play-by-text-bot.onrender.com`)
-   - Key: `TELEGRAM_BOT_TOKEN`
-   - Value: (paste your bot token from BotFather)
-7. Click **Create Web Service**
+- `/start` — Choose a play
+- `/plays` — List available plays
+- `/help` — Show help
 
-### 3. Test Your Bot
+## Adding new plays
 
-1. Open Telegram
-2. Search for your bot by the username you gave it
-3. Press **Start** or send `/start`
-4. Choose a play and enjoy!
+Create a JSON file in the `/plays` folder named `{play-id}.json`.
 
-## Adding New Plays
-
-Create a JSON file in the `/plays` folder. Format:
+### Structure
 
 ```json
 {
@@ -53,55 +37,81 @@ Create a JSON file in the `/plays` folder. Format:
   "author": "Author Name",
   "emoji": "🎭",
   "description": "Brief description shown before play starts.",
+  "image": "https://url-to-cover-image.jpg",
+  "introAnnotation": "Historical context, no spoilers. Shown when user taps 🔍 on the description.",
+  "characters": {
+    "Stage": "📍",
+    "Character Name": "🎭",
+    "Another Character": "👑"
+  },
   "lines": [
     {
       "type": "stage",
       "sender": "Stage",
-      "avatar": "📍",
       "text": "Stage direction in italics.",
       "annotation": "Explanation of this stage direction."
     },
     {
       "type": "character",
       "sender": "Character Name",
-      "avatar": "🎭",
       "text": "The character's line.",
-      "annotation": "Explanation of this line (optional)."
+      "annotation": "Explanation of this line."
     }
   ]
 }
 ```
 
-### Tips for preparing plays:
+### Tips for preparing plays
 
-- **type**: Either `"stage"` for stage directions or `"character"` for dialogue
-- **avatar**: Pick an emoji that fits the character
-- **annotation**: Explain archaic words, context, or significance. Optional but valuable.
-- Keep lines reasonably short — this is messaging, not a book
-- You can split long speeches into multiple messages
+- **type**: `"stage"` for stage directions (rendered in italics), `"character"` for dialogue
+- **characters**: Define each speaker's emoji once here — no need to repeat on every line. Any sender not in the map gets a generic 🎭 fallback.
+- **annotation**: Explain archaic words, context, or significance. Optional per line, but valuable.
+- **introAnnotation**: Brief, spoiler-free intro — historical context, themes, relevance today. Shows before the first line.
+- **image**: Optional cover image URL, shown when the play is selected.
+- Keep lines reasonably short — this is messaging, not a book.
+- Split long speeches into multiple messages.
+- Stage directions like "Exit" or "Enter Mariners" are worth keeping — they give rhythm and breathing room between dialogue.
 
-## Commands
+## Hosting & architecture
 
-- `/start` — Choose a play
-- `/plays` — List available plays  
-- `/help` — Show help
+### Current setup
+
+- **Platform**: Render (free tier web service)
+- **Runtime**: Node.js
+- **Webhook**: Telegram webhook, set automatically on startup via `RENDER_EXTERNAL_URL`
+- **Keep-alive**: UptimeRobot pings the `/health` endpoint to prevent Render free tier spindown (otherwise the service sleeps after 15 min of inactivity, causing a 30–60 sec cold start on next button press)
+
+### Environment variables
+
+| Variable | Purpose |
+|----------|---------|
+| `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather |
+| `RENDER_EXTERNAL_URL` | Public URL of the Render service (e.g. `https://play-by-text-bot.onrender.com`) |
+
+### Key files
+
+- `bot.js` — All bot logic (single file)
+- `plays/*.json` — Play data, one file per play
+- `images/` — Cover images (referenced by URL in play JSON)
+
+### Notes for future development
+
+- User progress is in-memory only — resets on redeploy. Database persistence is a potential upgrade.
+- Timers (ambient/active mode) are also in-memory — a redeploy or Render restart clears them.
+- Telegram inline keyboard buttons always stretch to message bubble width — this is Telegram's rendering, not controllable via the API.
+
+## Ideas
+
+- [ ] User progress persistence (database)
+- [ ] Multiple languages
+- [ ] Audio for each line (speaker button next to 🔍)
+- [ ] Pictures/illustrations at key moments
+- [ ] More plays!
+- [ ] Visual spacing between messages
+- [ ] Explore other Telegram features (polls, reactions, etc.)
 
 ## License
 
-Bot code: MIT. Do what you want.
+Bot code: MIT.
 
-Play texts: Public domain (Shakespeare, Beckett post-copyright, etc.). Check copyright status before adding modern plays.
-
-## Ideas for expansion
-
-- [ ] Timed delivery mode (one line per hour/day)
-- [ ] Multiple languages
-- [ ] Audio for each line? (speaker button next to '?')
-- [ ] User progress persistence (database)
-- [ ] More plays!
-- [ ] different colored names?
-- [ ] Can annotation disappear upon pressing 'next' button? Or user can just delete it if they wish, as it is.
-- [ ]Pictures now and then
-- [ ]Put space either at the end of each msg, or between msgs (if possible), to create some separation. Kinda cluttered currently.
-- [ ] what other neat features does telegram have which may be utilized?
-
+Play texts: Public domain (Shakespeare etc.). Check copyright status before adding modern plays.
