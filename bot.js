@@ -65,8 +65,7 @@ function formatLine(play, line) {
 function formatCast(play) {
   if (!play.dramatis || play.dramatis.length === 0) return null;
   const lines = play.dramatis.map(entry => {
-    const name = entry.split(/\s*[–—-]\s*/)[0].trim();
-    // Handle entries like "Adrian & Francisco" by checking first name
+    const name = entry.split(/\s*[\u2013\u2014-]\s*/)[0].trim();
     const firstName = name.split(/\s*[&,]\s*/)[0].trim();
     const emoji = play.characters?.[firstName] || '\u{1F3AD}';
     return `${emoji}  ${entry}`;
@@ -74,7 +73,7 @@ function formatCast(play) {
   return `\u{1F3AD} *Cast*\n\n${lines.join('\n')}`;
 }
 
-const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
+const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u25B6' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
 function clearTimers(progress) {
@@ -274,7 +273,7 @@ async function handleMessage(msg) {
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/cast') {
@@ -325,6 +324,16 @@ async function handleCallbackQuery(query) {
       );
       if (play.image) {
         await bot.sendPhoto(chatId, play.image);
+      }
+      if (play.dramatis && play.dramatis.length > 0) {
+        const castText = formatCast(play);
+        if (castText) {
+          try {
+            await bot.sendMessage(chatId, castText, { parse_mode: 'Markdown' });
+          } catch (e) {
+            await bot.sendMessage(chatId, castText);
+          }
+        }
       }
       if (play.description) {
         const keyboard = [[{ text: 'â–½', callback_data: `next:${playId}:0` }]];
