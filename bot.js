@@ -62,6 +62,18 @@ function formatLine(play, line) {
   return `${avatar} *${line.sender}*\n${line.text}`;
 }
 
+function formatCast(play) {
+  if (!play.dramatis || play.dramatis.length === 0) return null;
+  const lines = play.dramatis.map(entry => {
+    const name = entry.split(/\s*[–—-]\s*/)[0].trim();
+    // Handle entries like "Adrian & Francisco" by checking first name
+    const firstName = name.split(/\s*[&,]\s*/)[0].trim();
+    const emoji = play.characters?.[firstName] || '\u{1F3AD}';
+    return `${emoji}  ${entry}`;
+  });
+  return `\u{1F3AD} *Cast*\n\n${lines.join('\n')}`;
+}
+
 const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u26A1' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
@@ -156,12 +168,12 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: '▽', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: 'â–½', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
     keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
-    keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:${lineIndex}` });
+    keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
   if (!isLastLine) {
@@ -262,9 +274,27 @@ async function handleMessage(msg) {
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u26A1 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
+  } else if (text === '/cast') {
+    const progress = getUserProgress(chatId);
+    if (!progress.currentPlay || !plays[progress.currentPlay]) {
+      await bot.sendMessage(chatId, '_No play in progress. Use /start to choose one._', { parse_mode: 'Markdown' });
+      return;
+    }
+    const play = plays[progress.currentPlay];
+    const castText = formatCast(play);
+    if (castText) {
+      try {
+        await bot.sendMessage(chatId, castText, { parse_mode: 'Markdown' });
+      } catch (e) {
+        await bot.sendMessage(chatId, castText);
+      }
+    } else {
+      await bot.sendMessage(chatId, '_No cast list available for this play._', { parse_mode: 'Markdown' });
+    }
+
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
       return [{ text: `${play.emoji || '\u{1F3AD}'} ${play.title}`, callback_data: `start:${id}` }];
@@ -297,9 +327,9 @@ async function handleCallbackQuery(query) {
         await bot.sendPhoto(chatId, play.image);
       }
       if (play.description) {
-        const keyboard = [[{ text: '▽', callback_data: `next:${playId}:0` }]];
+        const keyboard = [[{ text: 'â–½', callback_data: `next:${playId}:0` }]];
         if (play.introAnnotation) {
-          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:intro` });
         }
         keyboard[0].push({
           text: MODE_EMOJI[progress.deliveryMode],
@@ -354,12 +384,12 @@ async function handleCallbackQuery(query) {
 
       if (isDescription || !isLastLine) {
         const keyboard = [];
-        keyboard.push([{ text: '▽', callback_data: `next:${playId}:${nextLineIndex}` }]);
+        keyboard.push([{ text: 'â–½', callback_data: `next:${playId}:${nextLineIndex}` }]);
 
         if (isDescription && play.introAnnotation) {
-          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:intro` });
         } else if (line && line.annotation) {
-          keyboard[0].unshift({ text: '🔍', callback_data: `annotate:${playId}:${currentLineIndex}` });
+          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:${currentLineIndex}` });
         }
 
         keyboard[0].push({

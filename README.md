@@ -94,13 +94,23 @@ Create a JSON file in the `/plays` folder named `{play-id}.json`.
 - `plays/*.json` — Play data, one file per play
 - `images/` — Cover images (referenced by URL in play JSON)
 
-### Notes for future development
+### State & persistence
 
-- User progress is in-memory only — resets on redeploy. Database persistence is a potential upgrade.
-- Timers (ambient/active mode) are also in-memory — a redeploy or Render restart clears them.
-- Telegram inline keyboard buttons always stretch to message bubble width — this is Telegram's rendering, not controllable via the API.
+All user state is held in memory — there is no database. This means state resets on every redeploy or Render restart (including free tier spindowns). However, because each ▽ button embeds the play ID and line index directly in its callback data, the bot doesn't need to remember where a user is — Telegram does.
 
-## Ideas
+**Works fine after a restart:**
+- Tapping ▽ on any existing message still delivers the correct next line
+- Starting a new play works normally
+
+**Resets or breaks after a restart:**
+- Delivery mode reverts to manual — users need to toggle back to ambient/active
+- Active timers are lost — auto-delivery stops until the user taps ▽ or re-selects a mode
+- Replying ? to messages sent before the restart won't retrieve annotations (message map is lost)
+- Old message buttons won't get cleaned up on the next advance (previous line keeps its buttons visible)
+
+Database persistence would fix all of the above but isn't necessary at the current scale
+
+## More Ideas
 
 - [ ] User progress persistence (database)
 - [ ] Multiple languages
