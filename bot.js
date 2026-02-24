@@ -167,12 +167,12 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: 'â–½', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${lineIndex + 1}` }]);
   } else {
     keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
   if (line.annotation) {
-    keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:${lineIndex}` });
+    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
   if (!isLastLine) {
@@ -336,9 +336,9 @@ async function handleCallbackQuery(query) {
         }
       }
       if (play.description) {
-        const keyboard = [[{ text: 'â–½', callback_data: `next:${playId}:0` }]];
+        const keyboard = [[{ text: '\u25BD', callback_data: `next:${playId}:0` }]];
         if (play.introAnnotation) {
-          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
         }
         keyboard[0].push({
           text: MODE_EMOJI[progress.deliveryMode],
@@ -393,12 +393,12 @@ async function handleCallbackQuery(query) {
 
       if (isDescription || !isLastLine) {
         const keyboard = [];
-        keyboard.push([{ text: 'â–½', callback_data: `next:${playId}:${nextLineIndex}` }]);
+        keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${nextLineIndex}` }]);
 
         if (isDescription && play.introAnnotation) {
-          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:intro` });
+          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
         } else if (line && line.annotation) {
-          keyboard[0].unshift({ text: 'ðŸ”', callback_data: `annotate:${playId}:${currentLineIndex}` });
+          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${currentLineIndex}` });
         }
 
         keyboard[0].push({
