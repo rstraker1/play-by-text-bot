@@ -2,54 +2,113 @@
   "id": "tempest",
   "title": "The Tempest",
   "author": "William Shakespeare",
-  "emoji": "🌊",
-  "description": "Act I, Scene I — A ship at sea, caught in a violent storm.",
+  "emoji": "ðŸŒŠ",
+  "description": "Act I, Scene I â€” A ship at sea, caught in a violent storm.",
   "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/tempest-1-opening-storm.jpg",
-  "introAnnotation": "Written around 1610–11, The Tempest is believed to be the last play Shakespeare wrote on his own. It was partly inspired by real accounts of the Sea Venture, an English ship wrecked on Bermuda in 1609 while sailing to the Virginia colony. The play explores power, forgiveness, colonialism, and the nature of art itself — themes that feel remarkably current four centuries later. Unusually for Shakespeare, the plot appears to be entirely original rather than adapted from an existing source.",
+  "introAnnotation": "Written around 1610â€“11, The Tempest is believed to be the last play Shakespeare wrote on his own. It was partly inspired by real accounts of the Sea Venture, an English ship wrecked on Bermuda in 1609 while sailing to the Virginia colony. The play explores power, forgiveness, colonialism, and the nature of art itself â€” themes that feel remarkably current four centuries later. Unusually for Shakespeare, the plot appears to be entirely original rather than adapted from an existing source.",
+  "narrator": "en-GB-ThomasNeural",
+  "defaultVoice": "en-GB-RyanNeural",
   "dramatis": [
-    "Prospero — the rightful Duke of Milan, exiled to a remote island",
-    "Miranda — his daughter, raised on the island",
-    "Ariel — a spirit bound to serve Prospero",
-    "Caliban — a native of the island, enslaved by Prospero",
-    "Alonso — King of Naples",
-    "Ferdinand — his son",
-    "Sebastian — Alonso’s brother",
-    "Antonio — Prospero’s brother, usurper of his dukedom",
-    "Gonzalo — an honest old counselor",
-    "Adrian & Francisco — lords attending the King",
-    "Trinculo — a jester",
-    "Stephano — a drunken butler",
-    "Shipmaster — captain of the ship",
-    "Boatswain — officer in charge of the deck crew",
-    "Iris, Ceres, Juno — spirits appearing in a masque"
+    "Prospero â€” the rightful Duke of Milan, exiled to a remote island",
+    "Miranda â€” his daughter, raised on the island",
+    "Ariel â€” a spirit bound to serve Prospero",
+    "Caliban â€” a native of the island, enslaved by Prospero",
+    "Alonso â€” King of Naples",
+    "Ferdinand â€” his son",
+    "Sebastian â€” Alonsoâ€™s brother",
+    "Antonio â€” Prosperoâ€™s brother, usurper of his dukedom",
+    "Gonzalo â€” an honest old counselor",
+    "Adrian & Francisco â€” lords attending the King",
+    "Trinculo â€” a jester",
+    "Stephano â€” a drunken butler",
+    "Shipmaster â€” captain of the ship",
+    "Boatswain â€” officer in charge of the deck crew",
+    "Iris, Ceres, Juno â€” spirits appearing in a masque"
   ],
   "characters": {
-    "Stage": "📍",
-    "Prospero": "📖",
-    "Miranda": "✨",
-    "Ariel": "🌬️",
-    "Caliban": "🪨",
-    "Alonso": "👑",
-    "Ferdinand": "🪵",
-    "Sebastian": "🐍",
-    "Antonio": "🎭",
-    "Gonzalo": "🧔",
-    "Adrian": "🏛️",
-    "Francisco": "🏛️",
-    "Trinculo": "🃏",
-    "Stephano": "🍷",
-    "Shipmaster": "🚢",
-    "Boatswain": "⚓",
-    "Iris": "🌈",
-    "Ceres": "🌾",
-    "Juno": "🕊️"
+    "Stage": {
+      "emoji": "📜",
+      "voice": null
+    },
+    "Prospero": {
+      "emoji": "📖",
+      "voice": "en-GB-ElliotNeural"
+    },
+    "Miranda": {
+      "emoji": "✨",
+      "voice": "en-GB-LibbyNeural"
+    },
+    "Ariel": {
+      "emoji": "🌬️",
+      "voice": "en-GB-SoniaNeural"
+    },
+    "Caliban": {
+      "emoji": "🪨",
+      "voice": "en-AU-DarrenNeural"
+    },
+    "Alonso": {
+      "emoji": "👑",
+      "voice": "en-GB-RyanNeural"
+    },
+    "Ferdinand": {
+      "emoji": "🪵",
+      "voice": "en-US-AndrewNeural"
+    },
+    "Sebastian": {
+      "emoji": "🐍",
+      "voice": "en-US-ChristopherNeural"
+    },
+    "Antonio": {
+      "emoji": "🎭",
+      "voice": "en-US-GuyNeural"
+    },
+    "Gonzalo": {
+      "emoji": "🧓",
+      "voice": "en-US-RogerNeural"
+    },
+    "Adrian": {
+      "emoji": "🏛️",
+      "voice": "en-US-BrandonNeural"
+    },
+    "Francisco": {
+      "emoji": "🏛️",
+      "voice": "en-US-DavisNeural"
+    },
+    "Trinculo": {
+      "emoji": "🃏",
+      "voice": "en-IE-ConnorNeural"
+    },
+    "Stephano": {
+      "emoji": "🍷",
+      "voice": "en-AU-WilliamNeural"
+    },
+    "Shipmaster": {
+      "emoji": "🚢",
+      "voice": "en-GB-AlfieNeural"
+    },
+    "Boatswain": {
+      "emoji": "⚓",
+      "voice": "en-AU-WilliamNeural"
+    },
+    "Iris": {
+      "emoji": "🌈",
+      "voice": "en-US-JennyNeural"
+    },
+    "Ceres": {
+      "emoji": "🌾",
+      "voice": "en-US-AriaNeural"
+    },
+    "Juno": {
+      "emoji": "🕊️",
+      "voice": "en-GB-MaisieNeural"
+    }
   },
   "lines": [
     {
       "type": "stage",
       "sender": "Stage",
       "text": "A ship at sea. A tempestuous noise of thunder and lightning heard.",
-      "annotation": "The play opens in medias res — in the middle of the action. We're thrown immediately into chaos. This storm is not natural; we will learn it was conjured by Prospero, the rightful Duke of Milan, to shipwreck his enemies."
+      "annotation": "The play opens in medias res â€” in the middle of the action. We're thrown immediately into chaos. This storm is not natural; we will learn it was conjured by Prospero, the rightful Duke of Milan, to shipwreck his enemies."
     },
     {
       "type": "character",
@@ -66,7 +125,7 @@
     {
       "type": "character",
       "sender": "Shipmaster",
-      "text": "Good, speak to the mariners. Fall to’t yarely, or we run ourselves aground. Bestir, bestir!",
+      "text": "Good, speak to the mariners. Fall toâ€™t yarely, or we run ourselves aground. Bestir, bestir!",
       "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving. He's ordering the crew to work fast or they'll crash onto rocks."
     },
     {
@@ -78,7 +137,7 @@
     {
       "type": "character",
       "sender": "Boatswain",
-      "text": "Heigh, my hearts! Cheerly, cheerly, my hearts! Yare, yare! Take in the topsail. Tend to the master’s whistle.",
+      "text": "Heigh, my hearts! Cheerly, cheerly, my hearts! Yare, yare! Take in the topsail. Tend to the masterâ€™s whistle.",
       "annotation": "'Heigh, my hearts!' is a rallying cry, like 'Come on, lads!' 'Cheerly' means with spirit. He's encouraging the sailors while ordering them to lower the topsail (a sail near the top of the mast). The master's whistle signals commands."
     },
     {
@@ -96,8 +155,8 @@
     {
       "type": "character",
       "sender": "Alonso",
-      "text": "Good Boatswain, have care. Where’s the master? Play the men.",
-      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work' or 'make them act like men.' But he's giving orders on a ship he doesn't command — and the Boatswain has no time for royal protocol in a crisis."
+      "text": "Good Boatswain, have care. Whereâ€™s the master? Play the men.",
+      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work' or 'make them act like men.' But he's giving orders on a ship he doesn't command â€” and the Boatswain has no time for royal protocol in a crisis."
     },
     {
       "type": "character",
@@ -115,7 +174,7 @@
       "type": "character",
       "sender": "Boatswain",
       "text": "Do you not hear him? You mar our labour. Keep your cabins; you do assist the storm.",
-      "annotation": "'Do you not hear him?' — the master's whistle is blowing orders. 'You mar our labour' means you're getting in the way of our work. 'You assist the storm' — you're making things worse by being here. A sharp rebuke to nobility."
+      "annotation": "'Do you not hear him?' â€” the master's whistle is blowing orders. 'You mar our labour' means you're getting in the way of our work. 'You assist the storm' â€” you're making things worse by being here. A sharp rebuke to nobility."
     },
     {
       "type": "character",
@@ -127,25 +186,25 @@
       "type": "character",
       "sender": "Boatswain",
       "text": "When the sea is. Hence! What cares these roarers for the name of king? To cabin! Silence; trouble us not.",
-      "annotation": "'When the sea is [patient]' — bitter sarcasm. 'Hence!' means go away. 'Roarers' refers to the roaring waves and wind. His point: the sea doesn't care about social rank. A king drowns as easily as a commoner. This was radical, almost revolutionary stuff for an audience in 1611."
+      "annotation": "'When the sea is [patient]' â€” bitter sarcasm. 'Hence!' means go away. 'Roarers' refers to the roaring waves and wind. His point: the sea doesn't care about social rank. A king drowns as easily as a commoner. This was radical, almost revolutionary stuff for an audience in 1611."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Good, yet remember whom thou hast aboard.",
-      "annotation": "A gentle reminder: there's a king on this ship. But even Gonzalo seems to half-acknowledge the Boatswain's point — nature doesn't recognize human hierarchies."
+      "annotation": "A gentle reminder: there's a king on this ship. But even Gonzalo seems to half-acknowledge the Boatswain's point â€” nature doesn't recognize human hierarchies."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "None that I more love than myself. You are a councillor; if you can command these elements to silence and work the peace of the present, we will not hand a rope more. Use your authority.",
-      "annotation": "Biting sarcasm at its finest: 'If your political authority can calm the storm, go ahead — we'll stop working and watch.' He's exposing the limits of earthly power against nature. The Boatswain is one of Shakespeare's great minor characters — honest, competent, and unimpressed by rank."
+      "annotation": "Biting sarcasm at its finest: 'If your political authority can calm the storm, go ahead â€” we'll stop working and watch.' He's exposing the limits of earthly power against nature. The Boatswain is one of Shakespeare's great minor characters â€” honest, competent, and unimpressed by rank."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "If you cannot, give thanks you have lived so long, and make yourself ready in your cabin for the mischance of the hour, if it so hap. Cheerly, good hearts! Out of our way, I say.",
-      "annotation": "'Make yourself ready for the mischance of the hour' — prepare to die. 'If it so hap' — if that's what fate decrees. Then he immediately turns back to his work: 'Cheerly, good hearts!' He's already moved on from the nobles."
+      "annotation": "'Make yourself ready for the mischance of the hour' â€” prepare to die. 'If it so hap' â€” if that's what fate decrees. Then he immediately turns back to his work: 'Cheerly, good hearts!' He's already moved on from the nobles."
     },
     {
       "type": "stage",
@@ -163,13 +222,13 @@
       "type": "character",
       "sender": "Gonzalo",
       "text": "Stand fast, good Fate, to his hanging. Make the rope of his destiny our cable, for our own doth little advantage. If he be not born to be hanged, our case is miserable.",
-      "annotation": "Gonzalo continues his gallows humor: let Fate make sure this man hangs — because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
+      "annotation": "Gonzalo continues his gallows humor: let Fate make sure this man hangs â€” because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "End of excerpt. The scene continues with the ship apparently sinking — though all will survive, as we'll learn.",
-      "annotation": "The full scene ends with everyone believing they'll drown. But this tempest is an illusion, controlled by Prospero from his island. No one is harmed. The play's title comes from this opening storm, which is both literal and metaphorical — a disruption that will lead to reconciliation and restoration."
+      "text": "End of excerpt. The scene continues with the ship apparently sinking â€” though all will survive, as we'll learn.",
+      "annotation": "The full scene ends with everyone believing they'll drown. But this tempest is an illusion, controlled by Prospero from his island. No one is harmed. The play's title comes from this opening storm, which is both literal and metaphorical â€” a disruption that will lead to reconciliation and restoration."
     }
   ]
 }

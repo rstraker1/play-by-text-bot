@@ -2,6 +2,8 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
+const { EdgeTTS } = require('node-edge-tts');
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const url = process.env.RENDER_EXTERNAL_URL;
@@ -24,6 +26,16 @@ const userProgress = {};
 const plays = {};
 const playsDir = path.join(__dirname, 'plays');
 
+// TTS cache: "playId:lineIndex" -> Telegram file_id
+const ttsFileCache = {};
+
+// Default voices
+const DEFAULT_NARRATOR_VOICE = 'en-GB-ThomasNeural';
+const DEFAULT_CHARACTER_VOICE = 'en-GB-RyanNeural';
+const TTS_OUTPUT_FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
+
+// ── Play loading ──
+
 function loadPlays() {
   if (!fs.existsSync(playsDir)) {
     fs.mkdirSync(playsDir, { recursive: true });
@@ -38,6 +50,27 @@ function loadPlays() {
   console.log(`Total plays loaded: ${Object.keys(plays).length}`);
 }
 
+// ── Character helpers (support both string emoji and {emoji, voice} objects) ──
+
+function getEmoji(play, senderName) {
+  const entry = play.characters?.[senderName];
+  if (!entry) return '\u{1F3AD}';
+  if (typeof entry === 'string') return entry;
+  return entry.emoji || '\u{1F3AD}';
+}
+
+function getVoice(play, senderName) {
+  const entry = play.characters?.[senderName];
+  if (entry && typeof entry === 'object' && entry.voice) return entry.voice;
+  return play.defaultVoice || DEFAULT_CHARACTER_VOICE;
+}
+
+function getNarratorVoice(play) {
+  return play.narrator || DEFAULT_NARRATOR_VOICE;
+}
+
+// ── User state ──
+
 function getUserProgress(chatId) {
   if (!userProgress[chatId]) {
     userProgress[chatId] = {
@@ -46,6 +79,7 @@ function getUserProgress(chatId) {
       lastMessageId: null,
       lastAnnotationId: null,
       deliveryMode: 'manual',
+      audioEnabled: false,
       pendingTimer: null,
       typingTimer: null,
       messageMap: {}
@@ -54,8 +88,10 @@ function getUserProgress(chatId) {
   return userProgress[chatId];
 }
 
+// ── Formatting ──
+
 function formatLine(play, line) {
-  const avatar = play.characters?.[line.sender] || '\u{1F3AD}';
+  const avatar = getEmoji(play, line.sender);
   if (line.type === 'stage') {
     return `${avatar} *Stage*\n_${line.text}_`;
   }
@@ -67,10 +103,13 @@ function formatCast(play) {
   const lines = play.dramatis.map(entry => {
     const name = entry.split(/\s*[\u2013\u2014-]\s*/)[0].trim();
     const firstName = name.split(/\s*[&,]\s*/)[0].trim();
-    const emoji = play.characters?.[firstName] || '\u{1F3AD}';
+    const emoji = getEmoji(play, firstName);
     return `${emoji}  ${entry}`;
   });
-return `\u{1F4DC} *Cast*\n\n${lines.join('\n')}`;}
+  return `\u{1F4DC} *Cast*\n\n${lines.join('\n')}`;
+}
+
+// ── Delivery modes ──
 
 const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u25B6' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
@@ -131,6 +170,118 @@ function scheduleNextLine(chatId, playId, lineIndex) {
   }, delay);
 }
 
+// ── TTS audio generation ──
+
+async function generateTTSClip(text, voice) {
+  const tmpFile = path.join(os.tmpdir(), `tts_${Date.now()}_${Math.random().toString(36).slice(2)}.mp3`);
+  const tts = new EdgeTTS({ voice, outputFormat: TTS_OUTPUT_FORMAT });
+  await tts.ttsPromise(text, tmpFile);
+  const buf = fs.readFileSync(tmpFile);
+  try { fs.unlinkSync(tmpFile); } catch (e) {}
+  return buf;
+}
+
+async function generateLineAudio(play, line) {
+  if (line.type === 'stage') {
+    // Narrator reads stage directions directly
+    return generateTTSClip(line.text, getNarratorVoice(play));
+  }
+
+  // Narrator announces character name, then character voice reads the line
+  const [narratorBuf, characterBuf] = await Promise.all([
+    generateTTSClip(`${line.sender}.`, getNarratorVoice(play)),
+    generateTTSClip(line.text, getVoice(play, line.sender))
+  ]);
+
+  return Buffer.concat([narratorBuf, characterBuf]);
+}
+
+async function sendVoiceForLine(chatId, playId, lineIndex, line, play) {
+  const cacheKey = `${playId}:${lineIndex}`;
+
+  try {
+    // Check Telegram file_id cache first
+    if (ttsFileCache[cacheKey]) {
+      await bot.sendVoice(chatId, ttsFileCache[cacheKey]);
+      return;
+    }
+
+    // Generate fresh audio
+    const audioBuffer = await generateLineAudio(play, line);
+
+    const sent = await bot.sendVoice(chatId, audioBuffer, {}, {
+      filename: 'line.mp3',
+      contentType: 'audio/mpeg'
+    });
+
+    // Cache the Telegram file_id for future sends
+    if (sent.voice?.file_id) {
+      ttsFileCache[cacheKey] = sent.voice.file_id;
+    }
+  } catch (error) {
+    console.error('TTS/voice send error:', error.message);
+  }
+}
+
+// ── Keyboard builder ──
+
+function buildKeyboard(play, playId, lineIndex, progress) {
+  const line = play.lines[lineIndex];
+  const isLastLine = lineIndex >= play.lines.length - 1;
+  const keyboard = [];
+
+  if (!isLastLine) {
+    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+  } else {
+    keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
+  }
+
+  // Annotation button
+  if (line?.annotation) {
+    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
+  }
+
+  if (!isLastLine) {
+    // Audio toggle
+    keyboard[0].push({
+      text: progress.audioEnabled ? '\u{1F50A}' : '\u{1F507}',
+      callback_data: `audio:${playId}:${lineIndex + 1}`
+    });
+
+    // Mode button
+    keyboard[0].push({
+      text: MODE_EMOJI[progress.deliveryMode],
+      callback_data: `mode:${playId}:${lineIndex + 1}`
+    });
+  }
+
+  return keyboard;
+}
+
+function buildDescriptionKeyboard(play, playId, progress) {
+  const keyboard = [[{ text: '\u25BD', callback_data: `next:${playId}:0` }]];
+
+  if (play.introAnnotation) {
+    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
+  }
+
+  // Audio toggle
+  keyboard[0].push({
+    text: progress.audioEnabled ? '\u{1F50A}' : '\u{1F507}',
+    callback_data: `audio:${playId}:0`
+  });
+
+  // Mode button
+  keyboard[0].push({
+    text: MODE_EMOJI[progress.deliveryMode],
+    callback_data: `mode:${playId}:0`
+  });
+
+  return keyboard;
+}
+
+// ── Message cleanup ──
+
 async function cleanupPrevious(chatId, manualAdvance = false) {
   const progress = getUserProgress(chatId);
 
@@ -152,6 +303,8 @@ async function cleanupPrevious(chatId, manualAdvance = false) {
   }
 }
 
+// ── Core line delivery ──
+
 async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const play = plays[playId];
   if (!play) return;
@@ -162,24 +315,7 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
 
   await cleanupPrevious(chatId, manualAdvance);
 
-  const isLastLine = lineIndex >= play.lines.length - 1;
-  const keyboard = [];
-
-  if (!isLastLine) {
-    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${lineIndex + 1}` }]);
-  } else {
-    keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
-  }
-  if (line.annotation) {
-    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
-  }
-
-  if (!isLastLine) {
-    keyboard[0].push({
-      text: MODE_EMOJI[progress.deliveryMode],
-      callback_data: `mode:${playId}:${lineIndex + 1}`
-    });
-  }
+  const keyboard = buildKeyboard(play, playId, lineIndex, progress);
 
   try {
     const sent = await bot.sendMessage(chatId, formatLine(play, line), {
@@ -189,16 +325,23 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
     progress.currentPlay = playId;
     progress.currentLine = lineIndex;
     progress.lastMessageId = sent.message_id;
-
     progress.messageMap[sent.message_id] = { playId, lineIndex };
   } catch (error) {
     console.error('Error sending message:', error.message);
   }
 
+  // Send audio if enabled (non-blocking — text is already delivered)
+  if (progress.audioEnabled) {
+    sendVoiceForLine(chatId, playId, lineIndex, line, play);
+  }
+
+  const isLastLine = lineIndex >= play.lines.length - 1;
   if (!isLastLine) {
     scheduleNextLine(chatId, playId, lineIndex + 1);
   }
 }
+
+// ── Annotations ──
 
 async function sendAnnotation(chatId, playId, lineIndex) {
   const play = plays[playId];
@@ -225,6 +368,8 @@ async function sendAnnotation(chatId, playId, lineIndex) {
     progress.lastAnnotationId = sent.message_id;
   }
 }
+
+// ── Message handler ──
 
 async function handleMessage(msg) {
   const chatId = msg.chat.id;
@@ -267,12 +412,13 @@ async function handleMessage(msg) {
     }
 
     await bot.sendMessage(chatId,
-'     \u{1F3AD} Choose a play to begin:\n\n_Type /start anytime to return here, & /help for more info._', {      parse_mode: 'Markdown',
+      '     \u{1F3AD} Choose a play to begin:\n\n_Type /start anytime to return here, & /help for more info._', {
+      parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 next line arrives in ~20 sec\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press \u{1F50A}/\u{1F507} to toggle audio narration\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
   } else if (text === '/cast') {
@@ -303,6 +449,8 @@ async function handleMessage(msg) {
     });
   }
 }
+
+// ── Callback query handler ──
 
 async function handleCallbackQuery(query) {
   const chatId = query.message.chat.id;
@@ -335,14 +483,7 @@ async function handleCallbackQuery(query) {
         }
       }
       if (play.description) {
-        const keyboard = [[{ text: '\u25BD', callback_data: `next:${playId}:0` }]];
-        if (play.introAnnotation) {
-          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
-        }
-        keyboard[0].push({
-          text: MODE_EMOJI[progress.deliveryMode],
-          callback_data: `mode:${playId}:0`
-        });
+        const keyboard = buildDescriptionKeyboard(play, playId, progress);
 
         const sent = await bot.sendMessage(chatId, play.description, {
           reply_markup: { inline_keyboard: keyboard }
@@ -371,6 +512,44 @@ async function handleCallbackQuery(query) {
     const lineIndex = parts[2] === 'intro' ? 'intro' : parseInt(parts[2], 10);
     await sendAnnotation(chatId, parts[1], lineIndex);
 
+  } else if (data.startsWith('audio:')) {
+    // Toggle audio on/off
+    const parts = data.split(':');
+    const playId = parts[1];
+    const nextLineIndex = parseInt(parts[2], 10);
+
+    const progress = getUserProgress(chatId);
+    progress.audioEnabled = !progress.audioEnabled;
+
+    // Redraw keyboard on current message
+    const play = plays[playId];
+    if (play && progress.lastMessageId) {
+      const currentLineIndex = nextLineIndex - 1;
+      const isDescription = currentLineIndex < 0;
+
+      if (isDescription) {
+        const keyboard = buildDescriptionKeyboard(play, playId, progress);
+        try {
+          await bot.editMessageReplyMarkup(
+            { inline_keyboard: keyboard },
+            { chat_id: chatId, message_id: progress.lastMessageId }
+          );
+        } catch (e) {}
+      } else {
+        const keyboard = buildKeyboard(play, playId, currentLineIndex, progress);
+        try {
+          await bot.editMessageReplyMarkup(
+            { inline_keyboard: keyboard },
+            { chat_id: chatId, message_id: progress.lastMessageId }
+          );
+        } catch (e) {}
+      }
+    }
+
+    await bot.answerCallbackQuery(query.id, {
+      text: progress.audioEnabled ? '\u{1F50A} Audio on' : '\u{1F507} Audio off'
+    });
+
   } else if (data.startsWith('mode:')) {
     const parts = data.split(':');
     const playId = parts[1];
@@ -383,28 +562,22 @@ async function handleCallbackQuery(query) {
     clearTimers(progress);
     scheduleNextLine(chatId, playId, nextLineIndex);
 
+    // Redraw keyboard on current message
     const play = plays[playId];
     if (play && progress.lastMessageId) {
       const currentLineIndex = nextLineIndex - 1;
       const isDescription = currentLineIndex < 0;
-      const line = isDescription ? null : play.lines[currentLineIndex];
-      const isLastLine = !isDescription && currentLineIndex >= play.lines.length - 1;
 
-      if (isDescription || !isLastLine) {
-        const keyboard = [];
-        keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${nextLineIndex}` }]);
-
-        if (isDescription && play.introAnnotation) {
-          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
-        } else if (line && line.annotation) {
-          keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${currentLineIndex}` });
-        }
-
-        keyboard[0].push({
-          text: MODE_EMOJI[newMode],
-          callback_data: `mode:${playId}:${nextLineIndex}`
-        });
-
+      if (isDescription) {
+        const keyboard = buildDescriptionKeyboard(play, playId, progress);
+        try {
+          await bot.editMessageReplyMarkup(
+            { inline_keyboard: keyboard },
+            { chat_id: chatId, message_id: progress.lastMessageId }
+          );
+        } catch (e) {}
+      } else {
+        const keyboard = buildKeyboard(play, playId, currentLineIndex, progress);
         try {
           await bot.editMessageReplyMarkup(
             { inline_keyboard: keyboard },
@@ -423,6 +596,8 @@ async function handleCallbackQuery(query) {
     await bot.sendMessage(chatId, '\u{1F3AD} *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
   }
 }
+
+// ── Webhook & server ──
 
 app.post(`/webhook/${token}`, (req, res) => {
   try {
