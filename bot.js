@@ -70,8 +70,7 @@ function formatCast(play) {
     const emoji = play.characters?.[firstName] || '\u{1F3AD}';
     return `${emoji}  ${entry}`;
   });
-  return `\u{1F3AD} *Cast*\n\n${lines.join('\n')}`;
-}
+return `\u{1F4DC} *Cast*\n\n${lines.join('\n')}`;}
 
 const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u25B6' };
 const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
