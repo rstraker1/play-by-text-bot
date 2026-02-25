@@ -241,14 +241,8 @@ function buildKeyboard(play, playId, lineIndex, progress) {
     keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
+  // Mode button
   if (!isLastLine) {
-    // Audio toggle
-    keyboard[0].push({
-      text: progress.audioEnabled ? '\u{1F50A}' : '\u{1F507}',
-      callback_data: `audio:${playId}:${lineIndex + 1}`
-    });
-
-    // Mode button
     keyboard[0].push({
       text: MODE_EMOJI[progress.deliveryMode],
       callback_data: `mode:${playId}:${lineIndex + 1}`
@@ -265,13 +259,6 @@ function buildDescriptionKeyboard(play, playId, progress) {
     keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
   }
 
-  // Audio toggle
-  keyboard[0].push({
-    text: progress.audioEnabled ? '\u{1F50A}' : '\u{1F507}',
-    callback_data: `audio:${playId}:0`
-  });
-
-  // Mode button
   keyboard[0].push({
     text: MODE_EMOJI[progress.deliveryMode],
     callback_data: `mode:${playId}:0`
@@ -416,11 +403,23 @@ async function handleMessage(msg) {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
+
+  } else if (text === '/audio') {
+    const progress = getUserProgress(chatId);
+    progress.audioEnabled = !progress.audioEnabled;
+
+    if (progress.audioEnabled) {
+      await bot.sendMessage(chatId, '\u{1F50A} _Audio on \u2014 lines will be narrated aloud._', { parse_mode: 'Markdown' });
+    } else {
+      await bot.sendMessage(chatId, '\u{1F507} _Audio off._', { parse_mode: 'Markdown' });
+    }
+
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press \u{1F50A}/\u{1F507} to toggle audio narration\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/audio \u2014 Toggle audio narration on/off\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
+
   } else if (text === '/cast') {
     const progress = getUserProgress(chatId);
     if (!progress.currentPlay || !plays[progress.currentPlay]) {
@@ -511,44 +510,6 @@ async function handleCallbackQuery(query) {
     const parts = data.split(':');
     const lineIndex = parts[2] === 'intro' ? 'intro' : parseInt(parts[2], 10);
     await sendAnnotation(chatId, parts[1], lineIndex);
-
-  } else if (data.startsWith('audio:')) {
-    // Toggle audio on/off
-    const parts = data.split(':');
-    const playId = parts[1];
-    const nextLineIndex = parseInt(parts[2], 10);
-
-    const progress = getUserProgress(chatId);
-    progress.audioEnabled = !progress.audioEnabled;
-
-    // Redraw keyboard on current message
-    const play = plays[playId];
-    if (play && progress.lastMessageId) {
-      const currentLineIndex = nextLineIndex - 1;
-      const isDescription = currentLineIndex < 0;
-
-      if (isDescription) {
-        const keyboard = buildDescriptionKeyboard(play, playId, progress);
-        try {
-          await bot.editMessageReplyMarkup(
-            { inline_keyboard: keyboard },
-            { chat_id: chatId, message_id: progress.lastMessageId }
-          );
-        } catch (e) {}
-      } else {
-        const keyboard = buildKeyboard(play, playId, currentLineIndex, progress);
-        try {
-          await bot.editMessageReplyMarkup(
-            { inline_keyboard: keyboard },
-            { chat_id: chatId, message_id: progress.lastMessageId }
-          );
-        } catch (e) {}
-      }
-    }
-
-    await bot.answerCallbackQuery(query.id, {
-      text: progress.audioEnabled ? '\u{1F50A} Audio on' : '\u{1F507} Audio off'
-    });
 
   } else if (data.startsWith('mode:')) {
     const parts = data.split(':');
