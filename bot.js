@@ -36,6 +36,17 @@ const TTS_OUTPUT_FORMAT = 'audio-24khz-48kbitrate-mono-mp3';
 
 // ── Play loading ──
 
+function buildSceneIndex(play) {
+  const scenes = [];
+  for (let i = 0; i < play.lines.length; i++) {
+    const line = play.lines[i];
+    if (line.type === 'stage' && /^Act\s/i.test(line.text)) {
+      scenes.push({ lineIndex: i, label: line.text });
+    }
+  }
+  return scenes;
+}
+
 function loadPlays() {
   if (!fs.existsSync(playsDir)) {
     fs.mkdirSync(playsDir, { recursive: true });
@@ -44,8 +55,9 @@ function loadPlays() {
   for (const file of files) {
     const playId = file.replace('.json', '');
     const data = JSON.parse(fs.readFileSync(path.join(playsDir, file), 'utf8'));
+    data.sceneIndex = buildSceneIndex(data);
     plays[playId] = data;
-    console.log(`Loaded play: ${data.title}`);
+    console.log(`Loaded play: ${data.title} (${data.sceneIndex.length} scenes)`);
   }
   console.log(`Total plays loaded: ${Object.keys(plays).length}`);
 }
@@ -429,7 +441,7 @@ async function handleMessage(msg) {
 
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/audio \u2014 Toggle audio narration on/off\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/scenes \u2014 Jump to a scene\n/audio \u2014 Toggle audio narration on/off\n/plays \u2014 List plays`,
       { parse_mode: 'Markdown' }
     );
 
@@ -450,6 +462,25 @@ async function handleMessage(msg) {
     } else {
       await bot.sendMessage(chatId, '_No cast list available for this play._', { parse_mode: 'Markdown' });
     }
+
+  } else if (text === '/scenes') {
+    const progress = getUserProgress(chatId);
+    if (!progress.currentPlay || !plays[progress.currentPlay]) {
+      await bot.sendMessage(chatId, '_No play in progress. Use /start to choose one._', { parse_mode: 'Markdown' });
+      return;
+    }
+    const play = plays[progress.currentPlay];
+    if (play.sceneIndex.length === 0) {
+      await bot.sendMessage(chatId, '_No scene index available for this play._', { parse_mode: 'Markdown' });
+      return;
+    }
+    const buttons = play.sceneIndex.map(s => {
+      return [{ text: s.label, callback_data: `next:${progress.currentPlay}:${s.lineIndex}` }];
+    });
+    await bot.sendMessage(chatId, `${play.emoji || '\u{1F3AD}'} *${play.title}*`, {
+      parse_mode: 'Markdown',
+      reply_markup: { inline_keyboard: buttons }
+    });
 
   } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
@@ -476,34 +507,51 @@ async function handleCallbackQuery(query) {
       const progress = getUserProgress(chatId);
       clearTimers(progress);
 
+      // Title + author
       await bot.sendMessage(
         chatId,
         `${play.emoji || '\u{1F3AD}'} *${play.title}*\n_${play.author}_`,
         { parse_mode: 'Markdown' }
       );
+
+      // Image
       if (play.image) {
         await bot.sendPhoto(chatId, play.image);
       }
+
+      // Description
+      if (play.description) {
+        await bot.sendMessage(chatId, play.description);
+      }
+
+      // Cast (with ▽ button to begin)
       if (play.dramatis && play.dramatis.length > 0) {
         const castText = formatCast(play);
         if (castText) {
+          const keyboard = buildDescriptionKeyboard(play, playId, progress);
           try {
-            await bot.sendMessage(chatId, castText, { parse_mode: 'Markdown' });
+            const sent = await bot.sendMessage(chatId, castText, {
+              parse_mode: 'Markdown',
+              reply_markup: { inline_keyboard: keyboard }
+            });
+            progress.lastMessageId = sent.message_id;
+            progress.currentPlay = playId;
           } catch (e) {
-            await bot.sendMessage(chatId, castText);
+            const sent = await bot.sendMessage(chatId, castText, {
+              reply_markup: { inline_keyboard: keyboard }
+            });
+            progress.lastMessageId = sent.message_id;
+            progress.currentPlay = playId;
           }
         }
-      }
-      if (play.description) {
-        const keyboard = buildDescriptionKeyboard(play, playId, progress);
-
-        const sent = await bot.sendMessage(chatId, play.description, {
-          reply_markup: { inline_keyboard: keyboard }
-        });
-        progress.lastMessageId = sent.message_id;
-        progress.currentPlay = playId;
       } else {
-        setTimeout(() => sendLine(chatId, playId, 0, true), 500);
+        // No cast — put ▽ on description or just start
+        if (play.description) {
+          // Description already sent without buttons, so just start
+          setTimeout(() => sendLine(chatId, playId, 0, true), 500);
+        } else {
+          setTimeout(() => sendLine(chatId, playId, 0, true), 500);
+        }
       }
     }
 

@@ -3,7 +3,7 @@
   "title": "The Tempest",
   "author": "William Shakespeare",
   "emoji": "🌊",
-  "description": "Act I, Scene I — A ship at sea, caught in a violent storm.",
+  "description": "magic, shipwreck, and revenge on a remote island",
   "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/tempest-1-opening-storm.jpg",
   "introAnnotation": "Written around 1610–11, The Tempest is believed to be the last play Shakespeare wrote on his own. It was partly inspired by real accounts of the Sea Venture, an English ship wrecked on Bermuda in 1609 while sailing to the Virginia colony. The play explores power, forgiveness, colonialism, and the nature of art itself — themes that feel remarkably current four centuries later. Unusually for Shakespeare, the plot appears to be entirely original rather than adapted from an existing source.",
   "narrator": "en-GB-ThomasNeural",
@@ -64,7 +64,7 @@
     },
     "Gonzalo": {
       "emoji": "🧓",
-      "voice": "en-US-RogerNeural"
+      "voice": "en-GB-OliverNeural"
     },
     "Adrian": {
       "emoji": "🏛️",
@@ -84,11 +84,11 @@
     },
     "Shipmaster": {
       "emoji": "🚢",
-      "voice": "en-GB-AlfieNeural"
+      "voice": "en-AU-WilliamNeural"
     },
     "Boatswain": {
       "emoji": "⚓",
-      "voice": "en-AU-WilliamNeural"
+      "voice": "en-GB-AlfieNeural"
     },
     "Iris": {
       "emoji": "🌈",
@@ -104,6 +104,11 @@
     }
   },
   "lines": [
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act I, Scene 1 — A ship at sea."
+    },
     {
       "type": "stage",
       "sender": "Stage",

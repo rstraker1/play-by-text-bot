@@ -31,6 +31,7 @@ Audio works in all delivery modes. In ambient mode, voice messages accumulate wi
 | `/start` | Choose a play |
 | `/plays` | List available plays |
 | `/cast` | Show cast of current play |
+| `/scenes` | Jump to a scene |
 | `/audio` | Toggle audio narration on/off |
 | `/help` | Show help |
 
@@ -46,9 +47,9 @@ Create a JSON file in the `/plays` folder named `{play-id}.json`.
   "title": "Play Title",
   "author": "Author Name",
   "emoji": "🎭",
-  "description": "Brief description shown before play starts.",
+  "description": "A general pitch for the play — shown when the user selects it.",
   "image": "https://url-to-cover-image.jpg",
-  "introAnnotation": "Historical context, no spoilers.",
+  "introAnnotation": "Brief, spoiler free intro. Notes of interest, historical context, current relevance, etc.",
   "narrator": "en-GB-ThomasNeural",
   "defaultVoice": "en-GB-RyanNeural",
   "characters": {
@@ -57,6 +58,11 @@ Create a JSON file in the `/plays` folder named `{play-id}.json`.
     "Another Character": { "emoji": "👑", "voice": "en-US-GuyNeural" }
   },
   "lines": [
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act I, Scene 1 — A brief location description."
+    },
     {
       "type": "stage",
       "sender": "Stage",
@@ -72,6 +78,10 @@ Create a JSON file in the `/plays` folder named `{play-id}.json`.
   ]
 }
 ```
+
+### Scene headings
+
+Each scene should begin with a stage direction line starting with "Act" — e.g. `"Act I, Scene 1 — A ship at sea."` or `"Act II — The nursery. Dawn."` for plays without scene divisions. The bot scans for these at load time to build the `/scenes` navigation index automatically. No extra metadata needed — just follow the convention and it works.
 
 ### Voice configuration
 
@@ -89,10 +99,9 @@ The characters map also accepts plain emoji strings (`"Boatswain": "⚓"`) for b
 
 ### Tips for preparing plays
 
-- **type**: `"stage"` for stage directions (rendered in italics), `"character"` for dialogue
-- **characters**: Define each speaker's emoji and voice once here — no need to repeat on every line
-- **annotation**: Explain archaic words, context, or significance. Optional per line, but valuable.
-- **introAnnotation**: Brief, spoiler-free intro. Shows before the first line.
+- **type**: `"stage"` for stage directions (rendered in italics), `"character"` for dialogue.
+- **characters**: Define each speaker's emoji and voice once here — no need to repeat on every line.
+- **annotation**: Explain archaic words, context, or significance. Optional per line, but valuable. Lines without annotations simply won't show the 🔍 button.
 - **image**: Optional cover image URL, shown when the play is selected.
 - Keep lines reasonably short — this is messaging, not a book.
 - Split long speeches into multiple messages.
