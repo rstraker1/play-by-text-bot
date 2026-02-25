@@ -12,26 +12,27 @@ Users find 'Play by Text' on Telegram via username or direct link. They choose a
 |--------|----------|
 | ▽ | Advance to next line |
 | 🔍 | Show annotation for current line |
-| 🔊 | Audio on — each line is narrated aloud |
-| 🔇 | Audio off — text only |
 | ⏸ | Manual mode — tap ▽ yourself |
 | 🕯️ | Ambient mode — next line arrives in 10–60 min |
 | ▶ | Active mode — next line arrives at ~reading pace |
 
-Tapping the mode button cycles through all three modes. Tapping the audio button toggles narration on/off. Replying `?` to any past line retrieves its annotation.
+Tapping the mode button cycles through all three modes. Replying `?` to any past line retrieves its annotation.
 
 ### Audio narration
 
-When audio is enabled (🔊), each line is delivered with a voice message alongside the text. A dedicated narrator voice announces the character name, then the character's own voice reads the line. Stage directions are read entirely by the narrator.
+Type `/audio` to toggle narration on or off. When on, each line is delivered with a voice message alongside the text. A dedicated narrator voice announces the character name, then the character's own voice reads the line. Stage directions are read entirely by the narrator.
 
 Audio works in all delivery modes. In ambient mode, voice messages accumulate with the text — opening the app to several unread lines will play them back in sequence.
 
 ### Commands
 
-- `/start` — Choose a play
-- `/plays` — List available plays
-- `/cast` — Show cast of current play
-- `/help` — Show help
+| Command | Function |
+|---------|----------|
+| `/start` | Choose a play |
+| `/plays` | List available plays |
+| `/cast` | Show cast of current play |
+| `/audio` | Toggle audio narration on/off |
+| `/help` | Show help |
 
 ## Adding new plays
 
@@ -84,7 +85,7 @@ Audio uses [Microsoft Edge TTS](https://learn.microsoft.com/en-us/azure/ai-servi
 
 Choose voices from [Microsoft's neural voice list](https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=tts). Pick voices with distinct accents, genders, or ages so characters are distinguishable. The narrator should sound different from all characters.
 
-**Backward compatibility**: The characters map still accepts plain emoji strings (`"Boatswain": "⚓"`) — these characters will use `defaultVoice` for audio.
+The characters map also accepts plain emoji strings (`"Boatswain": "⚓"`) for backward compatibility — these characters will use `defaultVoice` for audio.
 
 ### Tips for preparing plays
 
@@ -109,7 +110,7 @@ Choose voices from [Microsoft's neural voice list](https://learn.microsoft.com/e
 ### Environment variables
 
 | Variable | Purpose |
-|----------|---------||
+|----------|---------|
 | `TELEGRAM_BOT_TOKEN` | Bot token from @BotFather |
 | `RENDER_EXTERNAL_URL` | Public URL of the Render service |
 
@@ -128,4 +129,4 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
 **Works fine after a restart:**
 - Tapping ▽ on any existing message still delivers the correct next line
 - Starting a new play works normally
-- Audio toggle resets to off (default)
+- Audio preference resets to off (default)

@@ -181,6 +181,17 @@ async function generateTTSClip(text, voice) {
   return buf;
 }
 
+function generateSilence(ms) {
+  const silentFrame = Buffer.from(
+    'fff3e004000000000000000000000000000000000000000000000000000000000000000000000000',
+    'hex'
+  );
+  const framesNeeded = Math.ceil(ms / 26);
+  const frames = [];
+  for (let i = 0; i < framesNeeded; i++) frames.push(silentFrame);
+  return Buffer.concat(frames);
+}
+
 async function generateLineAudio(play, line) {
   if (line.type === 'stage') {
     // Narrator reads stage directions directly
@@ -193,7 +204,9 @@ async function generateLineAudio(play, line) {
     generateTTSClip(line.text, getVoice(play, line.sender))
   ]);
 
-  return Buffer.concat([narratorBuf, characterBuf]);
+  const silenceMs = 400;
+  const silenceBuf = generateSilence(silenceMs);
+  return Buffer.concat([narratorBuf, silenceBuf, characterBuf]);
 }
 
 async function sendVoiceForLine(chatId, playId, lineIndex, line, play) {
