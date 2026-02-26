@@ -15,8 +15,8 @@
     "Caliban — a native of the island, enslaved by Prospero",
     "Alonso — King of Naples",
     "Ferdinand — his son",
-    "Sebastian — Alonso’s brother",
-    "Antonio — Prospero’s brother, usurper of his dukedom",
+    "Sebastian — Alonso's brother",
+    "Antonio — Prospero's brother, usurper of his dukedom",
     "Gonzalo — an honest old counselor",
     "Adrian & Francisco — lords attending the King",
     "Trinculo — a jester",
@@ -124,85 +124,83 @@
       "type": "character",
       "sender": "Boatswain",
       "text": "Here, master. What cheer?",
-      "annotation": "'What cheer?' means 'What's the situation?' or 'What are your orders?' A common sailor's greeting."
+      "annotation": "'What cheer?' means 'What's the situation?' or 'What are your orders?' — a common sailor's greeting."
     },
     {
       "type": "character",
       "sender": "Shipmaster",
       "text": "Good, speak to the mariners. Fall to't yarely, or we run ourselves aground. Bestir, bestir!",
-      "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving. He's ordering the crew to work fast or they'll crash onto rocks."
+      "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Enter Mariners.",
-      "annotation": "The common sailors enter, ready to work the ship through the storm."
+      "text": "Enter Mariners."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Heigh, my hearts! Cheerly, cheerly, my hearts! Yare, yare! Take in the topsail. Tend to the master's whistle.",
-      "annotation": "'Heigh, my hearts!' is a rallying cry, like 'Come on, lads!' 'Cheerly' means with spirit. He's encouraging the sailors while ordering them to lower the topsail (a sail near the top of the mast). The master's whistle signals commands."
+      "annotation": "'Heigh, my hearts!' — a rallying cry, like 'Come on, lads!' 'Cheerly' means with spirit. 'Take in the topsail' — lower the sail near the top of the mast. The master's whistle signals commands."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Blow, till thou burst thy wind, if room enough!",
-      "annotation": "He's addressing the storm itself: 'Blow as hard as you want, as long as we have sea room to maneuver!' A defiant, almost reckless challenge to nature."
+      "annotation": "He's addressing the storm directly: 'Blow as hard as you want — as long as we have sea room to maneuver.'"
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "Enter Alonso, Sebastian, Antonio, Ferdinand, Gonzalo, and others.",
-      "annotation": "The nobles stumble onto deck. Alonso is King of Naples. Sebastian is his brother. Antonio is Prospero's brother who usurped his dukedom (the villain). Ferdinand is the King's son. Gonzalo is an honest old counselor."
+      "annotation": "The nobles stumble onto deck. Alonso is King of Naples. Sebastian is his brother. Antonio is Prospero's brother who usurped his dukedom. Ferdinand is the King's son. Gonzalo is an honest old counselor."
     },
     {
       "type": "character",
       "sender": "Alonso",
-      "text": "Good Boatswain, have care. Where’s the master? Play the men.",
-      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work' or 'make them act like men.' But he's giving orders on a ship he doesn't command."
+      "text": "Good Boatswain, have care. Where's the master? Play the men.",
+      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work.' But he's giving orders on a ship he doesn't command."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "I pray now, keep below.",
-      "annotation": "A remarkably curt response to a king: 'Please, stay below deck.' The Boatswain is too busy trying to save the ship to observe courtly manners. This blunt dismissal of royalty sets up one of the play's major themes."
+      "annotation": "'Please, stay below deck.' The Boatswain is too busy trying to save the ship to observe courtly manners."
     },
     {
       "type": "character",
       "sender": "Antonio",
-      "text": "Where is the master, Boatswain?",
-      "annotation": "Antonio also demands to see the captain, ignoring the Boatswain's request to go below."
+      "text": "Where is the master, Boatswain?"
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Do you not hear him? You mar our labour. Keep your cabins; you do assist the storm.",
-      "annotation": "'You mar our labour' means you're getting in the way of our work. 'You assist the storm' — you're making things worse by being here. A sharp rebuke to nobility."
+      "annotation": "'You mar our labour' — you're getting in our way. 'You assist the storm' — you're making things worse by being here."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Nay, good, be patient.",
-      "annotation": "Gonzalo, the kind old counselor, tries to calm things down. He's speaking to his fellow nobles, urging patience with the harried crew."
+      "annotation": "Gonzalo, the kind old counselor, urging patience — addressing his fellow nobles, not the crew."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "When the sea is. Hence! What cares these roarers for the name of king? To cabin! Silence; trouble us not.",
-      "annotation": "'Hence!' means go away. 'Roarers' refers to the roaring waves and wind. His point: the sea doesn't care about social rank. A king drowns as easily as a commoner. This was radical, almost revolutionary stuff for an audience in 1611."
+      "annotation": "'Hence!' means go away. 'Roarers' — the roaring waves and wind. His point: the sea doesn't care about social rank."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Good, yet remember whom thou hast aboard.",
-      "annotation": "A gentle reminder: there's a king on this ship. But even Gonzalo seems to half-acknowledge the Boatswain's point — nature doesn't recognize human hierarchies."
+      "annotation": "A reminder that the Boatswain is speaking to a king."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "None that I more love than myself. You are a councillor; if you can command these elements to silence and work the peace of the present, we will not hand a rope more. Use your authority.",
-      "annotation": "'If your political authority can calm the storm, go ahead — we'll stop working and watch.' He's exposing the limits of earthly power against nature. The Boatswain is one of Shakespeare's great minor characters — honest, competent, and unimpressed by rank."
+      "annotation": "'If your political authority can calm the storm, go ahead — we'll stop working and watch.' He's testing the limits of earthly power against nature."
     },
     {
       "type": "character",
@@ -213,20 +211,19 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Exit.",
-      "annotation": "The Boatswain leaves to continue his work, dismissing the nobles entirely."
+      "text": "Exit."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "I have great comfort from this fellow. Methinks he hath no drowning mark upon him; his complexion is perfect gallows.",
-      "annotation": "Dark humor: Gonzalo finds comfort because the Boatswain looks like the type who'd be hanged, not drowned. An old superstition held that a man born to hang can't drown. 'Perfect gallows' means his face is destined for the noose."
+      "annotation": "Dark humor: Gonzalo finds comfort because the Boatswain looks destined for the gallows, not drowning. An old superstition held that a man born to hang can't drown. 'Perfect gallows' means his face is destined for the noose."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Stand fast, good Fate, to his hanging. Make the rope of his destiny our cable, for our own doth little advantage. If he be not born to be hanged, our case is miserable.",
-      "annotation": "Gonzalo continues his gallows humor: let Fate make sure this man hangs — because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
+      "annotation": "Gonzalo continues his gallows joke: let Fate make sure this man hangs — because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
     },
     {
       "type": "stage",
@@ -238,91 +235,90 @@
       "type": "character",
       "sender": "Sebastian",
       "text": "A pox o' your throat, you bawling, blasphemous, incharitable dog!",
-      "annotation": "Sebastian completely loses his composure, hurling abuse at the Boatswain. The panic strips away all royal dignity. 'Incharitable' — lacking Christian charity. He's furious at being ordered around by a working sailor."
+      "annotation": "'Incharitable' — lacking Christian charity. Sebastian loses his composure as the panic sets in."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Work you, then.",
-      "annotation": "A perfect three-word comeback: if you have a problem with how I'm doing it, do it yourself. The Boatswain doesn't even bother to argue."
+      "annotation": "If you have a problem with how I'm doing it, do it yourself."
     },
     {
       "type": "character",
       "sender": "Antonio",
       "text": "Hang, cur! Hang, you whoreson, insolent noise-maker. We are less afraid to be drowned than thou art.",
-      "annotation": "Antonio escalates the abuse, calling the Boatswain a dog ('cur') and a bastard ('whoreson'). His taunt — that the nobles fear death less than the Boatswain does — is bravado. He's terrified."
+      "annotation": "'Cur' — dog. 'Whoreson' — bastard. His claim that the nobles fear death less than the Boatswain is hollow bravado."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "I'll warrant him for drowning; though the ship were no stronger than a nutshell and as leaky as an unstanched wench.",
-      "annotation": "Gonzalo continues his gallows-humor riff: I guarantee the Boatswain won't drown — even if the ship were as flimsy as a nutshell with holes in it. His calm, wry humor amid the chaos is part of what makes him the play's moral touchstone."
+      "annotation": "Gonzalo continues his gallows joke: I guarantee the Boatswain won't drown — even if the ship were as flimsy as a nutshell with holes in it."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Lay her a-hold, a-hold! Set her two courses off to sea again; lay her off.",
-      "annotation": "'Lay her a-hold' is a sailing command to steer the ship close to the wind to avoid being driven onto rocks. 'Two courses' refers to the two lowest sails. He's making a last desperate attempt to maneuver clear of land."
+      "annotation": "'Lay her a-hold' — steer close to the wind to avoid being driven onto rocks. 'Two courses' refers to the two lowest sails. A last attempt to maneuver clear."
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "Enter Mariners, soaking wet.",
-      "annotation": "The drenched sailors come up from below or in from the deck — a visual signal that the ship is already taking on water."
+      "annotation": "The drenched sailors come up from below — a signal that the ship is already taking on water."
     },
     {
       "type": "character",
       "sender": "Mariners",
       "text": "All lost! To prayers, to prayers! All lost!",
-      "annotation": "The crew abandons seamanship for prayer. When professional sailors give up on the ship, you know it's truly hopeless — or seems so. Their despair gives the nobles' terror full weight."
+      "annotation": "When the crew abandons seamanship for prayer, the situation is truly hopeless — or seems so."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "What, must our mouths be cold?",
-      "annotation": "A grim idiom: 'must we already be dead?' Cold mouths = corpses. Even now the Boatswain refuses to surrender — or perhaps he's simply asking if things are really as lost as the mariners say."
+      "annotation": "A grim idiom: 'must we already be dead?' Cold mouths = corpses. He may be refusing to give up, or checking whether things are really as lost as the mariners say."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "The King and Prince at prayers! Let's assist them, for our case is as theirs.",
-      "annotation": "Gonzalo reports that Alonso and Ferdinand are praying below. He urges everyone to join them. A moment of grace — the wisest response to the situation is also the most human one."
+      "annotation": "Gonzalo reports that Alonso and Ferdinand are praying below and urges the others to join them."
     },
     {
       "type": "character",
       "sender": "Sebastian",
       "text": "I'm out of patience.",
-      "annotation": "Sebastian's only contribution as hope runs out: a petulant complaint. His selfishness and temper are established early — they'll matter in Act II."
+      "annotation": "Sebastian's short temper resurfaces here — it becomes significant in Act II."
     },
     {
       "type": "character",
       "sender": "Antonio",
       "text": "We are merely cheated of our lives by drunkards. This wide-chapped rascal — would thou might'st lie drowning the washing of ten tides!",
-      "annotation": "'Wide-chapped' means big-mouthed. 'The washing of ten tides' was the punishment for pirates — hanged at low water and left until three tides had washed over the body. Antonio wishes the Boatswain a pirate's death, even now blaming others for the ship's fate."
+      "annotation": "'Wide-chapped' means big-mouthed. 'The washing of ten tides' was the punishment for pirates — hanged at low water and left until three tides had washed over the body."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "He'll be hanged yet, though every drop of water swear against it and gape at widest to glut him.",
-      "annotation": "Gonzalo holds to his joke to the last: the Boatswain is fated to hang, not drown — so every wave that tries to swallow him is wasting its time. Dark, dry, and strangely comforting. Shakespeare gives this speech to the only character who keeps his dignity."
+      "annotation": "Gonzalo holds to his gallows joke: the Boatswain is fated to hang, not drown — so every wave that tries to swallow him is wasting its time."
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "A confused noise within: 'Mercy on us!' — 'We split, we split!' — 'Farewell, my wife and children!' — 'Farewell, brother!' — 'We split, we split, we split!'",
-      "annotation": "'We split' means the hull is breaking apart. These offstage cries are some of the most vivid sound design in Shakespeare — a chorus of dying voices, each one a glimpse of someone's whole life. The repetition of 'we split' is relentless."
+      "annotation": "'We split' — the hull is breaking apart."
     },
     {
       "type": "character",
       "sender": "Antonio",
-      "text": "Let's all sink with the King.",
-      "annotation": "A flash of something almost noble from Antonio — or perhaps just resignation. He and Sebastian go below to be with Alonso. Even the villain doesn't abandon his king at the very end."
+      "text": "Let's all sink with the King."
     },
     {
       "type": "character",
       "sender": "Sebastian",
       "text": "Let's take leave of him.",
-      "annotation": "They go to say goodbye. 'Take leave' here has a double meaning — farewell before dying, but also a parting that carries darker implications we'll see later."
+      "annotation": "'Take leave' carries a double meaning — farewell before dying, but also a parting with darker implications that emerge in Act II."
     },
     {
       "type": "stage",
@@ -334,13 +330,13 @@
       "type": "character",
       "sender": "Gonzalo",
       "text": "Now would I give a thousand furlongs of sea for an acre of barren ground, long heath, brown furze, any thing. The wills above be done! But I would fain die a dry death.",
-      "annotation": "The scene's final line — and it's perfect. Gonzalo, who has been wise and witty throughout, drops his composure just enough to admit: he'd trade all the ocean for a patch of scrubby dirt. 'Long heath, brown furze' — thorny, useless moorland. Any solid ground. He surrenders to Providence ('the wills above be done') but still manages a small, rueful joke at the end: he'd rather not die wet."
+      "annotation": "'Long heath, brown furze' — thorny, useless moorland. Any solid ground at all. 'The wills above be done' — he surrenders to Providence, but would still rather not die wet."
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "Exeunt. End of Act I, Scene 1.",
-      "annotation": "The ship goes down — or seems to. Scene 2 opens on the island, where Prospero tells Miranda (and the audience) the truth: the tempest was his doing, and no one was harmed. Everything we just watched was theatre within theatre — a conjured storm, staged by a man with a book."
+      "annotation": "The ship goes down — or seems to. Scene 2 opens on the island, where Prospero tells Miranda (and the audience) the truth: the tempest was his doing, and no one was harmed."
     },
     {
       "type": "stage",
@@ -358,7 +354,7 @@
       "type": "character",
       "sender": "Miranda",
       "text": "The sky, it seems, would pour down stinking pitch, but that the sea, mounting to the welkin's cheek, dashes the fire out.",
-      "annotation": "'Welkin' is the sky. She's describing lightning being quenched by waves — the elements at war with each other."
+      "annotation": "'Welkin' is the sky. She's describing lightning being quenched by waves."
     },
     {
       "type": "character",
@@ -427,7 +423,7 @@
       "type": "character",
       "sender": "Miranda",
       "text": "You have often begun to tell me what I am, but stopped and left me to a bootless inquisition, concluding: 'Stay, not yet.'",
-      "annotation": "'Bootless inquisition' — a fruitless inquiry, questions that led nowhere. She's been asking her whole life."
+      "annotation": "'Bootless inquisition' — a fruitless inquiry, questions that led nowhere."
     },
     {
       "type": "character",
@@ -458,7 +454,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "Thou hadst, and more, Miranda. But how is it that this lives in thy mind? What seest thou else in the dark backward and abysm of time?",
-      "annotation": "'The dark backward and abysm of time' — one of Shakespeare's great phrases. The past as a dark gulf you look back into."
+      "annotation": "'The dark backward and abysm of time' — the past as a dark gulf."
     },
     {
       "type": "character",
@@ -489,13 +485,13 @@
       "type": "character",
       "sender": "Prospero",
       "text": "Both, both, my girl. By foul play, as thou say'st, were we heaved thence; but blessedly holp hither.",
-      "annotation": "'Holp' is an archaic past tense of 'helped.' Foul means got us expelled; providence brought us here."
+      "annotation": "'Holp' is an archaic past tense of 'helped.' Foul play got them expelled; providence brought them here."
     },
     {
       "type": "character",
       "sender": "Miranda",
       "text": "O, my heart bleeds to think o' the teen that I have turned you to, which is from my remembrance! Please you, farther.",
-      "annotation": "'Teen' means grief or injury. She's distressed that her forgetting caused him pain."
+      "annotation": "'Teen' means grief or injury."
     },
     {
       "type": "character",
@@ -512,7 +508,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "I, thus neglecting worldly ends, all dedicated to closeness and the bettering of my mind with that which, but by being so retired, o'er-prized all popular rate —",
-      "annotation": "He admits it freely: he was buried in his books, neglecting the actual business of governing. His own obsession with study opened the door for Antonio."
+      "annotation": "He admits it freely: he was buried in his books, neglecting the actual business of governing. His own obsession opened the door for Antonio."
     },
     {
       "type": "character",
@@ -535,7 +531,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "He did make a treaty with the King of Naples to give him annual tribute, to do him homage, and to bend the dukedom yet unbowed — alas, poor Milan! — to most ignoble stooping.",
-      "annotation": "Antonio's deal with the King of Naples: he'd hand over Milan's independence (making it a vassal state) in exchange for the King's military backing to seize the dukedom."
+      "annotation": "Antonio's deal with the King of Naples: he'd hand over Milan's independence (making it a vassal state) in exchange for military backing to seize the dukedom."
     },
     {
       "type": "character",
@@ -561,7 +557,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "— should presently extirpate me and mine out of the dukedom and confer fair Milan with all the honours on my brother. Whereon, a treacherous army levied, one midnight fated to the purpose did Antonio open the gates of Milan.",
-      "annotation": "'Extirpate' — to uproot, wipe out. Soldiers were sent in the night. Prospero and baby Miranda were expelled."
+      "annotation": "'Extirpate' — to uproot, wipe out. Soldiers came in the night. Prospero and baby Miranda were expelled."
     },
     {
       "type": "character",
@@ -588,13 +584,13 @@
       "type": "character",
       "sender": "Prospero",
       "text": "O, a cherubin thou wast that did preserve me. Thou didst smile, infused with a fortitude from heaven, when I have decked the sea with drops full salt, under my burthen groaned.",
-      "annotation": "One of the play's most tender moments: her infant smile was what kept him going. He wept; she, unknowingly, gave him courage."
+      "annotation": "Her infant smile was what kept him going. He wept; she, unknowingly, gave him courage."
     },
     {
       "type": "character",
       "sender": "Prospero",
       "text": "By Providence divine, some food we had and some fresh water that a noble Neapolitan, Gonzalo, out of his charity — who being then appointed master of this design — did give us.",
-      "annotation": "Gonzalo, even then, was kind. He secretly provided food, water, and crucially, Prospero's books. His goodness reaches back twelve years."
+      "annotation": "Gonzalo was tasked with overseeing the exile but secretly provided food, water, and Prospero's books."
     },
     {
       "type": "character",
@@ -631,7 +627,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "Thou art inclined to sleep; 'tis a good dulness, and give it way. I know thou canst not choose.",
-      "annotation": "He puts her to sleep with his magic — she has no choice in the matter. A small but notable use of his power over her."
+      "annotation": "He puts her to sleep with his magic — she has no choice in the matter."
     },
     {
       "type": "stage",
@@ -664,13 +660,13 @@
       "type": "character",
       "sender": "Ariel",
       "text": "Jove's lightning, the precursors o' the dreadful thunder-claps, more momentary and sight-outrunning were not. The fire and cracks of sulphurous roaring the most mighty Neptune seemed to besiege, and make his bold waves tremble.",
-      "annotation": "Neptune — Roman god of the sea. Even the ocean god trembled. Ariel is not modest."
+      "annotation": "Neptune — Roman god of the sea."
     },
     {
       "type": "character",
       "sender": "Prospero",
       "text": "My brave spirit! Who was so firm, so constant, that this coil would not infect his reason?",
-      "annotation": "'Coil' means uproar or commotion."
+      "annotation": "'Coil' — uproar, commotion."
     },
     {
       "type": "character",
@@ -681,7 +677,7 @@
       "type": "character",
       "sender": "Ariel",
       "text": "The King's son, Ferdinand, with hair up-staring — then like reeds, not hair — was the first man that leaped, cried 'Hell is empty, and all the devils are here!'",
-      "annotation": "Ferdinand's line — shouted as he jumped into the sea — is one of the most quoted in the play. He'll be important soon."
+      "annotation": "Ferdinand's cry as he leapt into the sea. He becomes central to the plot shortly."
     },
     {
       "type": "character",
@@ -702,7 +698,7 @@
       "type": "character",
       "sender": "Ariel",
       "text": "Not a hair perished; on their sustaining garments not a blemish, but fresher than before. And, as thou bad'st me, in troops I have dispersed them 'bout the isle.",
-      "annotation": "Everyone is safe and their clothes are magically dry and clean — as if the storm never happened. The shipwrecked groups have been separated around the island by design."
+      "annotation": "Everyone is safe and their clothes are magically clean — as if the storm never happened. The shipwrecked groups have been scattered around the island by design."
     },
     {
       "type": "character",
@@ -761,7 +757,7 @@
       "type": "character",
       "sender": "Ariel",
       "text": "I prithee, remember I have done thee worthy service; told thee no lies, made thee no mistakings, served without grudge or grumblings. Thou did promise to bate me a full year.",
-      "annotation": "'Bate' means to reduce or subtract — to take a year off his service."
+      "annotation": "'Bate' — to reduce or subtract. To take a year off his service."
     },
     {
       "type": "character",
@@ -831,7 +827,7 @@
       "type": "character",
       "sender": "Prospero",
       "text": "If thou more murmur'st, I will rend an oak and peg thee in his knotty entrails till thou hast howled away twelve winters.",
-      "annotation": "The threat beneath the gratitude. Prospero is not kind to Ariel when pushed — he'll do exactly what Sycorax did."
+      "annotation": "The threat beneath the gratitude. Prospero is not kind to Ariel when pushed — he'd do exactly what Sycorax did."
     },
     {
       "type": "character",
@@ -927,19 +923,19 @@
       "type": "character",
       "sender": "Caliban",
       "text": "As wicked dew as e'er my mother brushed with raven's feather from unwholesome fen drop on you both! A south-west blow on ye and blister you all o'er!",
-      "annotation": "Caliban enters cursing. 'Wicked dew' was a kind of magical poison. His first words are a hex — the only power left to him."
+      "annotation": "Caliban enters cursing. 'Wicked dew' — a kind of magical poison."
     },
     {
       "type": "character",
       "sender": "Prospero",
       "text": "For this, be sure, tonight thou shalt have cramps, side-stitches that shall pen thy breath up; urchins shall, for that vast of night that they may work, all exercise on thee.",
-      "annotation": "'Urchins' are hedgehogs or goblins. Prospero counters the curse with his own — pain delivered through spirits in the night."
+      "annotation": "'Urchins' — hedgehogs or goblins. Prospero counters the curse with his own — pain delivered through spirits in the night."
     },
     {
       "type": "character",
       "sender": "Caliban",
       "text": "I must eat my dinner. This island's mine, by Sycorax my mother, which thou tak'st from me.",
-      "annotation": "The heart of Caliban's grievance, stated plainly. The island was his inheritance. Whatever Caliban is, his claim is not without logic."
+      "annotation": "The heart of Caliban's grievance: the island was his inheritance, passed down from his mother Sycorax."
     },
     {
       "type": "character",
@@ -955,7 +951,7 @@
       "type": "character",
       "sender": "Caliban",
       "text": "Cursed be I that did so! All the charms of Sycorax, toads, beetles, bats, light on you! For I am all the subjects that you have, which first was mine own king.",
-      "annotation": "He was free; now he is enslaved. He taught Prospero everything about the island and got subjugation in return. The colonial parallel is hard to miss, and Shakespeare wrote it into the play's DNA."
+      "annotation": "He was free and is now enslaved. He taught Prospero everything about the island and got subjugation in return."
     },
     {
       "type": "character",
@@ -966,7 +962,7 @@
       "type": "character",
       "sender": "Caliban",
       "text": "You taught me language, and my profit on't is, I know how to curse. The red plague rid you for learning me your language!",
-      "annotation": "One of the most powerful lines in the play. Language was given as a gift and a tool of control — and the only use it's left him is the ability to curse the giver. Scholars and post-colonial critics have written extensively on this line."
+      "annotation": "Language was given as a gift and a tool of control — the only use left to Caliban is cursing the giver. Post-colonial critics have written extensively on this line."
     },
     {
       "type": "character",
@@ -983,7 +979,7 @@
       "type": "stage",
       "sender": "Stage",
       "text": "Exit Caliban. Ariel enters, leading Ferdinand with music.",
-      "annotation": "Ariel draws Ferdinand toward Prospero's cell with invisible music — a technique Prospero uses throughout: art (music, illusion) as a means of manipulation."
+      "annotation": "Ariel draws Ferdinand toward Prospero's cell with invisible music — one of several moments where Prospero uses art (music, illusion) as a means of control."
     },
     {
       "type": "character",
@@ -1005,7 +1001,7 @@
       "type": "character",
       "sender": "Ariel",
       "text": "Full fathom five thy father lies; of his bones are coral made; those are pearls that were his eyes: nothing of him that doth fade but doth suffer a sea-change into something rich and strange.",
-      "annotation": "'Sea-change into something rich and strange' — one of the most beautiful phrases in Shakespeare. Ferdinand believes his father has drowned and been transformed by the sea. The song is both grief and wonder."
+      "annotation": "'Sea-change into something rich and strange' — Ferdinand believes his father has drowned and been transformed by the sea."
     },
     {
       "type": "character",
@@ -1042,13 +1038,13 @@
       "type": "character",
       "sender": "Prospero",
       "text": "It goes on, I see, as my soul prompts it.",
-      "annotation": "Prospero aside — this is going exactly to plan. The whole scene has been staged for this moment."
+      "annotation": "Aside — this is going exactly to plan."
     },
     {
       "type": "character",
       "sender": "Ferdinand",
       "text": "Most sure, the goddess on whom these airs attend! Vouchsafe my prayer may know if you remain upon this island; and that you will some good instruction give how I may bear me here.",
-      "annotation": "Ferdinand also thinks Miranda is a goddess. Their mutual wonder is mutual: two people who have never encountered anyone like the other."
+      "annotation": "Ferdinand takes Miranda for a goddess — neither has ever encountered anyone like the other."
     },
     {
       "type": "character",
@@ -1070,13 +1066,13 @@
       "type": "character",
       "sender": "Ferdinand",
       "text": "Yes, faith, and all his lords, the Duke of Milan and his brave son being twain.",
-      "annotation": "Ferdinand thinks Antonio's son also perished. (In fact Antonio has no son in the play — a minor inconsistency Shakespeare left in.)"
+      "annotation": "Ferdinand believes Antonio's son also perished. (Antonio has no son in the play — a minor inconsistency.)"
     },
     {
       "type": "character",
       "sender": "Prospero",
       "text": "The Duke of Milan and his more braver daughter could control thee, if now 'twere fit to do't.",
-      "annotation": "An aside — Prospero correcting Ferdinand's wrong information without revealing himself yet."
+      "annotation": "Aside — Prospero correcting Ferdinand's wrong information without revealing himself yet."
     },
     {
       "type": "character",
@@ -1091,8 +1087,7 @@
     {
       "type": "character",
       "sender": "Prospero",
-      "text": "It works.",
-      "annotation": "The shortest and most satisfying aside in the play."
+      "text": "It works."
     },
     {
       "type": "character",
@@ -1124,6 +1119,3789 @@
       "sender": "Stage",
       "text": "Exeunt. End of Act I, Scene 2.",
       "annotation": "The longest scene in the play ends with everything set in motion: the nobles are scattered on the island, Ferdinand and Miranda are in love at first sight, and Prospero — pulling strings the whole time — has his enemies exactly where he wants them."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act II, Scene 1 — Another part of the island.",
+      "image": null
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso, Sebastian, Antonio, Gonzalo, Adrian, Francisco, and others."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Beseech you, sir, be merry. You have cause — so have we all — of joy; for our escape is much beyond our loss."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Our hint of woe is common: every day some sailor's wife, the masters of some merchant, and the merchant, have just our theme of woe. But for the miracle, I mean our preservation, few in millions can speak like us.",
+      "annotation": "Gonzalo's logic: grief is ordinary, survival this miraculous is not."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Prithee, peace."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "He receives comfort like cold porridge.",
+      "annotation": "An aside to Antonio — the two of them will snipe at Gonzalo throughout this scene."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "The visitor will not give him o'er so.",
+      "annotation": "'Visitor' — a visitor to the sick, one who offers spiritual comfort. Antonio's being sardonic."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Look, he's winding up the watch of his wit; by and by it will strike."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Sir —"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "One. Tell."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "When every grief is entertained that's offered, comes to the entertainer —"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "A dollar."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Dolour comes to him, indeed. You have spoken truer than you purposed.",
+      "annotation": "'Dolour' means grief — Gonzalo turns Sebastian's interruption back on him. Dollar / dolour was a familiar pun."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "You have taken it wiselier than I meant you should."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Therefore, my lord —"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Fie, what a spendthrift is he of his tongue!"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I prithee, spare."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Well, I have done. But yet —"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "He will be talking."
+    },
+    {
+      "type": "character",
+      "sender": "Adrian",
+      "text": "The air breathes upon us here most sweetly."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "As if it had lungs, and rotten ones."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Or as 'twere perfumed by a fen."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Here is everything advantageous to life."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "True; save means to live."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Of that there's none, or little."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "How lush and lusty the grass looks! How green!"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "The ground indeed is tawny."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "With an eye of green in't."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "He misses not much."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "No; he doth but mistake the truth totally."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "But the rarity of it is — which is indeed almost beyond credit —"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "As many vouched rarities are."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "That our garments, being, as they were, drenched in the sea, hold notwithstanding their freshness and glosses, being rather new-dyed than stained with salt water."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "If but one of his pockets could speak, would it not say he lies?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Ay, or very falsely pocket up his report."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Methinks our garments are now as fresh as when we put them on first in Afric, at the marriage of the king's fair daughter Claribel to the King of Tunis.",
+      "annotation": "The wedding that brought them here — Alonso's daughter married a North African king, which many at court opposed."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Twas a sweet marriage, and we prosper well in our return."
+    },
+    {
+      "type": "character",
+      "sender": "Adrian",
+      "text": "Tunis was never graced before with such a paragon to their queen."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Not since widow Dido's time.",
+      "annotation": "Dido — queen of Carthage, near modern Tunis, abandoned by Aeneas."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Widow! A pox o' that! How came that widow in? Widow Dido!"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "What if he had said 'widower Aeneas' too? Good Lord, how you take it!"
+    },
+    {
+      "type": "character",
+      "sender": "Adrian",
+      "text": "Widow Dido said you? You make me study of that: she was of Carthage, not of Tunis."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "This Tunis, sir, was Carthage."
+    },
+    {
+      "type": "character",
+      "sender": "Adrian",
+      "text": "Carthage?"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I assure you, Carthage."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "His word is more than the miraculous harp.",
+      "annotation": "The harp of Amphion built the walls of Thebes. Antonio is saying Gonzalo's words can conjure whole cities out of nothing."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "He hath raised the wall and houses too."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "What impossible matter will he make easy next?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "I think he will carry this island home in his pocket and give it his son for an apple."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "And, sowing the kernels of it in the sea, bring forth more islands."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Ay."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Why, in good time.",
+      "annotation": "Gonzalo notices that Alonso is barely present — lost in grief."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Sir, we were talking that our garments seem now as fresh as when we were at Tunis at the marriage of your daughter, who is now queen."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "And the rarest that e'er came there."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Bate, I beseech you, widow Dido.",
+      "annotation": "'Bate' — except. Sarcastically conceding Dido as the one exception."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "O, widow Dido! Ay, widow Dido."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Is not, sir, my doublet as fresh as the first day I wore it? I mean, in a sort."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "That sort was well fished for."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "When I wore it at your daughter's marriage?"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "You cram these words into mine ears against the stomach of my sense.",
+      "annotation": "He's being force-fed comfort he can't absorb. Alonso only made this sea voyage because of Claribel's wedding; now he's lost his son."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Would I had never married my daughter there! For, coming thence, my son is lost; and, in my rate, she too, who is so far from Italy removed I ne'er again shall see her."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "O thou mine heir of Naples and of Milan, what strange fish hath made his meal on thee?"
+    },
+    {
+      "type": "character",
+      "sender": "Francisco",
+      "text": "Sir, he may live. I saw him beat the surges under him, and ride upon their backs; he trod the water, whose enmity he flung aside, and breasted the surge most swoll'n that met him.",
+      "annotation": "Francisco has almost no other lines in the play — he exists to give this one speech of hope."
+    },
+    {
+      "type": "character",
+      "sender": "Francisco",
+      "text": "His bold head 'bove the contentious waves he kept, and oared himself with his good arms in lusty stroke to the shore, that o'er his wave-worn basis bowed, as stooping to relieve him."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "No, no, he's gone."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Sir, you may thank yourself for this great loss, that would not bless our Europe with your daughter, but rather loose her to an African.",
+      "annotation": "Sebastian twists the knife — blaming Alonso for arranging the match against courtly wishes."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Where she at least is banished from your eye, who hath cause to wet the grief on't."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Prithee, peace."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "You were kneeled to and importuned otherwise by all of us, and the fair soul herself weighed between loathness and obedience, at which end o' the beam should bow.",
+      "annotation": "Even Claribel herself was reluctant — Alonso forced the marriage."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "We have lost your son, I fear, for ever. Milan and Naples have more widows in them of this business' making than we bring men to comfort them: the fault's your own."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "So is the dear'st o' the loss."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "My lord Sebastian, the truth you speak doth lack some gentleness and time to speak it in. You rub the sore when you should bring the plaster.",
+      "annotation": "He doesn't deny the truth, just the cruelty of its timing."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Very well."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "And most chirurgeonly.",
+      "annotation": "'Chirurgeonly' — surgically. More mockery."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "It is foul weather in us all, good sir, when you are cloudy."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Foul weather?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Very foul."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Had I plantation of this isle, my lord —",
+      "annotation": "'Plantation' — colonisation, settlement."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "He'd sow't with nettle-seed."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Or docks, or mallows."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "And were the king on't, what would I do?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Scape being drunk for want of wine."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I' the commonwealth I would by contraries execute all things: for no kind of traffic would I admit; no name of magistrate; letters should not be known; riches, poverty, and use of service, none;",
+      "annotation": "Gonzalo's utopian fantasy, drawn from Montaigne's essay 'Of the Cannibals' — a world without property, hierarchy, or labour."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Contract, succession, bourn, bound of land, tilth, vineyard, none; no use of metal, corn, or wine, or oil; no occupation; all men idle, all; and women too, but innocent and pure;"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "No sovereignty —"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Yet he would be king on't."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "The latter end of his commonwealth forgets the beginning."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "All things in common nature should produce without sweat or endeavour: treason, felony, sword, pike, knife, gun, or need of any engine, would I not have; but nature should bring forth, of its own kind, all foison, all abundance, to feed my innocent people.",
+      "annotation": "'Foison' — plenty, abundance."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "No marrying 'mong his subjects?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "None, man; all idle: whores and knaves."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I would with such perfection govern, sir, to excel the golden age.",
+      "annotation": "The 'Golden Age' — a classical myth of a peaceful era before civilisation's corruptions."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Save his majesty!"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Long live Gonzalo!"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "And — do you mark me, sir?"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Prithee, no more: thou dost talk nothing to me."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I do well believe your highness; and did it to minister occasion to these gentlemen, who are of such sensible and nimble lungs that they always use to laugh at nothing.",
+      "annotation": "Gonzalo quietly reveals he knew he was being mocked — and was performing partly to distract Alonso."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Twas you we laughed at."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Who in this kind of merry fooling am nothing to you: so you may continue and laugh at nothing still."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "What a blow was there given!"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "An it had not fallen flat-long."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "You are gentlemen of brave mettle; you would lift the moon out of her sphere, if she would continue in it five weeks without changing."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel enters, invisible, playing solemn music."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "We would so, and then go a-bat-fowling.",
+      "annotation": "'Bat-fowling' — hunting birds at night by torchlight. Sebastian: with the moon in hand, we'd use it as a lantern for mischief."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Nay, good my lord, be not angry."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "No, I warrant you; I will not adventure my discretion so weakly. Will you laugh me asleep, for I am very heavy?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Go sleep, and hear us."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso and others fall asleep, charmed by Ariel's music. Sebastian and Antonio remain awake."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "What, all so soon asleep! I wish mine eyes would, with themselves, shut up my thoughts: I find they are inclined to do so."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Heavens keep you from these beasts! For he that sleeps is but the picture of death."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Gonzalo sleeps. Antonio and Sebastian alone."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "What, art thou waking?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Do not omit the heavy offer of it: it seldom visits sorrow; when it doth, it is a comforter."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "We two, my lord, will guard your rest; we'll be busy about you until your hour of sleep is out."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Thank you. Wondrous heavy."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "My strong imagination sees a crown dropping upon thy head.",
+      "annotation": "Antonio's seduction begins. Sebastian is Alonso's brother — if Alonso and Ferdinand are both dead, Sebastian is King of Naples."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "What, art thou waking?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Do you not hear me speak?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "I do; and surely it is a sleepy language and thou speak'st out of thy sleep. What is it thou didst say? This is a strange repose, to be asleep with eyes wide open — standing, speaking, moving, and yet so fast asleep."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Noble Sebastian, thou let'st thy fortune sleep — die, rather; wink'st whiles thou art waking."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Thou dost snore distinctly; there's meaning in thy snores."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "I am more serious than my custom: you must be so too, if heed me; which to do trebles thee o'er.",
+      "annotation": "Listen carefully and you'll become three times what you are — i.e. King."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Well, I am standing water."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "I'll teach you how to flow.",
+      "annotation": "Standing water — at the turn of the tide, going neither way. Antonio: I'll show you which way to move."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Do so: to ebb hereditary sloth instructs me.",
+      "annotation": "Sebastian claims laziness as a family trait — a self-deprecating deflection."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "O, if you but knew how you the purpose cherish whiles thus you mock it! How, in stripping it, you more invest it! Ebbing men, indeed, most often do so near the bottom run by their own fear or sloth.",
+      "annotation": "Antonio reads Sebastian precisely — his mockery reveals how much he's already imagining it."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Prithee, say on: the setting of thine eye and cheek proclaim a matter from thee, and a birth indeed which throes thee much to yield."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Thus, sir: although this lord of weak remembrance — this, who shall scarce remember thee — hath here almost persuaded — for he's a spirit of persuasion, only professes to persuade — the king's son's alive, 'tis as impossible that he's undrown'd as he that sleeps here swims.",
+      "annotation": "Dismissing Gonzalo — 'weak remembrance' means he'll be forgotten, and soon dead. Antonio is also nudging: believe Ferdinand is drowned."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "I have no hope that he's undrown'd."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "O, out of that 'no hope' what great hope have you! No hope that way is another way so high a hope that even ambition cannot pierce a wink beyond, but doubt discovery there.",
+      "annotation": "If Ferdinand is dead, hope collapses in one direction — and opens in another."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Will you grant with me that Ferdinand is drown'd?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "He's gone."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Then, tell me, who's the next heir of Naples?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Claribel."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "She that is Queen of Tunis; she that dwells ten leagues beyond man's life; she that from Naples can have no note, unless the sun were post — the man i' the moon's too slow —"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "till new-born chins be rough and razorable; she that — from whom? We all were sea-swallow'd, though some cast again, and by that destiny to perform an act whereof what's past is prologue, what to come in yours and my discharge.",
+      "annotation": "'What's past is prologue' — everything that came before is only setup for what follows. The phrase is inscribed on the National Archives building in Washington, D.C."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "What stuff is this! How say you? 'Tis true, my brother's daughter's queen of Tunis; so is she heir of Naples; 'twixt which regions there is some space."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "A space whose every cubit seems to cry out, 'How shall that Claribel measure us back to Naples? Keep in Tunis, and let Sebastian wake.'"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Say this were death that now hath seized them; why, they were no worse than now they are. There be that can rule Naples as well as he that sleeps; lords that can prate as amply and unnecessarily as this Gonzalo; I myself could make a chough of as deep chat.",
+      "annotation": "A chough is a chattering bird — Antonio says he could train a jackdaw to talk as much sense as Gonzalo."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "O, that you bore the mind that I do! What a sleep were this for your advancement! Do you understand me?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Methinks I do."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "And how does your content tender your own good fortune?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "I remember you did supplant your brother Prospero.",
+      "annotation": "Sebastian now names what Antonio is proposing — and draws on the precedent Antonio himself set."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "True: and look how well my garments sit upon me; much feater than before. My brother's servants were then my fellows; now they are my men."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "But, for your conscience?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Ay, sir; where lies that? If 'twere a kibe, 'twould put me to my slipper: but I feel not this deity in my bosom. Twenty consciences, that stand 'twixt me and Milan, candied be they and melt ere they molest!",
+      "annotation": "A kibe — a heel blister. Antonio: conscience would only bother me if it actually hurt."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Here lies your brother, no better than the earth he lies on, if he were that which now he's like — that's dead; whom I, with this obedient steel, three inches of it, can lay to bed for ever;"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "whiles you, doing thus, to the perpetual wink for aye might put this ancient morsel, this Sir Prudence, who should not upbraid our course. For all the rest, they'll take suggestion as a cat laps milk; they'll tell the clock to any business that we say befits the hour.",
+      "annotation": "'Sir Prudence' — Gonzalo. Antonio's plan: Sebastian kills the king, he kills Gonzalo, the others are easily managed."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Thy case, dear friend, shall be my precedent: as thou got'st Milan, I'll come by Naples. Draw thy sword: one stroke shall free thee from the tribute which thou pay'st, and I the king shall love thee.",
+      "annotation": "Naples has a claim over Milan — by making Sebastian king, Antonio will owe no more tribute. Two birds, one stroke."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Draw together: and when I rear my hand, do you the like, to fall it on Gonzalo."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "O, but one word."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel enters, unseen, and whispers in Gonzalo's ear."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "My master through his art foresees the danger that you, his friend, are in; and sends me forth — for else his project dies — to keep them living.",
+      "annotation": "Ariel acts under Prospero's remote direction — even now, on the island, Prospero is watching."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel sings into Gonzalo's ear, who starts awake."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Now, good angels, preserve the king!",
+      "annotation": "He doesn't know how close it was."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso and the others wake."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Why, how now? Ho, awake! Why are you drawn? Wherefore this ghastly looking?"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "What's the matter?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Whiles we stood here securing your repose, even now, we heard a hollow burst of bellowing like bulls, or rather lions: did't not wake you? It struck mine ear most terribly.",
+      "annotation": "Sebastian improvises instantly — and convincingly."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I heard nothing."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "O, 'twas a din to fright a monster's ear, to make an earthquake! Sure, it was the roar of a whole herd of lions."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Heard you this, Gonzalo?"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Upon mine honour, sir, I heard a humming, and that a strange one too, which did awake me. I shaked you, sir, and cried: as mine eyes opened, I saw their weapons drawn. There was a noise, that's verily."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "'Tis best we stand upon our guard, or that we quit this place. Let's draw our weapons."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Lead away."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Heavens keep him from these beasts! For he is, sure, i' the island.",
+      "annotation": "Gonzalo is thinking of Ferdinand — not the animals."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exeunt."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act II, Scene 1."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act II, Scene 2 — Another part of the island.",
+      "image": null
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban enters with a burden of wood."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "All the infections that the sun sucks up from bogs, fens, flats, on Prosper fall and make him by inch-meal a disease!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "His spirits hear me and yet I needs must curse. But they'll nor pinch, fright me with urchin-shows, pitch me i' the mire, nor lead me, like a firebrand, in the dark out of my way, unless he bid 'em.",
+      "annotation": "'Urchin-shows' — apparitions in the shape of hedgehogs, a form of torment. Caliban knows exactly when Prospero's spirits can and cannot harm him."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "But for every trifle are they set upon me; sometime like apes that mow and chatter at me and after bite me, then like hedgehogs which lie tumbling in my barefoot way and mount their pricks at my footfall;"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "sometime am I all wound with adders who with cloven tongues do hiss me into madness."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Trinculo enters."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Lo, now, lo! Here comes a spirit of his, and to torment me for bringing wood in slowly. I'll fall flat; perchance he will not mind me."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban lies down and hides under his cloak."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Here's neither bush nor shrub, to bear off any weather at all, and another storm brewing; I hear it sing i' the wind. Yond same black cloud, yond huge one, looks like a foul bombard that would shed his liquor.",
+      "annotation": "A bombard — a large leather wine jug. The cloud looks ready to pour."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "If it should thunder as it did before, I know not where to hide my head: yond same cloud cannot choose but fall by pailfuls."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "What have we here? A man or a fish? Dead or alive? A fish: he smells like a fish; a very ancient and fish-like smell; a kind of not of the newest poor-John.",
+      "annotation": "Poor-John — dried, salted hake, the cheapest preserved fish."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "A strange fish! Were I in England now, as once I was, and had but this fish painted, not a holiday fool there but would give a piece of silver: there would this monster make a man; any strange beast there makes a man.",
+      "annotation": "Painted signs advertising freakish creatures drew paying crowds in England. 'Make a man' = make a man's fortune."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "When they will not give a doit to relieve a lame beggar, they will lay out ten to see a dead Indian.",
+      "annotation": "A doit — a tiny coin. Native Americans were sometimes displayed in England as paying curiosities."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Legged like a man! And his fins like arms! Warm o' my troth! I do now let loose my opinion, hold it no longer: this is no fish, but an islander, that hath lately suffered by a thunderbolt."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Thunder."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Alas, the storm is come again! My best way is to creep under his gaberdine; there is no other shelter hereabouts. Misery acquaints a man with strange bed-fellows.",
+      "annotation": "A gaberdine — a long loose cloak. 'Misery acquaints a man with strange bedfellows' — a proverb Shakespeare likely coined here."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Trinculo creeps under Caliban's cloak. Stephano enters, drunk, singing."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I shall no more to sea, to sea, here shall I die ashore — this is a very scurvy tune to sing at a man's funeral: well, here's my comfort."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Stephano drinks."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Do not torment me! Oh!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "What's the matter? Have we devils here? Do you put tricks upon 's with savages and men of Ind, ha? I have not 'scaped drowning to be afeard now of your four legs."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "For it hath been said, 'As proper a man as ever went on four legs cannot make him give ground'; and it shall be said so again while Stephano breathes at nostrils.",
+      "annotation": "The proverb should say 'two legs' — Stephano's drunk enough to have lost count."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "The spirit torments me; oh!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "This is some monster of the isle with four legs, who hath got, as I take it, an ague. Where the devil should he learn our language? I will give him some relief, if it be but for that."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "If I can recover him and keep him tame, and get to Naples with him, he's a present for any emperor that ever trod on neat's leather.",
+      "annotation": "Neat's leather — cowhide, i.e. ordinary shoes. Even an emperor wearing common boots would prize such a specimen."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Do not torment me, prithee; I'll bring my wood home faster."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "He's in his fit now and does not talk after the wisest. He shall taste of my bottle: if he have never drunk wine afore, it will go near to remove his fit."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Stephano!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Doth thy other mouth call me? Mercy, mercy! This is a devil, and no monster: I will leave him; I have no long spoon.",
+      "annotation": "'He that sups with the devil needs a long spoon' — proverbial. Stephano thinks the monster has two mouths and is therefore diabolical."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Stephano! If thou beest Stephano, touch me and speak to me; for I am Trinculo — be not afeard — thy good friend Trinculo."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "If thou beest Trinculo, come forth. I'll pull thee by the lesser legs: if any be Trinculo's legs, these are they."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Trinculo crawls out from under the cloak."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "I took him to be killed with a thunder-stroke. But art thou not drown'd, Stephano? I hope now thou art not drown'd. Is the storm overblown? I hid me under the dead moon-calf's gaberdine for fear of the storm.",
+      "annotation": "A moon-calf — a monstrosity thought to be created by the moon's influence. Trinculo assumed Caliban was a corpse."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Prithee, do not turn me about; my stomach is not constant.",
+      "annotation": "Still seasick and drunk — being spun around is too much."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "These be fine things, an if they be not sprites. That's a brave god and bears celestial liquor. I will kneel to him.",
+      "annotation": "Caliban, hearing voices and smelling wine, decides Stephano must be divine."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "How didst thou 'scape? How camest thou hither? Swear by this bottle how thou camest hither. I escaped upon a butt of sack which the sailors heaved overboard — by this bottle, which I made of the bark of a tree with mine own hands since I was cast ashore.",
+      "annotation": "A butt — a large cask. Stephano floated to shore clinging to a barrel of wine, then built a bottle from bark."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I'll swear upon that bottle to be thy true subject; for the liquor is not earthly.",
+      "annotation": "Caliban swears allegiance on a bottle of wine rather than a Bible."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Here; swear then how thou escapedst."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Swum ashore, man, like a duck: I can swim like a duck, I'll be sworn."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Here, kiss the book.",
+      "annotation": "Kissing the book — swearing on a Bible. Stephano substitutes his bottle."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban drinks again."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Though thou canst swim like a duck, thou art made like a goose."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "O Stephano, hast any more of this?"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "The whole butt, man: my cellar is in a rock by the sea-side where my wine is hid. How now, moon-calf! How does thine ague?"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Hast thou not dropped from heaven?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Out o' the moon, I do assure thee. I was the man in the moon when time was.",
+      "annotation": "Stephano plays along — happy to be mistaken for a divine being."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I have seen thee in her and I do adore thee: my mistress showed me thee and thy dog and thy bush.",
+      "annotation": "The man in the moon was traditionally depicted with a dog and a thornbush. Caliban's mother Sycorax taught him to read the sky."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Come, swear to that; kiss the book: I will furnish it anon with new contents. Swear."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban drinks."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "By this good light, this is a very shallow monster! I afeard of him? A very weak monster! The man i' the moon! A most poor credulous monster! Well drawn, monster, in good sooth!",
+      "annotation": "Trinculo sees exactly what's happening — Caliban is being made a fool of — but does nothing about it."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I'll show thee every fertile inch o' th' island; and I will kiss thy foot: I prithee, be my god.",
+      "annotation": "The offer Caliban makes here — to guide someone to the island's resources in exchange for protection — is the same offer he first made to Prospero. It did not go well then either."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "By this light, a most perfidious and drunken monster! When's god's asleep, he'll rob his bottle."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I'll kiss thy foot; I'll swear myself thy subject.",
+      "annotation": "Caliban kneeling to kiss Stephano's foot mirrors what Prospero demands of him."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Come on then; down, and swear."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "I shall laugh myself to death at this puppy-headed monster. A most scurvy monster! I could find in my heart to beat him —"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Come, kiss."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "But that the poor monster's in drink: an abominable monster!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I'll show thee the best springs; I'll pluck thee berries; I'll fish for thee and get thee wood enough.",
+      "annotation": "Almost word for word what Caliban offered Prospero when he first arrived. The island's knowledge, freely given again."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "A plague upon the tyrant that I serve! I'll bear him no more sticks, but follow thee, thou wondrous man."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "A most ridiculous monster, to make a wonder of a poor drunkard!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I prithee, let me bring thee where crabs grow; and I with my long nails will dig thee pig-nuts; show thee a jay's nest and instruct thee how to snare the nimble marmoset; I'll bring thee to clustering filberts, and sometimes I'll get thee young scamels from the rock.",
+      "annotation": "Pig-nuts — small edible tubers. Scamels are uncertain — possibly a shellfish or seabird."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Wilt thou go with me?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I prithee now, lead the way without any more talking. Trinculo, the king and all our company else being drown'd, we will inherit here."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban sings drunkenly."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Farewell, master; farewell, farewell!",
+      "annotation": "Caliban is singing. It's the only time in the play he does — a song of freedom from Prospero's service."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "A howling monster; a drunken monster!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "No more dams I'll make for fish; nor fetch in firing at requiring; nor scrape trenching nor wash dish: 'ban, 'ban, Ca-Caliban has a new master — get a new man!",
+      "annotation": "Caliban's freedom song — a litany of Prospero's chores thrown off."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "O brave monster! Lead the way.",
+      "annotation": "Act II ends on this dark comedy."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exeunt."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act II, Scene 2."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act III, Scene 1 — Before Prospero's cell.",
+      "image": null
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand enters, carrying a heavy log."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "There be some sports are painful, and their labour delight in them sets off: some kinds of baseness are nobly undergone and most poor matters point to rich ends.",
+      "annotation": "Ferdinand is thinking through a paradox: even degrading work can be ennobling depending on why you do it. His log-carrying deliberately echoes Caliban's — both set to it by Prospero."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "This my mean task would be as heavy to me as odious, but the mistress which I serve quickens what's dead and makes my labours pleasures."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "O, she is ten times more gentle than her father's crabbed, and he's composed of harshness."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I must remove some thousands of these logs and pile them up, upon a sore injunction. My sweet mistress weeps when she sees me work, and says, such baseness had never like executor.",
+      "annotation": "Prospero has set Ferdinand to shift thousands of logs — exactly the labour he assigns Caliban. Miranda has been watching and weeping."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I forget: but these sweet thoughts do even refresh my labours, most busy least when I do it."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Miranda enters. Prospero follows at a distance, unseen, watching."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Alas, now, pray you, work not so hard. I would the lightning had burnt up those logs that you are enjoined to pile!"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Pray, set it down and rest you. When this burns, 'twill weep for having wearied you. My father is hard at study; pray now, rest yourself — he's safe for these three hours."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "O most dear mistress, the sun will set before I shall discharge what I must strive to do."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "If you'll sit down, I'll bear your logs the while: pray give me that; I'll carry it to the pile."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "No, precious creature; I had rather crack my sinews, break my back, than you should such dishonour undergo, while I sit lazy by."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "It would become me as well as it does you: and I should do it with much more ease; for my good will is to it, and yours it is against.",
+      "annotation": "The same task is lighter when freely chosen — Miranda picks up Ferdinand's opening argument and turns it back on him."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Poor worm, thou art infected! This visitation shows it.",
+      "annotation": "Prospero, aside. 'Infected' with love — he sees it clearly and is quietly pleased. 'Worm' is tender, not contemptuous."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "You look wearily."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "No, noble mistress — 'tis fresh morning with me when you are by at night. I do beseech you — chiefly that I might set it in my prayers — what is your name?"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Miranda. — O my father, I have broke your hest to say so!",
+      "annotation": "Prospero forbade her to tell Ferdinand her name. She does it anyway, then catches herself."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Admired Miranda! Indeed the top of admiration! worth what's dearest to the world!",
+      "annotation": "'Miranda' means 'she who is to be admired' in Latin — Ferdinand hears the name and plays on it immediately."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Full many a lady I have eyed with best regard and many a time the harmony of their tongues hath into bondage brought my too diligent ear;"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "for several virtues have I liked several women; never any with so full soul, but some defect in her did quarrel with the noblest grace she owed and put it to the foil.",
+      "annotation": "'Put it to the foil' — made her virtues look worse by contrast with her flaws."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "But you, O you, so perfect and so peerless, are created of every creature's best!"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "I do not know one of my sex; no woman's face remember, save, from my glass, mine own.",
+      "annotation": "Miranda has grown up on a near-empty island. Ferdinand is — as far as she knows — only the third man she has ever seen."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Nor have I seen more that I may call men than you, good friend, and my dear father. How features are abroad, I am skilless of;"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "but, by my modesty, the jewel in my dower, I would not wish any companion in the world but you."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Nor can imagination form a shape, besides yourself, to like of. But I prattle something too wildly and my father's precepts I therein do forget."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I am in my condition a prince, Miranda; I do think, a king — I would, not so! — and would no more endure this wooden slavery than to suffer the flesh-fly blow my mouth.",
+      "annotation": "'I would, not so' — he'd rather not be king, because that would mean his father drowned. He catches the dark implication mid-sentence."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Hear my soul speak: the very instant that I saw you, did my heart fly to your service; there resides, to make me slave to it; and for your sake am I this patient log-man."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Do you love me?"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "O heaven, O earth, bear witness to this sound and crown what I profess with kind event if I speak true! if hollowly, invert what best is boded me to mischief!"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I beyond all limit of what else i' the world do love, prize, honour you."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "I am a fool to weep at what I'm glad of."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Fair encounter of two most rare affections! Heavens rain grace on that which breeds between 'em!",
+      "annotation": "Still aside. Prospero engineered this meeting, but what he sees is real — he can't share their pure joy."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Wherefore weep you?"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "At mine unworthiness that dare not offer what I desire to give, and much less take what I shall die to want.",
+      "annotation": "Miranda wants to propose but feels she shouldn't. The thing she'd 'die to want' is Ferdinand himself."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "But this is trifling; and all the more it seeks to hide itself, the bigger bulk it shows. Hence, bashful cunning!"
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "And prompt me, plain and holy innocence! I am your wife, if you will marry me; if not, I'll die your maid. To be your fellow you may deny me; but I'll be your servant, whether you will or no.",
+      "annotation": "Miranda cuts through propriety and simply says it. She gives him three options and rules out the one that matters to her."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "My mistress, dearest; and I thus humble ever."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand kneels."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "My husband, then?"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Ay, with a heart as willing as bondage e'er of freedom: here's my hand.",
+      "annotation": "As eager to be bound to her as a prisoner is to be free — the play's theme of servitude and liberty running through even the love scene."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "And mine, with my heart in't. And now farewell till half an hour hence."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "A thousand thousand!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand and Miranda exit separately."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "So glad of this as they I cannot be, who are surprised withal; but my rejoicing at nothing can be more.",
+      "annotation": "Prospero is moved — but can't share their pure joy, because he's been orchestrating it all."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I'll to my book, for yet ere supper-time must I perform much business appertaining."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero exits."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act III, Scene 1."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act III, Scene 2 — Another part of the island."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban, Stephano, and Trinculo enter. Stephano carries his bottle."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Tell not me — when the butt is out, we will drink water; not a drop before. Therefore bear up, and board 'em. Servant-monster, drink to me."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Servant-monster! The folly of this island! They say there's but five upon this isle: we are three of them; if th' other two be brained like us, the state totters."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Drink, servant-monster, when I bid thee: thy eyes are almost set in thy head."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Where should they be set else? He were a brave monster indeed, if they were set in his tail."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "My man Stephano! I prithee, let me bring thee where crabs grow; and I with my long nails will dig thee pig-nuts;"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "show thee a jay's nest and instruct thee how to snare the nimble marmoset; I'll bring thee to clust'ring filberts, and sometimes I'll get thee young scamels from the rock.",
+      "annotation": "'Scamels' is unidentified — possibly a seabird, possibly shellfish. Editors have argued over it for four centuries."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Wilt thou go with me?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I prithee now, lead the way without any more talking. Trinculo, the king and all our company else being drowned, we will inherit here."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Here; bear my bottle. Fellow Trinculo, we'll fill him by and by again."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban sings."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Farewell, master; farewell, farewell!"
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "A howling monster; a drunken monster!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "No more dams I'll make for fish; nor fetch in firing at requiring, nor scrape trenching, nor wash dish.",
+      "annotation": "Trenching: wooden platters."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "'Ban, 'Ban, Cacaliban has a new master — get a new man!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "O brave monster! Lead the way."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They walk. Caliban begins to speak more quietly."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "As I told thee before, I am subject to a tyrant, a sorcerer, that by his cunning hath cheated me of the island."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Thou liest.",
+      "annotation": "Ariel, invisible, speaking in Trinculo's voice."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Thou liest, thou jesting monkey thou! I would my valiant master would destroy thee! I do not lie."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Trinculo, if you trouble him any more in's tale, by this hand, I will supplant some of your teeth."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Why, I said nothing."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Mum, then, and no more. Proceed."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I say, by sorcery he got this isle; from me he got it. If thy greatness will revenge it on him — for I know thou dar'st, but this thing dare not —",
+      "annotation": "'This thing' — Trinculo."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "That's most certain."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Thou shalt be lord of it and I'll serve thee."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "How now shall this be compassed? Canst thou bring me to the party?"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Yea, yea, my lord: I'll yield him thee asleep, where thou mayst knock a nail into his head."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Thou liest; thou canst not.",
+      "annotation": "Ariel again, still in Trinculo's voice."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "What a pied ninny's this! Thou scurvy patch!",
+      "annotation": "'Pied' and 'patch' both refer to the jester's traditional motley costume."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I do beseech thy greatness, give him blows and take his bottle from him."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Trinculo, run into no further danger: interrupt the monster one word further, and, by this hand, I'll turn my mercy out o' doors and make a stockfish of thee.",
+      "annotation": "Stockfish: dried cod, beaten flat to soften it before eating."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Why, what did I? I did nothing. I'll go farther off."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Didst thou not say he lied?"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Thou liest.",
+      "annotation": "Ariel a third time, still in Trinculo's voice."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Do I so? Take thou that!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Stephano hits Trinculo."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "As you like this, give me the lie another time."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I did not give thee the lie. Out o' your wits and hearing too? A pox o' your bottle! This can sack and drinking do."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Ha, ha, ha!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Now, forward with your tale. Prithee, stand farther off."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Beat him enough. After a little time I'll beat him too."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Stand farther. Come, proceed."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Why, as I told thee, 'tis a custom with him, i' the afternoon to sleep: there thou mayst brain him, having first seized his books, or with a log batter his skull, or paunch him with a stake, or cut his wezand with thy knife.",
+      "annotation": "Wezand: the windpipe."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Remember first to possess his books; for without them he's but a sot, as I am, nor hath not one spirit to command: they all do hate him as rootedly as I."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Burn but his books."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "He has brave utensils — for so he calls them — which, when he has a house, he'll deck withal."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "And that most deeply to consider is the beauty of his daughter; he himself calls her a nonpareil. I never saw a woman, but only Sycorax my dam and she; but she as far surpasseth Sycorax as great'st does least.",
+      "annotation": "Sycorax was Caliban's mother. He never knew her — Prospero arrived on the island after her death."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Is it so brave a lass?"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Ay, lord; she will become thy bed, I warrant, and bring thee forth brave brood."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Monster, I will kill this man: his daughter and I will be king and queen — save our graces! — and Trinculo and thyself shall be viceroys."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Dost thou like the plot, Trinculo?"
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Excellent."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Give me thy hand. I am sorry I beat thee; but, while thou livest, keep a good tongue in thy head."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Within this half hour will he be asleep. Wilt thou destroy him then?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Ay, on mine honour."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "This will I tell my master."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Thou mak'st me merry; I am full of pleasure. Let us be jocund — will you troll the catch you taught me but whilere?",
+      "annotation": "'But whilere': just now, a short while ago."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "At thy request, monster, I will do reason, any reason. Come on, Trinculo, let us sing."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They begin to sing. Ariel plays the same tune on a tabor and pipe, invisible."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "What is this same?"
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "This is the tune of our catch, played by the picture of Nobody.",
+      "annotation": "'Nobody' was a stock comic figure — depicted with a head and limbs but no torso. A well-known image in Elizabethan popular print."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "If thou beest a man, show thyself in thy likeness: if thou beest a devil, take't as thou list."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "O, forgive me my sins!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "He that dies pays all debts. I defy thee. Mercy upon us!"
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Art thou afeard?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "No, monster, not I."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Be not afeard; the isle is full of noises, sounds and sweet airs, that give delight and hurt not."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Sometimes a thousand twangling instruments will hum about mine ears, and sometime voices that, if I then had waked after long sleep, will make me sleep again."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "And then, in dreaming, the clouds methought would open and show riches ready to drop upon me that, when I waked, I cried to dream again."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "This will prove a brave kingdom to me, where I shall have my music for nothing."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "When Prospero is destroyed."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "That shall be by and by: I remember the story."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "The sound is going away; let's follow it, and after do our work."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Lead, monster; we'll follow. I would I could see this taborer; he lays it on."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Wilt come? I'll follow, Stephano."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They follow the invisible music and exit."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act III, Scene 2."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act III, Scene 3 — Another part of the island."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso, Sebastian, Antonio, Gonzalo, Adrian, Francisco, and others enter, weary."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "By'r lakin, I can go no further, sir; my old bones ache: here's a maze trod indeed through forth-rights and meanders!",
+      "annotation": "'By'r lakin': a mild oath, contracted from 'by our ladykin' (the Virgin Mary). Forth-rights: straight paths. Meanders: winding ones."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "By your patience, I needs must rest me."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Old lord, I cannot blame thee, who am myself attached with weariness, to the dulling of my spirits: sit down, and rest.",
+      "annotation": "'Attached': seized, as by a legal writ."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Even here I will put off my hope and keep it no longer for my flatterer: he is drowned whom thus we stray to find, and the sea mocks our frustrate search on land.",
+      "annotation": "Gonzalo is finally conceding that Ferdinand is dead."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Well, let him go."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Thou dost talk nothing to me."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I do well believe your highness; and did it to minister occasion to these gentlemen, who are of such sensible and nimble lungs that they always use to laugh at nothing.",
+      "annotation": "Gonzalo has noticed that Antonio and Sebastian have been quietly mocking him."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "'Twas you we laughed at."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Who in this kind of merry fooling am nothing to you: so you may continue and laugh at nothing still."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "What a blow was there given!"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "An it had not fallen flat-long."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "You are gentlemen of brave mettle; you would lift the moon out of her sphere, if she would continue in it five weeks without changing.",
+      "annotation": "In Ptolemaic cosmology, the moon moved in a crystalline sphere around the earth. To lift it out would be a feat of absurd, impossible strength — Gonzalo is mocking their pretensions."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Solemn and strange music. Prospero enters above, invisible. Strange shapes bring in a banquet, dance around it with gentle actions of salutation, and depart."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "What harmony is this? My good friends, hark!"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Marvellous sweet music!"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Give us kind keepers, heavens! What were these?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "A living drollery.",
+      "annotation": "'Drollery': a puppet show, or a comic painting. Sebastian means it as a jest but is genuinely unnerved."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Now I will believe that there are unicorns; that in Arabia there is one tree, the phoenix' throne, one phoenix at this hour reigning there.",
+      "annotation": "The phoenix was a legendary bird said to live in Arabia, unique and immortal, dying in fire and reborn from its own ashes. Sebastian cites it as a type of impossible thing he'd now believe."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "I'll believe both; and what does else want credit, come to me, and I'll be sworn 'tis true."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Travellers ne'er did lie, though fools at home condemn 'em."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "If in Naples I should report this now, would they believe me? If I should say, I saw such islanders —",
+      "annotation": "Gonzalo is thinking aloud about how his account would be received at home — an echo of his utopian speech in Act II."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "for, certes, these are people of the island — who, though they are of monstrous shape, yet, note, their manners are more gentle-kind than of our human generation you shall find many, nay, almost any."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Honest lord, thou hast said well; for some of you there present are worse than devils.",
+      "annotation": "Prospero, aside, still unseen. He is referring to Antonio and Sebastian."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I cannot too much muse such shapes, such gesture and such sound, expressing — although they want the use of tongue — a kind of excellent dumb discourse.",
+      "annotation": "'Muse': wonder at. 'Want': lack."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Praise in departing.",
+      "annotation": "A proverb: save your praise until the end, in case things go wrong. Prospero, still aside."
+    },
+    {
+      "type": "character",
+      "sender": "Francisco",
+      "text": "They vanished strangely."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "No matter, since they have left their viands behind; for we have stomachs. Will't please you taste of what is here?",
+      "annotation": "Viands: food, provisions."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Not I."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Faith, sir, you need not fear. When we were boys, who would believe that there were mountaineers dewlapped like bulls, whose throats had hanging at 'em wallets of flesh?",
+      "annotation": "'Dewlapped': with loose folds of skin at the throat, like a bull's. Gonzalo is citing accounts of peoples with goitres, reported by travellers from the Alps."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Or that there were such men whose heads stood in their breasts? Which now we find each putter-out of five for one will bring us good word of.",
+      "annotation": "'Putter-out of five for one': a traveller who deposited money before a voyage, to receive five times the sum on return — only if they survived. Gonzalo's point is that even such wild travel tales have proved true."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I will stand to and feed, although my last: no matter, since I feel the best is past."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I will stand to and feed, although my last: no matter, since I feel the best is past."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Thunder and lightning. Ariel enters like a harpy, claps his wings upon the table, and the banquet vanishes."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "You are three men of sin, whom Destiny — that hath to instrument this lower world and what is in't — the never-surfeited sea hath caused to belch up you;",
+      "annotation": "Harpies in classical mythology were winged spirits who snatched food from the living. Here the harpy removes the banquet rather than stealing it. The three men of sin are Alonso, Sebastian, and Antonio."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "and on this island where man doth not inhabit — you 'mongst men being most unfit to live — I have made you mad;"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "and even with such-like valour men hang and drown their proper selves.",
+      "annotation": "'Proper': own."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso, Sebastian, and Antonio draw their swords."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "You fools! I and my fellows are ministers of Fate: the elements, of whom your swords are tempered, may as well wound the loud winds, or with bemocked-at stabs kill the still-closing waters, as diminish one dowle that's in my plume.",
+      "annotation": "'Dowle': a single fibre of a feather. 'Still-closing': water that closes over a wound immediately."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "My fellow-ministers are like invulnerable. If you could hurt, your swords are now too massy for your strengths and will not be uplifted.",
+      "annotation": "'Massy': heavy."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Their swords drop."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "But remember — for that's my business to you — that you three from Milan did supplant good Prospero;"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "exposed unto the sea, which hath requit it, him and his innocent child: for which foul deed the powers, delaying, not forgetting, have incensed the seas and shores, yea, all the creatures, against your peace."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Thee of thy son, Alonso, they have bereft; and do pronounce by me: lingering perdition, worse than any death can be at once, shall step by step attend you and your ways;",
+      "annotation": "Perdition: damnation, utter ruin."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "whose wraths to guard you from — which here, in this most desolate isle, else falls upon you — is nothing but heart's sorrow and a clear life ensuing.",
+      "annotation": "The only escape from punishment is genuine remorse and a reformed life. Ariel states this as a condition, not a promise."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel vanishes in thunder. The shapes return, mock-dance, and carry out the table."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Bravely the figure of this harpy hast thou performed, my Ariel; a grace it had, devouring.",
+      "annotation": "Prospero, still above and unseen by the others. 'A grace it had, devouring' — the vanishing of the banquet was itself graceful."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Of my instruction hast thou nothing bated in what thou hadst to say: so, with good life and observation strange, my meaner ministers their several kinds have done.",
+      "annotation": "'Bated': omitted. 'Meaner ministers': the lesser spirits who brought and removed the banquet."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "My high charms work and these mine enemies are all knit up in their distractions; they now are in my power;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and in these fits I leave them, while I visit young Ferdinand, whom they suppose is drowned, and his and mine loved darling."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero exits."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I' the name of something holy, sir, why stand you in this strange stare?"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "O, it is monstrous, monstrous! Methought the billows spoke and told me of it; the winds did sing it to me, and the thunder, that deep and dreadful organ-pipe, pronounced the name of Prosper:"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "it did bass my trespass. Therefore my son i' the ooze is bedded; and I'll seek him deeper than e'er plummet sounded and with him there lie mudded.",
+      "annotation": "'Bass my trespass': proclaim my sin in a deep bass voice. A plummet is a lead weight on a line, used to measure water depth."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Alonso exits."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "But one fiend at a time, I'll fight their legions o'er."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "I'll be thy second."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Sebastian and Antonio exit."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "All three of them are desperate: their great guilt, like poison given to work a great time after, now 'gins to bite the spirits.",
+      "annotation": "Gonzalo identifies Alonso's grief and the sudden frenzy of Sebastian and Antonio as the same guilt working on each of them differently."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I do beseech you that are of suppler joints, follow them swiftly and hinder them from what this ecstasy may now provoke them to.",
+      "annotation": "'Ecstasy': madness, being outside oneself. From the Greek 'ekstasis'."
+    },
+    {
+      "type": "character",
+      "sender": "Adrian",
+      "text": "Follow, I pray you!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They exit."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act III, Scene 3."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act IV, Scene 1 — Before Prospero's cell."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero, Ferdinand, and Miranda enter."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "If I have too austerely punished you, your compensation makes amends, for I have given you here a third of mine own life, or that for which I live;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "whom once again I tender to thy hand: all thy vexations were but my trials of thy love and thou hast strangely stood the test.",
+      "annotation": "'Strangely': remarkably, extraordinarily."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Here, afore Heaven, I ratify this my rich gift. O Ferdinand, do not smile at me that I boast her off, for thou shalt find she will outstrip all praise and make it halt behind her."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I do believe it against an oracle."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Then, as my gift and thine own acquisition worthily purchased, take my daughter: but if thou dost break her virgin-knot before all sanctimonious ceremonies may with full and holy rite be ministered,",
+      "annotation": "'Sanctimonious': holy, sacred — the word had no ironic connotation in Shakespeare's time."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "no sweet aspersion shall the heavens let fall to make this contract grow; but barren hate, sour-eyed disdain and discord shall bestrew the union of your bed with weeds so loathly that you shall hate it both.",
+      "annotation": "'Aspersion': a sprinkling — here of rain or dew, used as a metaphor for heavenly blessing."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Therefore take heed, as Hymen's lamps shall light you.",
+      "annotation": "Hymen was the Greek god of marriage ceremonies. Torches were carried at Roman and Greek wedding processions."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "As I hope for quiet days, fair issue and long life, with such love as 'tis now, the murkiest den, the most opportune place, the strong'st suggestion our worser genius can, shall never melt mine honour into lust,"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "to take away the edge of that day's celebration when I shall think, or Phoebus' steeds are foundered, or Night kept chained below.",
+      "annotation": "Phoebus Apollo drove the sun across the sky in a chariot. Ferdinand means: I won't anticipate the wedding night even if the sun's horses seem to have gone lame — i.e. even if the day drags on forever."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Fairly spoke. Sit then and talk with her; she is thine own."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand and Miranda sit and talk together."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "What, Ariel! My industrious servant, Ariel!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel enters."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "What would my potent master? Here I am."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Thou and thy meaner fellows your last service did worthily perform; and I must use you in such another trick. Go bring the rabble, o'er whom I give thee power, here to this place.",
+      "annotation": "'Rabble': the lesser spirits under Ariel's command."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Incite them to quick motion; for I must bestow upon the eyes of this young couple some vanity of mine art: it is my promise, and they expect it from me."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Presently?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Ay, with a twink."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Before you can say 'come' and 'go', and breathe twice and cry 'so, so', each one, tripping on his toe, will be here with mop and mow.",
+      "annotation": "'Mop and mow': grimaces and gestures."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Do you love me, master? No?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Dearly, my delicate Ariel. Do not approach till thou dost hear me call."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Well, I conceive."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Look thou be true; do not give dalliance too much the rein: the strongest oaths are straw to the fire i' the blood."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "I warrant you sir; the white cold virgin snow upon my heart abates the ardour of my liver.",
+      "annotation": "The liver was believed to be the seat of passionate desire."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Well. Now come, my Ariel! Bring a corollary, rather than want a spirit.",
+      "annotation": "'Corollary': a surplus, an extra. Prospero wants more spirits than needed rather than risk having too few."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Appear, and pertly! No tongue! All eyes! Be silent."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Soft music. A masque begins. Iris enters.",
+      "annotation": "A masque was a form of court entertainment popular in Jacobean England, combining music, dance, allegorical figures, and elaborate staging. They were typically performed to celebrate royal occasions such as betrothals and weddings."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "Ceres, most bounteous lady, thy rich leas of wheat, rye, barley, vetches, oats and peas;",
+      "annotation": "Iris was the goddess of the rainbow and messenger of the gods. Ceres was the goddess of grain and harvest. Vetches: leguminous plants grown as fodder."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "thy turfy mountains, where live nibbling sheep, and flat meads thatched with stover, them to keep;",
+      "annotation": "'Meads': meadows. 'Stover': dried grass or hay stored as winter fodder."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "thy banks with pionèd and twillèd brims, which spongy April at thy hest betrims, to make cold nymphs chaste crowns;",
+      "annotation": "'Pionèd and twillèd': much debated — probably meaning undercut and woven over with roots, describing eroded riverbanks reinforced by plant growth."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "and thy broom-groves, whose shadow the dismissed bachelor loves, being lass-lorn;"
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "thy pole-clipped vineyard; and thy sea-marge, sterile and rocky-hard, where thou thyself dost air:",
+      "annotation": "'Pole-clipped': pruned by poles, or with vines trained along poles. 'Sea-marge': the shoreline."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "the queen o' the sky, whose watery arch and messenger am I, bids thee leave these, and with her sovereign grace, here on this grass-plot, in this very place, to come and sport.",
+      "annotation": "'The queen o' the sky': Juno, queen of the gods."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ceres enters."
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "Hail, many-coloured messenger, that ne'er dost disobey the wife of Jupiter;"
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "who with thy saffron wings upon my flowers diffusest honey-drops, refreshing showers, and with each end of thy blue bow dost crown my bosky acres and my unshrubb'd down,"
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "rich scarf to my proud earth; why hath thy queen summoned me hither, to this short-grassed green?",
+      "annotation": "'Bosky': wooded. 'Down': open upland."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "A contract of true love to celebrate; and some donation freely to estate on the blest lovers.",
+      "annotation": "'Estate': bestow, settle upon."
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "Tell me, heavenly bow, if Venus or her son, as thou dost know, do now attend the queen?",
+      "annotation": "Venus was the goddess of love; her son Cupid. Ceres is asking whether they are present — she has reason to distrust them."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "Of her society be not afraid: I met her deity cutting the clouds towards Paphos and her son dove-drawn with her.",
+      "annotation": "Paphos was a city in Cyprus, site of Venus's most famous temple. Venus's chariot was traditionally drawn by doves."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "Her waspish-headed son has broke his arrows, swears he will shoot no more but play with sparrows and be a boy right out.",
+      "annotation": "Cupid's arrows caused mortals to fall in love. 'Waspish-headed': irritable, bad-tempered."
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "High'st queen of state, great Juno, comes; I know her by her gait.",
+      "annotation": "In classical tradition, gods were recognised by their characteristic bearing and movement."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Juno descends.",
+      "annotation": "In staging a masque, gods and goddesses traditionally descended from above on a mechanical cloud or throne — a piece of theatre machinery that Jacobean court audiences expected and that would have been expensive to stage."
+    },
+    {
+      "type": "character",
+      "sender": "Juno",
+      "text": "How does my bounteous sister? Go with me to bless this twain, that they may prosperous be and honoured in their issue.",
+      "annotation": "'Issue': offspring, children."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Juno and Ceres sing together."
+    },
+    {
+      "type": "character",
+      "sender": "Juno",
+      "text": "Honour, riches, marriage-blessing, long continuance, and increasing, hourly joys be still upon you!"
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "Earth's increase, foison plenty, barns and garners never empty, vines and clustering bunches growing, plants with goodly burthen bowing;",
+      "annotation": "'Foison': abundance, a plentiful harvest. 'Garners': granaries."
+    },
+    {
+      "type": "character",
+      "sender": "Ceres",
+      "text": "spring come to you at the farthest in the very end of harvest! Scarcity and want shall shun you; Ceres' blessing so is on you."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "This is a most majestic vision, and harmonious charmingly. May I be bold to think these spirits?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Spirits, which by mine art I have from their confines called to enact my present fancies."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Let me live here ever; so rare a wondered father and a wise makes this place Paradise.",
+      "annotation": "'Wondered': wonder-working."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Juno and Ceres speak privately. Iris calls nymphs and reapers to join the dance."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "You nymphs, called Naiads, of the windring brooks, with your sedged crowns and ever-harmless looks, leave your crisp channels and on this green land answer your summons;",
+      "annotation": "Naiads were freshwater nymphs in Greek mythology. 'Windring': winding. 'Sedged': made of sedge, a water plant. 'Crisp': rippling."
+    },
+    {
+      "type": "character",
+      "sender": "Iris",
+      "text": "Juno does command: come, temperate nymphs, and help to celebrate a contract of true love; be not too late."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Nymphs enter. Then sunburned reapers enter and join them in a dance."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero starts suddenly and speaks. The dancers vanish."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I had forgot that foul conspiracy of the beast Caliban and his confederates against my life: the minute of their plot is almost come.",
+      "annotation": "Prospero has been so absorbed in the masque he nearly forgot the assassination plot laid out in Act III, Scene 2."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "To the spirits."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Well done! Avoid; no more!"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "This is most strange: your father's in some passion that works him strongly."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Never till this day saw I him touched with anger so distempered."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "You do look, my son, in a moved sort, as if you were dismayed: be cheerful, sir."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Our revels now are ended. These our actors, as I foretold you, were all spirits and are melted into air, into thin air:"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and, like the baseless fabric of this vision, the cloud-capped towers, the gorgeous palaces, the solemn temples, the great globe itself,"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "yea, all which it inherit, shall dissolve and, like this insubstantial pageant faded, leave not a rack behind.",
+      "annotation": "'Rack': a wisp of cloud. 'The great globe itself' may refer to the Globe Theatre as well as the earth."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "We are such stuff as dreams are made on, and our little life is rounded with a sleep."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Sir, I am vexed; bear with my weakness; my old brain is troubled: be not disturbed with my infirmity."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "If you be pleased, retire into my cell and there repose: a turn or two I'll walk, to still my beating mind."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "We wish your peace."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand and Miranda exit."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Come with a thought! I thank thee, Ariel: come."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel enters."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Thy thoughts I cleave to. What's thy pleasure?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Spirit, we must prepare to meet with Caliban."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Ay, my commander: when I presented Ceres, I thought to have told thee of it, but I feared lest I might anger thee.",
+      "annotation": "Ariel played the role of Ceres in the masque."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Say again, where didst thou leave these varlets?"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "I told you, sir, they were red-hot with drinking; so full of valour that they smote the air for breathing in their faces; beat the ground for kissing of their feet;"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "yet always bending towards their project. Then I beat my tabor; at which, like unbacked colts, they pricked their ears, advanced their eyelids, lifted up their noses as they smelt music:",
+      "annotation": "'Unbacked': unbroken, never ridden."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "so I charmed their ears that calf-like they followed through tooth'd briers, sharp furzes, pricking goss and thorns, which entered their frail shins:",
+      "annotation": "'Furzes' and 'goss' (gorse): thorny shrubs common on heathland."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "at last I left them i' the filthy-mantled pool beyond your cell, there dancing up to the chins, that the foul lake o'erstunk their feet.",
+      "annotation": "'Filthy-mantled': covered with a scum of algae."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "This was well done, my bird. Thy shape invisible retain thou still: the trumpery in my house, go bring it hither, for stale to catch these thieves.",
+      "annotation": "'Trumpery': showy but worthless stuff — here, gaudy clothing. 'Stale': a decoy or lure."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "I go, I go."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "A devil, a born devil, on whose nature nurture can never stick; on whom my pains, humanely taken, all, all lost, quite lost;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and as with age his body uglier grows, so his mind cankers. I will plague them all, even to roaring."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel re-enters, laden with glistening apparel. He hangs it on a line."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban, Stephano, and Trinculo enter, wet and muddy."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Pray you, tread softly, that the blind mole may not hear a footfall: we now are near his cell."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Monster, your fairy, which you say is a harmless fairy, has done little better than played the Jack with us.",
+      "annotation": "'Played the Jack': played the knave, tricked us. 'Jack' also refers to a will-o'-the-wisp, a marsh light that led travellers astray."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Monster, I do smell all horse-piss; at which my nose is in great indignation."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "So is mine. Do you hear, monster? If I should take a displeasure against you, look you —"
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Thou wert but a lost monster."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Good my lord, give me thy favour still. Be patient, for the prize I'll bring thee to shall hoodwink this mischance: therefore speak softly. All's hushed as midnight yet."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Ay, but to lose our bottles in the pool —"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "There is not only disgrace and dishonour in that, monster, but an infinite loss."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "That's more to me than my wetting: yet this is your harmless fairy, monster."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I will fetch off my bottle, though I be o'er ears for my labour."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Prithee, my king, be quiet. Seest thou here, this is the mouth o' the cell: no noise, and enter. Do that good mischief which may make this island thine own for ever, and I, thy Caliban, for aye thy foot-licker."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Give me thy hand. I do begin to have bloody thoughts."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "O King Stephano! O peer! O worthy Stephano! Look what a wardrobe here is for thee!",
+      "annotation": "'O King Stephano! O peer!' echoes a popular ballad of the period about a king named Stephano — the joke being that Trinculo now addresses his drunken companion with the same words."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Let it alone, thou fool; it is but trash."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "O, ho, monster! We know what belongs to a frippery.",
+      "annotation": "'Frippery': a second-hand clothes shop."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Trinculo begins pulling clothes from the line."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Put off that gown, Trinculo; by this hand, I'll have that gown."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Thy grace shall have it."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "The dropsy drown this fool! What do you mean to dote thus on such luggage?",
+      "annotation": "'Dropsy': a disease causing extreme fluid retention and swelling. 'Luggage': here, worthless baggage."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Let's alone and do the murder first: if he awake, from toe to crown he'll fill our skins with pinches, make us strange stuff."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Be you quiet, monster. Mistress line, is not this my jerkin?",
+      "annotation": "'Jerkin': a close-fitting jacket. 'Mistress line' is the clothes-line itself, addressed as if it were a person."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Now is the jerkin under the line: now, jerkin, you are like to lose your hair and prove a bald jerkin.",
+      "annotation": "A pun: sailors who crossed the equator ('the line') were said to lose their hair from fever. A jerkin without hair is just bare leather."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "Do, do: we steal by line and level, an't like your grace.",
+      "annotation": "'By line and level': precisely, methodically — a builder's phrase for working with a plumb line and spirit level. Used here as wordplay on the clothes-line."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I thank thee for that jest; here's a garment for't: wit shall not go unrewarded while I am king of this country."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "'Steal by line and level' is an excellent pass of pate; there's another garment for't."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I will have none on't: we shall lose our time, and all be turned to barnacles, or to apes with foreheads villainous low.",
+      "annotation": "Barnacles: barnacle geese, believed in folklore to hatch from barnacles on driftwood. Both barnacles and apes were types of degraded or enchanted transformation."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Monster, lay-to your fingers: help to bear this away where my hogshead of wine is, or I'll turn you out of my kingdom."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "And this."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Ay, and this."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "A noise of hunters. Spirits in the shape of hounds enter, harrying Caliban, Stephano, and Trinculo. Prospero and Ariel set them on."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Hey, Mountain, hey!"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Silver! there it goes, Silver!"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Fury, Fury! there, Tyrant, there! Hark! Hark!",
+      "annotation": "The hounds' names — Mountain, Silver, Fury, Tyrant — are typical hunting dog names of the period."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban, Stephano, and Trinculo are driven out."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Go charge my goblins that they grind their joints with dry convulsions, shorten up their sinews with aged cramps, and more pinch-spotted make them than pard or cat o' mountain.",
+      "annotation": "'Pard': leopard. 'Cat o' mountain': wildcat."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Hark, they roar!"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Let them be hunted soundly. At this hour lie at my mercy all mine enemies: shortly shall all my labours end, and thou shalt have the air at freedom: for a little follow, and do me service."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They exit."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act IV, Scene 1."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act V, Scene 1 — Before Prospero's cell."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero enters in his magic robes. Ariel enters with him."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Now does my project gather to a head: my charms crack not; my spirits obey; and time goes upright with his carriage.",
+      "annotation": "'Time goes upright with his carriage': time carries its burden without bending — everything is on schedule."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "How's the day?"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "On the sixth hour; at which time, my lord, you said our work should cease."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I did say so, when first I raised the tempest. Say, my spirit, how fares the king and 's followers?"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Confined together in the same fashion as you gave in charge, just as you left them; all prisoners, sir, in the lime-grove which weather-fends your cell;",
+      "annotation": "'Weather-fends': shelters from the weather."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "they cannot budge till your release. The king, his brother and yours, abide all three distracted and the remainder mourning over them, brimful of sorrow and dismay;"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "but chiefly him that you termed, sir, 'the good old lord Gonzalo'; his tears run down his beard, like winter's drops from eaves of reeds.",
+      "annotation": "'Eaves of reeds': the overhanging edge of a thatched roof."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Your charm so strongly works 'em that if you now beheld them, your affections would become tender."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Dost thou think so, spirit?"
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Mine would, sir, were I human."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "And mine shall. Hast thou, which art but air, a touch, a feeling of their afflictions, and shall not myself, one of their kind, that relish all as sharply, passion as they, be kindlier moved than thou art?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Though with their high wrongs I am struck to the quick, yet with my nobler reason 'gainst my fury do I take part: the rarer action is in virtue than in vengeance."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "They being penitent, the sole drift of my purpose doth extend not a frown further. Go release them, Ariel: my charms I'll break, their senses I'll restore, and they shall be themselves."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "I'll fetch them, sir."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero draws a circle on the ground."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Ye elves of hills, brooks, standing lakes and groves, and ye that on the sands with printless foot do chase the ebbing Neptune and do fly him when he comes back;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "you demi-puppets that by moonshine do the green sour ringlets make, whereof the ewe not bites, and you whose pastime is to make midnight mushrooms,",
+      "annotation": "'Green sour ringlets': fairy rings — circles of darker grass which folklore attributed to fairies dancing. 'Midnight mushrooms': mushrooms that appear overnight, also attributed to fairy activity."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "that rejoice to hear the solemn curfew; by whose aid, weak masters though ye be, I have bedimmed the noontide sun, called forth the mutinous winds,"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and 'twixt the green sea and the azured vault set roaring war: to the dread rattling thunder have I given fire and rifted Jove's stout oak with his own bolt;",
+      "annotation": "'Azured vault': the blue sky. 'Rifted Jove's stout oak with his own bolt': split Jupiter's sacred oak tree with a lightning bolt — Jupiter being the Roman god of thunder."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "the strong-based promontory have I made shake and by the spurs plucked up the pine and cedar:"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "graves at my command have waked their sleepers, oped, and let 'em forth by my so potent art.",
+      "annotation": "This speech is closely modelled on a speech by Medea in Ovid's Metamorphoses — one of the most explicit borrowings in the play."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "But this rough magic I here abjure, and, when I have required some heavenly music, which even now I do, to work mine end upon their senses that this airy charm is for,"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I'll break my staff, bury it certain fathoms in the earth, and deeper than did ever plummet sound I'll drown my book."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Solemn music. Ariel enters leading Alonso, Gonzalo, Sebastian, Antonio, Adrian, and Francisco, all charmed. They enter the circle Prospero has made and stand there."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "A solemn air and the best comforter to an unsettled fancy cure thy brains, now useless, boiled within thy skull!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "To Gonzalo."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "There stand, for you are spell-stopped. Holy Gonzalo, honourable man, mine eyes, even sociable to the show of thine, fall fellowly drops.",
+      "annotation": "'Sociable to the show of thine': sympathetic to what your eyes are showing — Gonzalo's tears prompt Prospero's own."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "The charm dissolves apace; and as the morning steals upon the night, melting the darkness, so their rising senses begin to chase the ignorant fumes that mantle their clearer reason."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "To Alonso."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Good Alonso, be well: the wrongst that I ever suffered was an injury done to thee; not a word of grief but as it wounds thee."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "To Sebastian and Antonio."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Flesh and blood, you, brother mine, that entertained ambition, expelled remorse and nature; who, with Sebastian, whose inward pinches therefore are most strong, would here have killed your king;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I do forgive thee, unnatural though thou art."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel helps Prospero change out of his magic robes and into the clothes of the Duke of Milan."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I will discase me, and myself present as I was sometime Milan.",
+      "annotation": "'Discase': undress, shed a disguise. 'As I was sometime Milan': as I was when I was Duke of Milan."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Quickly, spirit; thou shalt ere long be free."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel sings as he helps Prospero dress."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Where the bee sucks, there suck I: in a cowslip's bell I lie; there I couch when owls do cry. On the bat's back I do fly after summer merrily.",
+      "annotation": "Ariel's song of anticipated freedom. Cowslip: a small yellow wildflower."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Merrily, merrily shall I live now under the blossom that hangs on the bough."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Why, that's my dainty Ariel! I shall miss thee: but yet thou shalt have freedom: so, so, so."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "To the king's ship, invisible as thou art: there shalt thou find the mariners asleep under the hatches; the master and the boatswain being awake, enforce them to this place, and presently, I prithee."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "I drink the air before me, and return or ere your pulse twice beat."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "All torment, trouble, wonder and amazement inhabits here: some heavenly power guide us out of this fearful country!"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Behold, sir king, the wronged Duke of Milan, Prospero: for more assurance that a living prince does now speak to thee, I embrace thy body;"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero embraces Alonso."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and to thee and thy company I bid a hearty welcome."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Whether thou be'st he or no, or some enchanted trifle to abuse me, as late I have been, I not know: thy pulse beats as of flesh and blood;"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "and, since I saw thee, the affliction of my mind amends, with which, I fear, a madness held me: this must crave, an if this be at all, a most strange story."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Thy dukedom I resign and do entreat thou pardon me my wrongs. But how should Prospero be living and be here?"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Be't so, first: and look thou be true; do not give dalliance too much the rein."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "First, noble friend, let me embrace thine age, whose honour cannot be measured or confined.",
+      "annotation": "'Thine age': your old age — a respectful address."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero embraces Gonzalo."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Whether this be or be not, I'll not swear."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "You do yet taste some subtleties o' the isle, that will not let you believe things certain.",
+      "annotation": "'Subtleties': sugar confections moulded into elaborate shapes, served at banquets — often deceptively lifelike. A play on the island's illusions."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Welcome, my friends all!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Aside to Sebastian and Antonio."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "But you, my brace of lords, were I so minded, I here could pluck his highness' frown upon you and justify you traitors: at this time I will tell no tales.",
+      "annotation": "'Justify': prove, demonstrate."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "The devil speaks in him."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "No."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "To Antonio."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "For you, most wicked sir, whom to call brother would even infect my mouth, I do forgive thy rankest fault; all of them; and require my dukedom of thee, which perforce, I know, thou must restore."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "If thou be'st Prospero, give us particulars of thy preservation; how thou hast met us here, who three hours since were wracked upon this shore;"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "where I have lost — how sharp the point of it! — my dear son Ferdinand."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I am woe for't, sir."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Irreparable is the loss; and patience says it is past her cure."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I rather think you have not sought her help, of whose soft grace for the like loss I have her sovereign aid and rest myself content."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "You the like loss?"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "As great to me as late; and, supportable to make the dear loss, have I means much weaker than you may call to comfort you, for I have lost my daughter."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "A daughter? O heavens, that they were living both in Naples, the king and queen there! That they were, I wish myself were mudded in that oozy bed where my son lies.",
+      "annotation": "Alonso is imagining a marriage between Ferdinand and Miranda — not knowing Ferdinand is alive."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "When did you lose your daughter?"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "In this last tempest."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I perceive these lords at this encounter do so much admire that they devour their reason and scarce think their eyes do offices of truth, their words are natural breath.",
+      "annotation": "'Admire': wonder, be astonished. 'Do offices of truth': function accurately."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "But, howsoever you have been jostled from your senses, know for certain that I am Prospero and that very duke which was thrust forth of Milan, who most strangely upon this shore, where you were wrecked, was landed, to be the lord on't."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "No more yet of this; for 'tis a chronicle of day by day, not a relation for a breakfast nor befitting this first meeting. Welcome, sir; this cell's my court:"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "here have I few attendants and subjects none abroad: pray you, look in."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Prospero opens the entrance to the cell. Ferdinand and Miranda are revealed inside, playing chess."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Sweet lord, you play me false."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "No, my dear'st love, I would not for the world."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "Yes, for a score of kingdoms you should wrangle, and I would call it fair play.",
+      "annotation": "Chess was a conventional image of courtship in Renaissance literature, with the game's moves standing in for negotiation between lovers."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "If this prove a vision of the island, one dear son shall I twice lose."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "A most high miracle!"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Though the seas threaten, they are merciful; I have cursed them without cause.",
+      "annotation": "Ferdinand cursed the sea when he thought it had drowned his father. He now knows his father is alive."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ferdinand kneels before Alonso."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Now all the blessings of a glad father compass thee about! Arise, and say how thou camest here."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
+      "text": "O, wonder! How many goodly creatures are there here! How beauteous mankind is! O brave new world, that has such people in't!",
+      "annotation": "'Brave': fine, splendid — the standard Elizabethan sense. Miranda has grown up seeing almost no one but her father and Caliban."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "'Tis new to thee."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "What is this maid with whom thou wast at play? Your eld'st acquaintance cannot be three hours: is she the goddess that hath severed us, and brought us thus together?"
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "Sir, she is mortal; but by immortal Providence she's mine: I chose her when I could not ask my father for his approbation."
+    },
+    {
+      "type": "character",
+      "sender": "Ferdinand",
+      "text": "She is daughter to this famous Duke of Milan, of whom so often I have heard renown, but never saw before; of whom I have received a second life; and second father this lady makes him to me."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I am hers: but, O, how oddly will it sound that I must ask my child forgiveness!"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "There, sir, stop: let us not burthen our remembrance with a heaviness that's gone."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I have inly wept, or should have spoke ere now. Look down, you gods, and on this couple drop a blessed crown!"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "For it is you that have chalked forth the way which brought us hither.",
+      "annotation": "'Chalked forth': marked out in chalk, as a route or course."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I say, Amen, Gonzalo!"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Was Milan thrust from Milan, that his issue should become kings of Naples? O, rejoice beyond a common joy, and set it down with gold on lasting pillars:",
+      "annotation": "Gonzalo means: was Prospero driven out of Milan so that his daughter could end up queen of Naples? He frames the exile as a necessary step to a greater outcome."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "in one voyage did Claribel her husband find at Tunis; and Ferdinand, her brother, found a wife where he himself was lost; Prospero his dukedom in a poor isle; and all of us ourselves when no man was his own.",
+      "annotation": "Claribel is Alonso's daughter, married to the King of Tunis earlier in the voyage — mentioned in Act II. Gonzalo is drawing all the threads together."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel enters with the Shipmaster and Boatswain."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "O, look, sir, look, sir! Here is more of us: I prophesied, if a gallows were on land, this fellow could not drown.",
+      "annotation": "A reference to the Boatswain, whom Gonzalo cursed in Act I, saying he looked born to be hanged — meaning he'd never drown."
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "The best news is, that we have safely found our king and company; the next, our ship — which, but three glasses since, we gave out split — is tight and yare and bravely rigged as when we first put out to sea.",
+      "annotation": "'Three glasses': three hours — a ship's glass being a half-hour sandglass. 'Tight and yare': watertight and ready to sail."
+    },
+    {
+      "type": "character",
+      "sender": "Ariel",
+      "text": "Was't well done?",
+      "annotation": "Aside to Prospero."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Bravely, my diligence. Thou shalt be free.",
+      "annotation": "Aside to Ariel."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "These are not natural events; they strengthen from strange to stranger. Say, how came you hither?"
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "If I did think, sir, I were well awake, I'd strive to tell you. We were dead of sleep, and — how we know not — all clapped under hatches;"
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "where but even now with strange and several noises of roaring, shrieking, howling, jingling chains and more diversity of sounds, all horrible, we were awaked;"
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "straightway, at liberty; where we, in all her trim, freshly beheld our royal, good and gallant ship, our master capering to see her: on a trice, so please you, even in a dream, were we divided from them and were brought moping hither.",
+      "annotation": "'Moping': dazed, in a stupor."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Was't so? Then say how went things on the shore?"
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Some oracle must rectify our knowledge."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Sir, my liege, do not infest your mind with beating on the strangeness of this business; at picked leisure which shall be shortly, single I'll resolve you, which to you shall seem probable, of every these happened accidents;",
+      "annotation": "'Infest': trouble, disturb. 'Single': privately, one to one."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "till when, be cheerful, and think of each thing well."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Aside to Ariel."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Come hither, spirit: set Caliban and his companions free; untie the spell."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "How fares my gracious sir? There are yet missing of your company some few odd lads that you remember not."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel drives in Caliban, Stephano, and Trinculo, still in their stolen clothes."
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "Every man shift for all the rest, and let no man take care for himself; for all is but fortune.",
+      "annotation": "A garbled inversion of 'every man for himself' — Stephano is still drunk."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "If these be true spies which I wear in my head, here's a goodly sight."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "O Setebos, these be brave spirits indeed! How fine my master is! I am afraid he will chastise me.",
+      "annotation": "Setebos: a god of the Patagonian people, mentioned in travel accounts of the period. Shakespeare assigns this deity to Caliban's mother Sycorax."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Ha, ha! What things are these, my lord Antonio? Will money buy 'em?"
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Very like; one of them is a plain fish, and, no doubt, marketable.",
+      "annotation": "Sebastian and Antonio immediately think in terms of commercial display — Trinculo had the same instinct in Act II when he first saw Caliban."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Mark but the badges of these men, my lords, then say if they be true. This mis-shapen knave, his mother was a witch, and one so strong that could control the moon, make flows and ebbs,"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "and deal in her command without her power: these three have robbed me; and this demi-devil — for he's a bastard one — had plotted with them to take my life.",
+      "annotation": "'Badges': identifying marks on a servant's livery — here the stolen clothing is evidence of the theft."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Two of these fellows you must know and own; this thing of darkness I acknowledge mine.",
+      "annotation": "Prospero takes responsibility for Caliban — 'this thing of darkness I acknowledge mine' is one of the most discussed lines in the play."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "I shall be pinched to death."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "Is not this Stephano, my drunken butler?"
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "He is drunk now: where had he wine?"
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "And Trinculo is reeling ripe: where should they find this grand liquor that hath gilded 'em?",
+      "annotation": "'Gilded': flushed red with drink."
+    },
+    {
+      "type": "character",
+      "sender": "Trinculo",
+      "text": "I have been in such a pickle since I saw you last that, I fear me, will never out of my bones: I shall not fear fly-blowing.",
+      "annotation": "'Pickle': brine used for preserving food — Trinculo is saying he's been so thoroughly soaked that he won't rot. 'Fly-blowing': contamination by flies laying eggs in meat."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Why, how now, Stephano!"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "O, touch me not; I am not Stephano, but a cramp."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "You'd be king o' the isle, sirrah?"
+    },
+    {
+      "type": "character",
+      "sender": "Stephano",
+      "text": "I should have been a sore one then."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "This is a strange thing as e'er I looked on.",
+      "annotation": "Alonso is looking at Caliban."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "He is as disproportioned in his manners as in his shape. Go, sirrah, to my cell; take with you your companions; as you look to have my pardon, trim it handsomely."
+    },
+    {
+      "type": "character",
+      "sender": "Caliban",
+      "text": "Ay, that I will; and I'll be wise hereafter and seek for grace. What a thrice-double ass was I, to take this drunkard for a god and worship this dull fool!"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Go to; away!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Caliban, Stephano, and Trinculo exit."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Sir, I invite your highness and your train to my poor cell, where you shall take your rest for this one night; which, part of it, I'll waste with such discourse as, I not doubt, shall make it go quick away;"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "the story of my life and the particular accidents gone by since I came to this isle: and in the morn I'll bring you to your ship and so to Naples,"
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "where I have hope to see the nuptial of these our dear-beloved solemnized; and thence retire me to my Milan, where every third thought shall be my grave."
+    },
+    {
+      "type": "character",
+      "sender": "Alonso",
+      "text": "I long to hear the story of your life, which must take the ear strangely."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "I'll deliver all; and promise you calm seas, auspicious gales and sail so expeditious that shall catch your royal fleet far off."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Aside to Ariel."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "My Ariel, chick, that is thy charge: then to the elements be free, and fare thou well!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Ariel exits for the last time."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Please you, draw near."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "All exit."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of Act V, Scene 1."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Epilogue — Prospero alone on stage."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Now my charms are all o'erthrown, and what strength I have's mine own, which is most faint: now, 'tis true, I must be here confined by you, or sent to Naples.",
+      "annotation": "The Epilogue steps outside the play's fiction. Prospero addresses the theatre audience directly, asking them to release him by applauding — a conventional ending for a masque."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Let me not, since I have my dukedom got and pardoned the deceiver, dwell in this bare island by your spell; but release me from my bands with the help of your good hands."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Gentle breath of yours my sails must fill, or else my project fails, which was to please.",
+      "annotation": "'Gentle breath': applause, or the audience's approving murmur."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "Now I want spirits to enforce, art to enchant, and my ending is despair, unless I be relieved by prayer,",
+      "annotation": "'Want': lack."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "which pierces so that it assaults mercy itself and frees all faults."
+    },
+    {
+      "type": "character",
+      "sender": "Prospero",
+      "text": "As you from crimes would pardoned be, let your indulgence set me free.",
+      "annotation": "The Epilogue ends the play on the same theme of forgiveness it has been working through."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "End of The Tempest."
     }
   ]
 }
