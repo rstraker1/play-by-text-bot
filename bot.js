@@ -330,6 +330,9 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = buildKeyboard(play, playId, lineIndex, progress);
 
   try {
+    if (line.image) {
+      await bot.sendPhoto(chatId, line.image);
+    }
     const sent = await bot.sendMessage(chatId, formatLine(play, line), {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: keyboard }

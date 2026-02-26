@@ -101,7 +101,7 @@ The characters map also accepts plain emoji strings (`"Boatswain": "⚓"`) for b
 
 - **type**: `"stage"` for stage directions (rendered in italics), `"character"` for dialogue.
 - **characters**: Define each speaker's emoji and voice once here — no need to repeat on every line.
-- **annotation**: Explain archaic words, context, or significance. Optional per line, but valuable. Lines without annotations simply won't show the 🔍 button.
+- **annotation**: Explain difficult words, concepts, context, or significance. Optional per line, but valuable. Lines without annotations simply won't show the 🔍 button.  Don't get too verbose or editorial / opiniony.
 - **image**: Optional cover image URL, shown when the play is selected.
 - Keep lines reasonably short — this is messaging, not a book.
 - Split long speeches into multiple messages.
