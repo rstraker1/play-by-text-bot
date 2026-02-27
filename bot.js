@@ -424,15 +424,18 @@ async function handleMessage(msg) {
     });
 
     if (playList.length === 0) {
-      await bot.sendMessage(chatId, '\u{1F3AD} *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
+      await bot.sendMessage(chatId, '🎭 *Play by Text*\n\nNo plays available yet.', { parse_mode: 'Markdown' });
       return;
     }
 
-    await bot.sendMessage(chatId,
-      '     \u{1F3AD} Choose a play to begin:\n\n_Type /start anytime to return here, & /help for more info._', {
-      parse_mode: 'Markdown',
-      reply_markup: { inline_keyboard: playList }
-    });
+    await bot.sendPhoto(chatId,
+      'https://github.com/rstraker1/play-by-text-bot/blob/master/images/tempest-1-opening-storm.jpg?raw=true',
+      {
+        caption: '🎭 *Play by Text*\n_Plays delivered to you, one message at a time._',
+        parse_mode: 'Markdown',
+        reply_markup: { inline_keyboard: playList }
+      }
+    );
 
   } else if (text === '/audio') {
     const progress = getUserProgress(chatId);
