@@ -1,0 +1,327 @@
+{
+  "id": "stronger",
+  "title": "The Stronger",
+  "author": "August Strindberg",
+  "emoji": "🍷",
+  "description": "Two actresses meet in a Stockholm café on Christmas Eve. One talks. The other never speaks. By the end, you're not sure which of them has won.",
+  "introAnnotation": "Written in 1889 and first performed in Copenhagen the same year, The Stronger was created for Strindberg's own short-lived Scandinavian Experimental Theatre. It runs about fifteen minutes in performance and was originally designed so the demanding speaking role could anchor the evening while a less experienced actress handled the silent one. Which woman is 'the stronger' — the one going home to husband and children, or the one sitting alone in the café? Strindberg refuses to say. The play was partly a response to Ibsen's A Doll's House, asking what female independence actually looks like when you strip away the speeches.",
+  "narrator": "en-GB-ThomasNeural",
+  "defaultVoice": "en-GB-LibbyNeural",
+  "dramatis": [
+    "Mrs. X — a married actress",
+    "Mrs. Y — an unmarried actress, who does not speak"
+  ],
+  "characters": {
+    "Stage": {
+      "emoji": "📜",
+      "voice": null
+    },
+    "Mrs. X": {
+      "emoji": "🎭",
+      "voice": "en-GB-LibbyNeural"
+    },
+    "Mrs. Y": {
+      "emoji": "🍷",
+      "voice": "en-GB-SoniaNeural"
+    }
+  },
+  "lines": [
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act I — A corner of a ladies' café in Stockholm. Christmas Eve.",
+      "annotation": "A ladies' café was a respectable establishment where women could sit alone in public without a male escort — a relatively new social institution in 1880s Stockholm. The Christmas Eve setting does specific work: everyone else is at home with family. Mrs. Y's aloneness here is not incidental."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y sits alone at a corner table, a half-empty beer bottle before her. She reads an illustrated magazine. A waiter moves in the background."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Enter Mrs. X, in winter coat and hat, arms full of shopping parcels."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "My dear — sitting here alone on Christmas Eve! Like a bachelor!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y looks up from her magazine, nods pleasantly."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🙂"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Do you know it really makes me sad to see you? Alone — alone in a café, on Christmas Eve of all evenings."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "She sits down, begins pulling off her gloves. Mrs. Y watches, untroubled."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😌"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "It reminds me of a bridal party I once saw in a Paris restaurant. The bride was reading a comic paper — while the bridegroom played billiards with the witnesses."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "If this is how it begins, I thought, what will it end like? He was playing billiards on his wedding evening! And she had to sit there reading, or stare at him.",
+      "annotation": "The digression seems like small talk, but the image maps directly onto the scene in front of her: a woman sitting alone with a magazine while the man she expected has gone elsewhere."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y returns to her magazine."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😶"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "What a difference between our situations, though! My three little darlings are at home right now, hanging up their stockings for tomorrow."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Bob has no idea what I've bought today. I've been at it since morning. [begins unpacking parcels onto the table]"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Little figures for the children — and look at this! [holds up a toy cannon] A cannon, for Bob. He's such a child still. He absolutely loves this kind of thing."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y glances at the toy, smiles faintly, goes back to reading."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🙂"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "And these — [produces a pair of embroidered slippers] — slippers, for Bob. I embroidered them myself. He chose the pattern."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y sets down her magazine. She looks at the slippers.",
+      "annotation": "The first real break in Mrs. Y's composure. The slippers — or the pattern on them — mean something."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "👀"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Tulips — he adores tulips. He can't abide carnations, never could. I had to do tulips.",
+      "annotation": "A small domestic detail, planted casually. It will matter."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "A pause. Mrs. Y looks away and takes a slow sip of beer."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😶"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "He is dreadfully jealous, Bob. He can't bear me reading comic papers on the train — afraid I'll meet someone I know, or notice other men."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "He doesn't like me on the stage, either. But I do it anyway — a point of honour. I need to be respected."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y raises an eyebrow."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🤨"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Still — I've learned how to manage him. I simply adopt all his views. When he takes an interest in something, I take the same interest. He reads Scott, so I read Scott."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "He likes claret, so I've trained myself to like claret. He can't bear herring — well, neither can I now. He loves salmon — so I love salmon. It is not so bad, really. [laughs]"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y fixes her with a long, unreadable look.",
+      "annotation": "The list — claret, herring, salmon — reads as comic self-deprecation. But each item is evidence she hasn't yet processed."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😐"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "At any rate, I have a husband who doesn't stray. That is something, isn't it."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y is very still."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🙂"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "[noticing the smile, unsettled] I visited you once — two years ago now. Do you remember? Your apartment was beautifully kept. There were tulips everywhere.",
+      "annotation": "Two years prior lines up with when Mrs. Y's engagement was broken off. Strindberg never explains why it ended."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Silence. Mrs. Y's face gives nothing away."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😶"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "When I was there — I noticed something. Your tastes, your arrangements, the things you talked about... they reminded me of Bob. The same things you loved, he loved."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "I thought it was chance. Or I didn't think about it at all. [a pause] But he was with you first, wasn't he.",
+      "annotation": "Not a question. Mrs. X is not asking — she is arriving at something she has apparently known without knowing."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y looks up slowly."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🙂"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "The claret — that was yours. The salmon. The tulips. The way he is. He learned to love what you loved, and then he brought it all home to me and called it his own."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "I have been living in your house without knowing it. Your soul crept into mine like a worm into an apple — eating and eating — until nothing is left but the rind.",
+      "annotation": "The apple and worm image is Strindberg's own. The metaphor is precise: the damage is invisible from the outside, and by the time you see it, it is already done."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y smiles faintly. She takes a sip of beer."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "🙂"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "[standing] I thought I was escaping you when I married him. Instead I walked straight toward you. You sit here alone — and yet you are everywhere in my house."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "You sleep in my bed. You sit at my table. I look in my mirror and I think — is that me, or is it the shape of what you were?",
+      "annotation": "The idea that a person's identity can be formed entirely by someone else's prior influence — without their knowledge or consent — is a preoccupation throughout Strindberg's work."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y's expression does not change.",
+      "annotation": "Strindberg leaves no final indication of what Mrs. Y feels. Productions have played this moment as quiet triumph, as grief, as simple blankness. It is deliberately unresolvable — the audience must settle it themselves."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. Y",
+      "text": "😶"
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "[quietly] You are the stronger, Amelie. Whatever happened between you and him — it has left no mark on you. But it has made me everything I am.",
+      "annotation": "The title, finally spoken. The irony Strindberg is after: to be 'the stronger' here means to be unaffected — which may also mean to be unloved, unmoved, and finally alone. The word refuses to settle into praise or pity."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "Still. You will never have Bob. You will never have the children. You will never have Christmas tomorrow morning."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "She gathers her parcels slowly. Buttons her coat."
+    },
+    {
+      "type": "character",
+      "sender": "Mrs. X",
+      "text": "All the same — I am grateful to you. You taught me how to love my husband. I think I owe you thanks for that.",
+      "annotation": "The final line. Sincerely meant, or a weapon? Pity, or a form of cruelty? Mrs. X is going home to a marriage this woman shaped. Whether that is a loss or a gift, she cannot say."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exit Mrs. X."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Mrs. Y sits alone, as before. After a moment, she picks up her magazine."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exeunt. End."
+    }
+  ]
+}

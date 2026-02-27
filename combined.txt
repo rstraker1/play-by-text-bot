@@ -13,6 +13,9 @@ C:.
 ª       tempest-1-opening-storm.jpg
 ª       
 +---plays
+        bear.json
+        proposal.json
+        stronger.json
         tempest.json
         
 
@@ -354,6 +357,9 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const keyboard = buildKeyboard(play, playId, lineIndex, progress);
 
   try {
+    if (line.image) {
+      await bot.sendPhoto(chatId, line.image);
+    }
     const sent = await bot.sendMessage(chatId, formatLine(play, line), {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: keyboard }
@@ -796,7 +802,7 @@ The characters map also accepts plain emoji strings (`"Boatswain": "⚓"`) for b
 
 - **type**: `"stage"` for stage directions (rendered in italics), `"character"` for dialogue.
 - **characters**: Define each speaker's emoji and voice once here — no need to repeat on every line.
-- **annotation**: Explain difficult words, concepts, context, or significance. Optional per line, but valuable. Lines without annotations simply won't show the 🔍 button.  Don't get too verbose or editorial / opiniony.
+- **annotation**: Most lines won't need one. Annotate when something would genuinely escape a modern reader: gloss difficult words, explain historical context, identify who's who, or flag structural significance (a callback, a real-world source). Keep it factual and specific. Don't tell readers what to feel about it. Stage directions that belong in the text (e.g. a character kneeling mid-scene) should be their own `"stage"` entry, not buried in an annotation.
 - **image**: Optional cover image URL, shown when the play is selected.
 - Keep lines reasonably short — this is messaging, not a book.
 - Split long speeches into multiple messages.
@@ -835,7 +841,7 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
 - Starting a new play works normally
 - Audio preference resets to off (default)
 
-=== plays/tempest.json ===
+=== plays/tempest.json (first 350 lines) ===
 {
   "id": "tempest",
   "title": "The Tempest",
@@ -853,8 +859,8 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
     "Caliban — a native of the island, enslaved by Prospero",
     "Alonso — King of Naples",
     "Ferdinand — his son",
-    "Sebastian — Alonso’s brother",
-    "Antonio — Prospero’s brother, usurper of his dukedom",
+    "Sebastian — Alonso's brother",
+    "Antonio — Prospero's brother, usurper of his dukedom",
     "Gonzalo — an honest old counselor",
     "Adrian & Francisco — lords attending the King",
     "Trinculo — a jester",
@@ -939,6 +945,10 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
     "Juno": {
       "emoji": "🕊️",
       "voice": "en-GB-MaisieNeural"
+    },
+    "Mariners": {
+      "emoji": "⛵",
+      "voice": "en-GB-AlfieNeural"
     }
   },
   "lines": [
@@ -958,85 +968,83 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
       "type": "character",
       "sender": "Boatswain",
       "text": "Here, master. What cheer?",
-      "annotation": "'What cheer?' means 'What's the situation?' or 'What are your orders?' A common sailor's greeting."
+      "annotation": "'What cheer?' means 'What's the situation?' or 'What are your orders?' — a common sailor's greeting."
     },
     {
       "type": "character",
       "sender": "Shipmaster",
       "text": "Good, speak to the mariners. Fall to't yarely, or we run ourselves aground. Bestir, bestir!",
-      "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving. He's ordering the crew to work fast or they'll crash onto rocks."
+      "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Enter Mariners.",
-      "annotation": "The common sailors enter, ready to work the ship through the storm."
+      "text": "Enter Mariners."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Heigh, my hearts! Cheerly, cheerly, my hearts! Yare, yare! Take in the topsail. Tend to the master's whistle.",
-      "annotation": "'Heigh, my hearts!' is a rallying cry, like 'Come on, lads!' 'Cheerly' means with spirit. He's encouraging the sailors while ordering them to lower the topsail (a sail near the top of the mast). The master's whistle signals commands."
+      "annotation": "'Heigh, my hearts!' — a rallying cry, like 'Come on, lads!' 'Cheerly' means with spirit. 'Take in the topsail' — lower the sail near the top of the mast. The master's whistle signals commands."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Blow, till thou burst thy wind, if room enough!",
-      "annotation": "He's addressing the storm itself: 'Blow as hard as you want, as long as we have sea room to maneuver!' A defiant, almost reckless challenge to nature."
+      "annotation": "He's addressing the storm directly: 'Blow as hard as you want — as long as we have sea room to maneuver.'"
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "Enter Alonso, Sebastian, Antonio, Ferdinand, Gonzalo, and others.",
-      "annotation": "The nobles stumble onto deck. Alonso is King of Naples. Sebastian is his brother. Antonio is Prospero's brother who usurped his dukedom (the villain). Ferdinand is the King's son. Gonzalo is an honest old counselor."
+      "annotation": "The nobles stumble onto deck. Alonso is King of Naples. Sebastian is his brother. Antonio is Prospero's brother who usurped his dukedom. Ferdinand is the King's son. Gonzalo is an honest old counselor."
     },
     {
       "type": "character",
       "sender": "Alonso",
-      "text": "Good Boatswain, have care. Where’s the master? Play the men.",
-      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work' or 'make them act like men.' But he's giving orders on a ship he doesn't command."
+      "text": "Good Boatswain, have care. Where's the master? Play the men.",
+      "annotation": "The King tries to take charge. 'Play the men' means 'put the men to work.' But he's giving orders on a ship he doesn't command."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "I pray now, keep below.",
-      "annotation": "A remarkably curt response to a king: 'Please, stay below deck.' The Boatswain is too busy trying to save the ship to observe courtly manners. This blunt dismissal of royalty sets up one of the play's major themes."
+      "annotation": "'Please, stay below deck.' The Boatswain is too busy trying to save the ship to observe courtly manners."
     },
     {
       "type": "character",
       "sender": "Antonio",
-      "text": "Where is the master, Boatswain?",
-      "annotation": "Antonio also demands to see the captain, ignoring the Boatswain's request to go below."
+      "text": "Where is the master, Boatswain?"
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "Do you not hear him? You mar our labour. Keep your cabins; you do assist the storm.",
-      "annotation": "'You mar our labour' means you're getting in the way of our work. 'You assist the storm' — you're making things worse by being here. A sharp rebuke to nobility."
+      "annotation": "'You mar our labour' — you're getting in our way. 'You assist the storm' — you're making things worse by being here."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Nay, good, be patient.",
-      "annotation": "Gonzalo, the kind old counselor, tries to calm things down. He's speaking to his fellow nobles, urging patience with the harried crew."
+      "annotation": "Gonzalo, the kind old counselor, urging patience — addressing his fellow nobles, not the crew."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "When the sea is. Hence! What cares these roarers for the name of king? To cabin! Silence; trouble us not.",
-      "annotation": "'Hence!' means go away. 'Roarers' refers to the roaring waves and wind. His point: the sea doesn't care about social rank. A king drowns as easily as a commoner. This was radical, almost revolutionary stuff for an audience in 1611."
+      "annotation": "'Hence!' means go away. 'Roarers' — the roaring waves and wind. His point: the sea doesn't care about social rank."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Good, yet remember whom thou hast aboard.",
-      "annotation": "A gentle reminder: there's a king on this ship. But even Gonzalo seems to half-acknowledge the Boatswain's point — nature doesn't recognize human hierarchies."
+      "annotation": "A reminder that the Boatswain is speaking to a king."
     },
     {
       "type": "character",
       "sender": "Boatswain",
       "text": "None that I more love than myself. You are a councillor; if you can command these elements to silence and work the peace of the present, we will not hand a rope more. Use your authority.",
-      "annotation": "'If your political authority can calm the storm, go ahead — we'll stop working and watch.' He's exposing the limits of earthly power against nature. The Boatswain is one of Shakespeare's great minor characters — honest, competent, and unimpressed by rank."
+      "annotation": "'If your political authority can calm the storm, go ahead — we'll stop working and watch.' He's testing the limits of earthly power against nature."
     },
     {
       "type": "character",
@@ -1047,26 +1055,140 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Exit.",
-      "annotation": "The Boatswain leaves to continue his work, dismissing the nobles entirely."
+      "text": "Exit."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "I have great comfort from this fellow. Methinks he hath no drowning mark upon him; his complexion is perfect gallows.",
-      "annotation": "Dark humor: Gonzalo finds comfort because the Boatswain looks like the type who'd be hanged, not drowned. An old superstition held that a man born to hang can't drown. 'Perfect gallows' means his face is destined for the noose."
+      "annotation": "Dark humor: Gonzalo finds comfort because the Boatswain looks destined for the gallows, not drowning. An old superstition held that a man born to hang can't drown. 'Perfect gallows' means his face is destined for the noose."
     },
     {
       "type": "character",
       "sender": "Gonzalo",
       "text": "Stand fast, good Fate, to his hanging. Make the rope of his destiny our cable, for our own doth little advantage. If he be not born to be hanged, our case is miserable.",
-      "annotation": "Gonzalo continues his gallows humor: let Fate make sure this man hangs — because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
+      "annotation": "Gonzalo continues his gallows joke: let Fate make sure this man hangs — because that would mean we survive this storm. 'Our cable' (anchor rope) isn't helping; maybe his destiny to hang will save us. If he's NOT destined to hang, we're doomed."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "End of excerpt. The scene continues with the ship apparently sinking — though all will survive, as we'll learn.",
-      "annotation": "The full scene ends with everyone believing they'll drown. But this tempest is an illusion, controlled by Prospero from his island. No one is harmed. The play's title comes from this opening storm, which is both literal and metaphorical — a disruption that will lead to reconciliation and restoration."
-    }
-  ]
-}
+      "text": "Re-enter Boatswain.",
+      "annotation": "The Boatswain returns as the storm reaches its peak. The nobles, instead of going below as ordered, have followed him back on deck."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "A pox o' your throat, you bawling, blasphemous, incharitable dog!",
+      "annotation": "'Incharitable' — lacking Christian charity. Sebastian loses his composure as the panic sets in."
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "Work you, then.",
+      "annotation": "If you have a problem with how I'm doing it, do it yourself."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Hang, cur! Hang, you whoreson, insolent noise-maker. We are less afraid to be drowned than thou art.",
+      "annotation": "'Cur' — dog. 'Whoreson' — bastard. His claim that the nobles fear death less than the Boatswain is hollow bravado."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "I'll warrant him for drowning; though the ship were no stronger than a nutshell and as leaky as an unstanched wench.",
+      "annotation": "Gonzalo continues his gallows joke: I guarantee the Boatswain won't drown — even if the ship were as flimsy as a nutshell with holes in it."
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "Lay her a-hold, a-hold! Set her two courses off to sea again; lay her off.",
+      "annotation": "'Lay her a-hold' — steer close to the wind to avoid being driven onto rocks. 'Two courses' refers to the two lowest sails. A last attempt to maneuver clear."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Enter Mariners, soaking wet.",
+      "annotation": "The drenched sailors come up from below — a signal that the ship is already taking on water."
+    },
+    {
+      "type": "character",
+      "sender": "Mariners",
+      "text": "All lost! To prayers, to prayers! All lost!",
+      "annotation": "When the crew abandons seamanship for prayer, the situation is truly hopeless — or seems so."
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "What, must our mouths be cold?",
+      "annotation": "A grim idiom: 'must we already be dead?' Cold mouths = corpses. He may be refusing to give up, or checking whether things are really as lost as the mariners say."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "The King and Prince at prayers! Let's assist them, for our case is as theirs.",
+      "annotation": "Gonzalo reports that Alonso and Ferdinand are praying below and urges the others to join them."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "I'm out of patience.",
+      "annotation": "Sebastian's short temper resurfaces here — it becomes significant in Act II."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "We are merely cheated of our lives by drunkards. This wide-chapped rascal — would thou might'st lie drowning the washing of ten tides!",
+      "annotation": "'Wide-chapped' means big-mouthed. 'The washing of ten tides' was the punishment for pirates — hanged at low water and left until three tides had washed over the body."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "He'll be hanged yet, though every drop of water swear against it and gape at widest to glut him.",
+      "annotation": "Gonzalo holds to his gallows joke: the Boatswain is fated to hang, not drown — so every wave that tries to swallow him is wasting its time."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "A confused noise within: 'Mercy on us!' — 'We split, we split!' — 'Farewell, my wife and children!' — 'Farewell, brother!' — 'We split, we split, we split!'",
+      "annotation": "'We split' — the hull is breaking apart."
+    },
+    {
+      "type": "character",
+      "sender": "Antonio",
+      "text": "Let's all sink with the King."
+    },
+    {
+      "type": "character",
+      "sender": "Sebastian",
+      "text": "Let's take leave of him.",
+      "annotation": "'Take leave' carries a double meaning — farewell before dying, but also a parting with darker implications that emerge in Act II."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exeunt Antonio and Sebastian.",
+      "annotation": "They leave Gonzalo alone onstage — the last man standing."
+    },
+    {
+      "type": "character",
+      "sender": "Gonzalo",
+      "text": "Now would I give a thousand furlongs of sea for an acre of barren ground, long heath, brown furze, any thing. The wills above be done! But I would fain die a dry death.",
+      "annotation": "'Long heath, brown furze' — thorny, useless moorland. Any solid ground at all. 'The wills above be done' — he surrenders to Providence, but would still rather not die wet."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Exeunt. End of Act I, Scene 1.",
+      "annotation": "The ship goes down — or seems to. Scene 2 opens on the island, where Prospero tells Miranda (and the audience) the truth: the tempest was his doing, and no one was harmed."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act I, Scene 2 — Before Prospero's cell. Enter Prospero and Miranda.",
+      "image": null,
+      "annotation": "The island. Prospero's 'cell' is a rough dwelling — cave or hut. He and Miranda have been watching the storm from a clifftop."
+    },
+    {
+      "type": "character",
+      "sender": "Miranda",
