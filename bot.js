@@ -110,12 +110,17 @@ function formatLine(play, line) {
   return `${avatar} *${line.sender}*\n${line.text}`;
 }
 
+function findCharacterKey(play, fullName) {
+  const parts = fullName.split(/\s+/);
+  return parts.find(part => play.characters?.[part]) || parts[0];
+}
+
 function formatCast(play) {
   if (!play.dramatis || play.dramatis.length === 0) return null;
   const lines = play.dramatis.map(entry => {
     const name = entry.split(/\s*[\u2013\u2014-]\s*/)[0].trim();
-    const firstName = name.split(/\s*[&,]\s*/)[0].trim();
-    const emoji = getEmoji(play, firstName);
+    const characterKey = findCharacterKey(play, name);
+    const emoji = getEmoji(play, characterKey);
     return `${emoji}  ${entry}`;
   });
   return `\u{1F4DC} *Cast*\n\n${lines.join('\n')}`;
@@ -431,7 +436,7 @@ async function handleMessage(msg) {
     await bot.sendPhoto(chatId,
       'https://github.com/rstraker1/play-by-text-bot/blob/master/images/front%20screen%20play%20by%20text.jpg?raw=true',
       {
-        caption: '_You have joined the chat._',
+        caption: '_You have joined the chat_',
         parse_mode: 'Markdown',
         reply_markup: { inline_keyboard: playList }
       }
