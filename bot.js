@@ -429,9 +429,9 @@ async function handleMessage(msg) {
     }
 
     await bot.sendPhoto(chatId,
-      'https://github.com/rstraker1/play-by-text-bot/blob/master/images/tempest-1-opening-storm.jpg?raw=true',
+      'https://github.com/rstraker1/play-by-text-bot/blob/master/images/front%20screen%20play%20by%20text.jpg?raw=true',
       {
-        caption: '🎭 *Play by Text*\n_Plays delivered to you, one message at a time._',
+        caption: '_You have joined the chat._',
         parse_mode: 'Markdown',
         reply_markup: { inline_keyboard: playList }
       }
@@ -449,7 +449,7 @@ async function handleMessage(msg) {
 
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\n/start \u2014 Choose a play\n/cast \u2014 Show cast of current play\n/scenes \u2014 Jump to a scene\n/audio \u2014 Toggle audio narration on/off\n/plays \u2014 List plays`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace`,
       { parse_mode: 'Markdown' }
     );
 
