@@ -418,7 +418,9 @@ async function handleMessage(msg) {
     progress.messageMap = {};
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '\u{1F3AD}'} ${play.title}`, callback_data: `start:${id}` }];
+      const author = play.author ? ` — ${play.author}` : '';
+      const lines = play.lines ? ` · ${play.lines.length} lines` : '';
+      return [{ text: `${play.emoji || '🎭'} ${play.title}${author}${lines}`, callback_data: `start:${id}` }];
     });
 
     if (playList.length === 0) {
@@ -485,9 +487,11 @@ async function handleMessage(msg) {
       reply_markup: { inline_keyboard: buttons }
     });
 
-  } else if (text === '/plays') {
+} else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      return [{ text: `${play.emoji || '\u{1F3AD}'} ${play.title}`, callback_data: `start:${id}` }];
+      const author = play.author ? ` — ${play.author}` : '';
+      const lines = play.lines ? ` · ${play.lines.length} lines` : '';
+      return [{ text: `${play.emoji || '🎭'} ${play.title}${author}${lines}`, callback_data: `start:${id}` }];
     });
     await bot.sendMessage(chatId, '\u{1F3AD} *Available Plays*', {
       parse_mode: 'Markdown',
