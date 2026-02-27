@@ -418,7 +418,7 @@ async function handleMessage(msg) {
     progress.messageMap = {};
 
     const playList = Object.entries(plays).map(([id, play]) => {
-      const author = play.author ? ` — ${play.author}` : '';
+      const author = play.author ? ` — ${play.author.split(' ').pop()}` : '';
       const lines = play.lines ? ` · ${play.lines.length} lines` : '';
       return [{ text: `${play.emoji || '🎭'} ${play.title}${author}${lines}`, callback_data: `start:${id}` }];
     });
@@ -489,7 +489,7 @@ async function handleMessage(msg) {
 
 } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
-      const author = play.author ? ` — ${play.author}` : '';
+      const author = play.author ? ` — ${play.author.split(' ').pop()}` : '';
       const lines = play.lines ? ` · ${play.lines.length} lines` : '';
       return [{ text: `${play.emoji || '🎭'} ${play.title}${author}${lines}`, callback_data: `start:${id}` }];
     });

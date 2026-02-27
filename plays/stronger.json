@@ -2,14 +2,14 @@
   "id": "stronger",
   "title": "The Stronger",
   "author": "August Strindberg",
-  "emoji": "🍷",
-  "description": "Two actresses meet in a Stockholm café on Christmas Eve. One talks. The other never speaks. By the end, you're not sure which of them has won.",
+  "emoji": "🪟",
+  "description": "Two actresses who know each other from the theatre happen to meet in a Stockholm ladies' café on Christmas Eve. They talk about marriage, desire, and the strange ways two lives can become tangled without either person quite noticing. A short, strange, unforgettable play.",
   "introAnnotation": "Written in 1889 and first performed in Copenhagen the same year, The Stronger was created for Strindberg's own short-lived Scandinavian Experimental Theatre. It runs about fifteen minutes in performance and was originally designed so the demanding speaking role could anchor the evening while a less experienced actress handled the silent one. Which woman is 'the stronger' — the one going home to husband and children, or the one sitting alone in the café? Strindberg refuses to say. The play was partly a response to Ibsen's A Doll's House, asking what female independence actually looks like when you strip away the speeches.",
   "narrator": "en-GB-ThomasNeural",
   "defaultVoice": "en-GB-LibbyNeural",
   "dramatis": [
-    "Mrs. X — a married actress",
-    "Mrs. Y — an unmarried actress, who does not speak"
+    "Mrs. X",
+    "Miss Y"
   ],
   "characters": {
     "Stage": {
@@ -17,11 +17,11 @@
       "voice": null
     },
     "Mrs. X": {
-      "emoji": "🎭",
+      "emoji": "🍷",
       "voice": "en-GB-LibbyNeural"
     },
-    "Mrs. Y": {
-      "emoji": "🍷",
+    "Miss Y": {
+      "emoji": "🪟",
       "voice": "en-GB-SoniaNeural"
     }
   },
@@ -30,12 +30,12 @@
       "type": "stage",
       "sender": "Stage",
       "text": "Act I — A corner of a ladies' café in Stockholm. Christmas Eve.",
-      "annotation": "A ladies' café was a respectable establishment where women could sit alone in public without a male escort — a relatively new social institution in 1880s Stockholm. The Christmas Eve setting does specific work: everyone else is at home with family. Mrs. Y's aloneness here is not incidental."
+      "annotation": "A ladies' café was a respectable establishment where women could sit alone in public without a male escort — a relatively new social institution in 1880s Stockholm. The Christmas Eve setting does specific work: everyone else is at home with family. Miss Y's aloneness here is not incidental."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y sits alone at a corner table, a half-empty beer bottle before her. She reads an illustrated magazine. A waiter moves in the background."
+      "text": "Miss Y sits alone at a corner table, a half-empty beer bottle before her. She reads an illustrated magazine. A waiter moves in the background."
     },
     {
       "type": "stage",
@@ -50,11 +50,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y looks up from her magazine, nods pleasantly."
+      "text": "Miss Y looks up from her magazine, nods pleasantly."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🙂"
     },
     {
@@ -65,11 +65,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "She sits down, begins pulling off her gloves. Mrs. Y watches, untroubled."
+      "text": "She sits down, begins pulling off her gloves. Miss Y watches, untroubled."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😌"
     },
     {
@@ -86,11 +86,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y returns to her magazine."
+      "text": "Miss Y returns to her magazine."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😶"
     },
     {
@@ -111,11 +111,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y glances at the toy, smiles faintly, goes back to reading."
+      "text": "Miss Y glances at the toy, smiles faintly, goes back to reading."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🙂"
     },
     {
@@ -126,12 +126,12 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y sets down her magazine. She looks at the slippers.",
-      "annotation": "The first real break in Mrs. Y's composure. The slippers — or the pattern on them — mean something."
+      "text": "Miss Y sets down her magazine. She looks at the slippers.",
+      "annotation": "The first real break in Miss Y's composure. The slippers — or the pattern on them — mean something."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "👀"
     },
     {
@@ -143,11 +143,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "A pause. Mrs. Y looks away and takes a slow sip of beer."
+      "text": "A pause. Miss Y looks away and takes a slow sip of beer."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😶"
     },
     {
@@ -163,11 +163,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y raises an eyebrow."
+      "text": "Miss Y raises an eyebrow."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🤨"
     },
     {
@@ -183,12 +183,12 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y fixes her with a long, unreadable look.",
+      "text": "Miss Y fixes her with a long, unreadable look.",
       "annotation": "The list — claret, herring, salmon — reads as comic self-deprecation. But each item is evidence she hasn't yet processed."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😐"
     },
     {
@@ -199,27 +199,27 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y is very still."
+      "text": "Miss Y is very still."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🙂"
     },
     {
       "type": "character",
       "sender": "Mrs. X",
       "text": "[noticing the smile, unsettled] I visited you once — two years ago now. Do you remember? Your apartment was beautifully kept. There were tulips everywhere.",
-      "annotation": "Two years prior lines up with when Mrs. Y's engagement was broken off. Strindberg never explains why it ended."
+      "annotation": "Two years prior lines up with when Miss Y's engagement was broken off. Strindberg never explains why it ended."
     },
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Silence. Mrs. Y's face gives nothing away."
+      "text": "Silence. Miss Y's face gives nothing away."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😶"
     },
     {
@@ -236,11 +236,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y looks up slowly."
+      "text": "Miss Y looks up slowly."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🙂"
     },
     {
@@ -257,11 +257,11 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y smiles faintly. She takes a sip of beer."
+      "text": "Miss Y smiles faintly. She takes a sip of beer."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "🙂"
     },
     {
@@ -278,12 +278,12 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y's expression does not change.",
-      "annotation": "Strindberg leaves no final indication of what Mrs. Y feels. Productions have played this moment as quiet triumph, as grief, as simple blankness. It is deliberately unresolvable — the audience must settle it themselves."
+      "text": "Miss Y's expression does not change.",
+      "annotation": "Strindberg leaves no final indication of what Miss Y feels. Productions have played this moment as quiet triumph, as grief, as simple blankness. It is deliberately unresolvable — the audience must settle it themselves."
     },
     {
       "type": "character",
-      "sender": "Mrs. Y",
+      "sender": "Miss Y",
       "text": "😶"
     },
     {
@@ -316,7 +316,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Mrs. Y sits alone, as before. After a moment, she picks up her magazine."
+      "text": "Miss Y sits alone, as before. After a moment, she picks up her magazine."
     },
     {
       "type": "stage",
