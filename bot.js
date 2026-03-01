@@ -95,7 +95,8 @@ function getUserProgress(chatId) {
       adaptationMode: false,
       pendingTimer: null,
       typingTimer: null,
-      messageMap: {}
+      messageMap: {},
+      autoDeliveredCount: 0
     };
   }
   return userProgress[chatId];
@@ -290,43 +291,46 @@ async function sendVoiceForLine(chatId, playId, lineIndex, line, play, adaptatio
 
 function buildKeyboard(play, playId, lineIndex, afterIndex, isLastLine, progress) {
   const line = play.lines[lineIndex];
-  const keyboard = [];
+  const row = [];
 
+  // Mode on the left
   if (!isLastLine) {
-    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${afterIndex}` }]);
-  } else {
-    keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
-  }
-
-  // Annotation button
-  if (line?.annotation) {
-    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
-  }
-
-  // Mode button
-  if (!isLastLine) {
-    keyboard[0].push({
+    row.push({
       text: MODE_EMOJI[progress.deliveryMode],
       callback_data: `mode:${playId}:${afterIndex}`
     });
   }
 
-  return keyboard;
+  // Annotation in the middle (when present)
+  if (line?.annotation) {
+    row.push({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
+  }
+
+  // ▽ always on the right
+  if (!isLastLine) {
+    row.push({ text: '\u25BD', callback_data: `next:${playId}:${afterIndex}` });
+  } else {
+    row.push({ text: '\u2705  Fin', callback_data: 'fin' });
+  }
+
+  return [row];
 }
 
 function buildDescriptionKeyboard(play, playId, progress) {
-  const keyboard = [[{ text: '\u25BD', callback_data: `next:${playId}:0` }]];
+  const row = [];
 
-  if (play.introAnnotation) {
-    keyboard[0].unshift({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
-  }
-
-  keyboard[0].push({
+  row.push({
     text: MODE_EMOJI[progress.deliveryMode],
     callback_data: `mode:${playId}:0`
   });
 
-  return keyboard;
+  if (play.introAnnotation) {
+    row.push({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
+  }
+
+  row.push({ text: '\u25BD', callback_data: `next:${playId}:0` });
+
+  return [row];
 }
 
 // ── Message cleanup ──
@@ -360,10 +364,8 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
 
   const progress = getUserProgress(chatId);
 
-  // Resolve to next visible line from this index
   const visibleIndex = nextVisibleLine(play, lineIndex, progress.adaptationMode);
   if (visibleIndex >= play.lines.length) {
-    // Nothing left to show
     await cleanupPrevious(chatId, manualAdvance);
     await bot.sendMessage(chatId, '\u{1F3AD} *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
     return;
@@ -373,7 +375,6 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
 
   await cleanupPrevious(chatId, manualAdvance);
 
-  // Next visible after this one, for keyboard
   const afterIndex = nextVisibleLine(play, visibleIndex + 1, progress.adaptationMode);
   const isLastLine = afterIndex >= play.lines.length;
 
@@ -399,7 +400,34 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
     sendVoiceForLine(chatId, playId, visibleIndex, line, play, progress.adaptationMode);
   }
 
+  // ── Auto-pause and scheduling ──
   if (!isLastLine) {
+    if (!manualAdvance) {
+      progress.autoDeliveredCount = (progress.autoDeliveredCount || 0) + 1;
+    } else {
+      progress.autoDeliveredCount = 0;
+    }
+
+    if (progress.deliveryMode === 'active' && progress.autoDeliveredCount >= 15) {
+      clearTimers(progress);
+      progress.autoDeliveredCount = 0;
+
+      // Swap ▽ for ⏸ on the current message
+      const pausedKeyboard = buildKeyboard(play, playId, visibleIndex, afterIndex, isLastLine, progress);
+      pausedKeyboard[0] = pausedKeyboard[0].map(btn =>
+        btn.text === '\u25BD' ? { ...btn, text: '\u23F8' } : btn
+      );
+
+      try {
+        await bot.editMessageReplyMarkup(
+          { inline_keyboard: pausedKeyboard },
+          { chat_id: chatId, message_id: progress.lastMessageId }
+        );
+      } catch (e) {}
+
+      return;
+    }
+
     scheduleNextLine(chatId, playId, visibleIndex + 1);
   }
 }
@@ -724,13 +752,13 @@ async function startServer() {
       console.log(`Webhook set to: ${webhookUrl}`);
     }
     await bot.setMyCommands([
-      { command: 'start',  description: 'Choose a play' },
+      { command: 'start',  description: 'Home screen' },
       { command: 'plays',  description: 'List available plays' },
       { command: 'cast',   description: 'Show cast of current play' },
       { command: 'scenes', description: 'Jump to a scene' },
-      { command: 'adapt',  description: 'Toggle text adaptation mode' },
-      { command: 'audio',  description: 'Toggle audio narration' },
-      { command: 'help',   description: 'Show help' },
+      { command: 'adapt',  description: 'Adaptation mode on/off' },
+      { command: 'audio',  description: 'Audio narration on/off' },
+      { command: 'help',   description: 'More info' },
     ]);
     console.log('Bot commands registered.');
   });

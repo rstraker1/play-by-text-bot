@@ -48,7 +48,7 @@
       "sender": "Mrs. X",
       "text": "",
       "adaptationOnly": true,
-      "adaptation": "amelia?? ur actually alone on christmas eve lmaooo 💀"
+      "adaptation": "amelia?? are u actually alone on christmas eve lmaooo 💀"
     },
     {
       "type": "character",
@@ -83,7 +83,6 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "I tell you what, Amelia — I believe you would have done better to have kept him! Do you remember I was the first to say 'forgive him'? Recollect? Then you would have been married now and have had a home.",
-      "annotation": "The broken engagement is dropped in casually, as if well-worn territory between them. Strindberg never names 'him' or says what happened.",
       "adaptation": "tbh amelia i always thought u should've just forgiven him. i literally said that at the time!! u could have a home by now"
     },
     {
@@ -119,8 +118,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "She loads and shoots at Miss Y, who starts. 😳",
-      "annotation": "A toy gun — but aimed directly at her. Miss Y's startled reaction is one of her few involuntary responses in the play."
+      "text": "She loads and shoots at Miss Y, who starts. 😳"
     },
     {
       "type": "character",
@@ -146,20 +144,12 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "You still believe I intrigued you out of the theatre, but I didn't do that — I didn't do that even if you think so. But it's all one whether I say so or not, for you still believe it was I!",
-      "adaptation": "i did NOT intrigue u out of the theatre amelia. i've said it a hundred times and u still think it"
+      "adaptation": "i did NOT scheme u out of the theatre amelia. i've said it a hundred times and u still think it"
     },
     {
       "type": "stage",
       "sender": "Stage",
       "text": "She takes up a pair of embroidered slippers."
-    },
-    {
-      "type": "character",
-      "sender": "Mrs. X",
-      "text": "",
-      "adaptationOnly": true,
-      "adaptation": "",
-      "image": ""
     },
     {
       "type": "character",
@@ -229,7 +219,7 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "What are you laughing at? What? What? — And I know he is true to me. Yes, I know that, because he told me himself. What are you tittering about?",
-      "adaptation": "what are u laughing at?? WHAT\nalso i know he's faithful btw. he told me himself."
+      "adaptation": "dunno what ur laughing at... i know he's faithful btw. he told me himself."
     },
     {
       "type": "stage",
@@ -275,7 +265,7 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "They must think he has something to say about theatre engagements because he is connected with the government. Perhaps you too have tried to influence him. I don't trust you any too much. But I know he is not concerned about you — and you seem to have some kind of grudge against him.",
-      "adaptation": "they think bc he has govt connections he can get them theatre work or something. u've probably tried it too. i don't fully trust u amelia. but i know he's not into u. and u clearly have some kind of problem with him"
+      "adaptation": "they think bc he has govt connections he can get them theatre work or something. you've probably tried it too. i don't fully trust you amelia. but i know he's not into you. and you clearly have some kind of problem with him"
     },
     {
       "type": "character",
@@ -301,8 +291,7 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "Our acquaintance has been so peculiar. When I saw you the first time I was so afraid of you — so afraid that I couldn't look you in the face. Still, as I came and went, I always found myself near you. I couldn't risk being your enemy, so I became your friend.",
-      "annotation": "Mrs. X describes the friendship as driven by fear from its beginning, not warmth.",
-      "adaptation": "we've always been weird haven't we. i was scared of u when we first met. properly scared. couldn't look at u. but i kept ending up near u. i couldn't afford to have u as an enemy so i made u a friend instead"
+      "adaptation": "we've always been weird haven't we. i was scared of u when we first met. properly scared. couldn't look at you. but i kept ending up near u. i couldn't afford to have u as an enemy so i made u a friend instead"
     },
     {
       "type": "character",
@@ -320,8 +309,7 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "And I remember that when you were Patin's godmother, I made Bob kiss you — he did it, but you were so confused. That is, I didn't notice it then — I thought about it later — never thought about it before — now!",
-      "annotation": "Mrs. X reassembles the past in real time: a kiss she arranged, a confusion she didn't register until this moment.",
-      "adaptation": "and when u were patin's godmother i made bob kiss u. he did it but u went so red. i didn't think anything of it at the time. i'm thinking about it now"
+      "adaptation": "and when u were patin's godmother i made bob kiss you. he did it but you went so red. i didn't think anything of it at the time. i'm thinking about it now"
     },
     {
       "type": "stage",
@@ -398,7 +386,6 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "That is why — oh my God, it is fearful when I think about it — everything, everything came from you to me, even your passions!",
-      "annotation": "Colours, authors, food, drink, the child's name — each one an influence she had never registered. The chocolate she is drinking right now is the last item on the list.",
       "adaptation": "oh my god. everything. EVERYTHING came from u. even the things i thought were mine"
     },
     {
@@ -541,8 +528,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Miss Y sits alone, as before. After a moment, she picks up her newspaper.",
-      "annotation": "Strindberg gives no indication of what Miss Y feels. Productions have played this moment as quiet triumph, as grief, as simple blankness."
+      "text": "Miss Y sits alone, as before. After a moment, she picks up her newspaper."
     },
     {
       "type": "stage",
