@@ -166,7 +166,8 @@
       "sender": "Mrs. X",
       "text": "",
       "adaptationOnly": true,
-      "adaptation": "slippers for bob 🥺 embroidered them myself. tulips bc he's obsessed. i hate tulips btw"
+      "adaptation": "slippers for him 🥺 embroidered them myself. tulips bc he's obsessed. i hate tulips btw",
+      "image": "https://github.com/rstraker1/play-by-text-bot/blob/master/images/the%20stronger%20slippers.png?raw=true"
     },
     {
       "type": "character",
@@ -506,7 +507,7 @@
       "type": "character",
       "sender": "Mrs. X",
       "text": "And why do you keep silent — silent — silent? I believe that is strength. But perhaps it is only that you have nothing to say. Because you don't think anything.",
-      "adaptation": "and u still won't say anything. just silence. maybe that's ur power. or maybe you've just got nothing left to say"
+      "adaptation": "and u still won't say anything. just silence. maybe that's ur power. or maybe u've just got nothing left to say"
     },
     {
       "type": "stage",
