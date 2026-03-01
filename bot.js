@@ -148,8 +148,8 @@ function clearTimers(progress) {
 // ── Adaptation helpers ──
 
 function getLineText(line, adaptationMode) {
-  if (adaptationMode && line.adaptation) return line.adaptation;
-  if (!adaptationMode && line.text) return line.text;
+  if (adaptationMode && 'adaptation' in line) return line.adaptation;
+  if (!adaptationMode && 'text' in line) return line.text;
   // fallback
   return line.text || line.adaptation || '';
 }
@@ -157,7 +157,7 @@ function getLineText(line, adaptationMode) {
 function isLineVisible(line, adaptationMode) {
   if (adaptationMode) {
     // In adaptation mode: skip lines that are original-only (no adaptation field, not adaptationOnly)
-    if (!line.adaptation && !line.adaptationOnly) return false;
+    if (!('adaptation' in line) && !line.adaptationOnly) return false;
     return true;
   } else {
     // In original mode: skip adaptationOnly lines
@@ -383,14 +383,29 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
     if (line.image) {
       await bot.sendPhoto(chatId, line.image);
     }
-    const sent = await bot.sendMessage(chatId, formatLine(play, line, progress.adaptationMode), {
-      parse_mode: 'Markdown',
-      reply_markup: { inline_keyboard: keyboard }
-    });
-    progress.currentPlay = playId;
-    progress.currentLine = visibleIndex;
-    progress.lastMessageId = sent.message_id;
-    progress.messageMap[sent.message_id] = { playId, lineIndex: visibleIndex };
+    const formattedText = formatLine(play, line, progress.adaptationMode);
+    // Image-only lines have no text — attach the keyboard to the photo instead
+    if (!formattedText.trim()) {
+      if (line.image) {
+        // Re-send photo with keyboard (can't edit already-sent photo, so send a zero-width space message)
+        const sent = await bot.sendMessage(chatId, '​', {
+          reply_markup: { inline_keyboard: keyboard }
+        });
+        progress.currentPlay = playId;
+        progress.currentLine = visibleIndex;
+        progress.lastMessageId = sent.message_id;
+        progress.messageMap[sent.message_id] = { playId, lineIndex: visibleIndex };
+      }
+    } else {
+      const sent = await bot.sendMessage(chatId, formattedText, {
+        parse_mode: 'Markdown',
+        reply_markup: { inline_keyboard: keyboard }
+      });
+      progress.currentPlay = playId;
+      progress.currentLine = visibleIndex;
+      progress.lastMessageId = sent.message_id;
+      progress.messageMap[sent.message_id] = { playId, lineIndex: visibleIndex };
+    }
   } catch (error) {
     console.error('Error sending message:', error.message);
   }
