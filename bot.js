@@ -92,6 +92,7 @@ function getUserProgress(chatId) {
       lastAnnotationId: null,
       deliveryMode: 'manual',
       audioEnabled: false,
+      adaptationMode: false,
       pendingTimer: null,
       typingTimer: null,
       messageMap: {}
@@ -102,15 +103,17 @@ function getUserProgress(chatId) {
 
 // ── Formatting ──
 
-function formatLine(play, line) {
+function formatLine(play, line, adaptationMode) {
   const avatar = getEmoji(play, line.sender);
+  const text = getLineText(line, adaptationMode);
   if (line.type === 'stage') {
-    return `${avatar} *Stage*\n_${line.text}_`;
+    return `${avatar} *Stage*\n_${text}_`;
   }
-  return `${avatar} *${line.sender}*\n${line.text}`;
+  return `${avatar} *${line.sender}*\n${text}`;
 }
 
 function findCharacterKey(play, fullName) {
+  if (play.characters?.[fullName]) return fullName;
   const parts = fullName.split(/\s+/);
   return parts.find(part => play.characters?.[part]) || parts[0];
 }
@@ -142,8 +145,37 @@ function clearTimers(progress) {
   }
 }
 
-function wordCount(line) {
-  return line?.text?.split(/\s+/).length || 10;
+// ── Adaptation helpers ──
+
+function getLineText(line, adaptationMode) {
+  if (adaptationMode && line.adaptation) return line.adaptation;
+  if (!adaptationMode && line.text) return line.text;
+  // fallback
+  return line.text || line.adaptation || '';
+}
+
+function isLineVisible(line, adaptationMode) {
+  if (adaptationMode) {
+    // In adaptation mode: skip lines that are original-only (no adaptation field, not adaptationOnly)
+    if (!line.adaptation && !line.adaptationOnly) return false;
+    return true;
+  } else {
+    // In original mode: skip adaptationOnly lines
+    if (line.adaptationOnly) return false;
+    return true;
+  }
+}
+
+function nextVisibleLine(play, fromIndex, adaptationMode) {
+  for (let i = fromIndex; i < play.lines.length; i++) {
+    if (isLineVisible(play.lines[i], adaptationMode)) return i;
+  }
+  return play.lines.length; // past end = finished
+}
+
+function wordCount(line, adaptationMode) {
+  const text = getLineText(line, adaptationMode);
+  return text?.split(/\s+/).length || 10;
 }
 
 function scheduleNextLine(chatId, playId, lineIndex) {
@@ -154,19 +186,24 @@ function scheduleNextLine(chatId, playId, lineIndex) {
   if (progress.deliveryMode === 'manual') return;
 
   const play = plays[playId];
-  if (!play || lineIndex >= play.lines.length) return;
+  if (!play) return;
+
+  const nextIndex = nextVisibleLine(play, lineIndex, progress.adaptationMode);
+  if (nextIndex >= play.lines.length) return;
 
   let delay;
   if (progress.deliveryMode === 'ambient') {
     delay = (10 + Math.random() * 50) * 60 * 1000;
   } else if (progress.deliveryMode === 'active') {
-    const prevWords = wordCount(play.lines[lineIndex - 1]);
+    const prevLine = play.lines[lineIndex - 1];
+    const prevWords = prevLine ? wordCount(prevLine, progress.adaptationMode) : 10;
     const readingTime = (prevWords / 200) * 60 * 1000;
     const beat = 2000 + Math.random() * 1500;
     delay = Math.min(Math.max(readingTime + beat, 3000), 45000);
   }
 
-  const nextWords = wordCount(play.lines[lineIndex]);
+  const nextLine = play.lines[nextIndex];
+  const nextWords = wordCount(nextLine, progress.adaptationMode);
   const typingLead = Math.min(
     Math.max(nextWords * 120, 600),
     4000,
@@ -183,7 +220,7 @@ function scheduleNextLine(chatId, playId, lineIndex) {
 
   progress.pendingTimer = setTimeout(async () => {
     progress.pendingTimer = null;
-    await sendLine(chatId, playId, lineIndex, false);
+    await sendLine(chatId, playId, nextIndex, false);
   }, delay);
 }
 
@@ -209,35 +246,31 @@ function generateSilence(ms) {
   return Buffer.concat(frames);
 }
 
-async function generateLineAudio(play, line) {
+async function generateLineAudio(play, line, adaptationMode) {
+  const text = getLineText(line, adaptationMode);
   if (line.type === 'stage') {
-    // Narrator reads stage directions directly
-    return generateTTSClip(line.text, getNarratorVoice(play));
+    return generateTTSClip(text, getNarratorVoice(play));
   }
-
-  // Narrator announces character name, then character voice reads the line
   const [narratorBuf, characterBuf] = await Promise.all([
     generateTTSClip(`${line.sender}.`, getNarratorVoice(play)),
-    generateTTSClip(line.text, getVoice(play, line.sender))
+    generateTTSClip(text, getVoice(play, line.sender))
   ]);
-
   const silenceMs = 400;
   const silenceBuf = generateSilence(silenceMs);
   return Buffer.concat([narratorBuf, silenceBuf, characterBuf]);
 }
 
-async function sendVoiceForLine(chatId, playId, lineIndex, line, play) {
-  const cacheKey = `${playId}:${lineIndex}`;
+async function sendVoiceForLine(chatId, playId, lineIndex, line, play, adaptationMode) {
+  const modeSuffix = adaptationMode ? ':adap' : ':orig';
+  const cacheKey = `${playId}:${lineIndex}${modeSuffix}`;
 
   try {
-    // Check Telegram file_id cache first
     if (ttsFileCache[cacheKey]) {
       await bot.sendVoice(chatId, ttsFileCache[cacheKey]);
       return;
     }
 
-    // Generate fresh audio
-    const audioBuffer = await generateLineAudio(play, line);
+    const audioBuffer = await generateLineAudio(play, line, adaptationMode);
 
     const sent = await bot.sendVoice(chatId, audioBuffer, {}, {
       filename: 'line.mp3',
@@ -255,13 +288,12 @@ async function sendVoiceForLine(chatId, playId, lineIndex, line, play) {
 
 // ── Keyboard builder ──
 
-function buildKeyboard(play, playId, lineIndex, progress) {
+function buildKeyboard(play, playId, lineIndex, afterIndex, isLastLine, progress) {
   const line = play.lines[lineIndex];
-  const isLastLine = lineIndex >= play.lines.length - 1;
   const keyboard = [];
 
   if (!isLastLine) {
-    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${lineIndex + 1}` }]);
+    keyboard.push([{ text: '\u25BD', callback_data: `next:${playId}:${afterIndex}` }]);
   } else {
     keyboard.push([{ text: '\u2705  Fin', callback_data: 'fin' }]);
   }
@@ -275,7 +307,7 @@ function buildKeyboard(play, playId, lineIndex, progress) {
   if (!isLastLine) {
     keyboard[0].push({
       text: MODE_EMOJI[progress.deliveryMode],
-      callback_data: `mode:${playId}:${lineIndex + 1}`
+      callback_data: `mode:${playId}:${afterIndex}`
     });
   }
 
@@ -325,39 +357,50 @@ async function cleanupPrevious(chatId, manualAdvance = false) {
 async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
   const play = plays[playId];
   if (!play) return;
-  const line = play.lines[lineIndex];
-  if (!line) return;
 
   const progress = getUserProgress(chatId);
 
+  // Resolve to next visible line from this index
+  const visibleIndex = nextVisibleLine(play, lineIndex, progress.adaptationMode);
+  if (visibleIndex >= play.lines.length) {
+    // Nothing left to show
+    await cleanupPrevious(chatId, manualAdvance);
+    await bot.sendMessage(chatId, '\u{1F3AD} *Fin*\n\nThank you for reading!\n\n/plays for another.', { parse_mode: 'Markdown' });
+    return;
+  }
+
+  const line = play.lines[visibleIndex];
+
   await cleanupPrevious(chatId, manualAdvance);
 
-  const keyboard = buildKeyboard(play, playId, lineIndex, progress);
+  // Next visible after this one, for keyboard
+  const afterIndex = nextVisibleLine(play, visibleIndex + 1, progress.adaptationMode);
+  const isLastLine = afterIndex >= play.lines.length;
+
+  const keyboard = buildKeyboard(play, playId, visibleIndex, afterIndex, isLastLine, progress);
 
   try {
     if (line.image) {
       await bot.sendPhoto(chatId, line.image);
     }
-    const sent = await bot.sendMessage(chatId, formatLine(play, line), {
+    const sent = await bot.sendMessage(chatId, formatLine(play, line, progress.adaptationMode), {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: keyboard }
     });
     progress.currentPlay = playId;
-    progress.currentLine = lineIndex;
+    progress.currentLine = visibleIndex;
     progress.lastMessageId = sent.message_id;
-    progress.messageMap[sent.message_id] = { playId, lineIndex };
+    progress.messageMap[sent.message_id] = { playId, lineIndex: visibleIndex };
   } catch (error) {
     console.error('Error sending message:', error.message);
   }
 
-  // Send audio if enabled (non-blocking — text is already delivered)
   if (progress.audioEnabled) {
-    sendVoiceForLine(chatId, playId, lineIndex, line, play);
+    sendVoiceForLine(chatId, playId, visibleIndex, line, play, progress.adaptationMode);
   }
 
-  const isLastLine = lineIndex >= play.lines.length - 1;
   if (!isLastLine) {
-    scheduleNextLine(chatId, playId, lineIndex + 1);
+    scheduleNextLine(chatId, playId, visibleIndex + 1);
   }
 }
 
@@ -442,6 +485,25 @@ async function handleMessage(msg) {
       }
     );
 
+  } else if (text === '/adapt') {
+    const progress = getUserProgress(chatId);
+    progress.adaptationMode = !progress.adaptationMode;
+
+    // Check if current play supports adaptation
+    const play = progress.currentPlay ? plays[progress.currentPlay] : null;
+    const hasAdaptation = play?.lines?.some(l => l.adaptation || l.adaptationOnly);
+
+    if (progress.adaptationMode) {
+      if (play && !hasAdaptation) {
+        progress.adaptationMode = false;
+        await bot.sendMessage(chatId, '📵 _No text adaptation available for this play._', { parse_mode: 'Markdown' });
+      } else {
+        await bot.sendMessage(chatId, '💬 _Text adaptation on — next lines will be in txt spk._', { parse_mode: 'Markdown' });
+      }
+    } else {
+      await bot.sendMessage(chatId, '📜 _Original text restored._', { parse_mode: 'Markdown' });
+    }
+
   } else if (text === '/audio') {
     const progress = getUserProgress(chatId);
     progress.audioEnabled = !progress.audioEnabled;
@@ -454,7 +516,7 @@ async function handleMessage(msg) {
 
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\u2022 /adapt \u2014 toggle text adaptation (txt spk version)\n\u2022 /audio \u2014 toggle audio narration`,
       { parse_mode: 'Markdown' }
     );
 
@@ -602,7 +664,7 @@ async function handleCallbackQuery(query) {
     // Redraw keyboard on current message
     const play = plays[playId];
     if (play && progress.lastMessageId) {
-      const currentLineIndex = nextLineIndex - 1;
+      const currentLineIndex = progress.currentLine;
       const isDescription = currentLineIndex < 0;
 
       if (isDescription) {
@@ -614,7 +676,9 @@ async function handleCallbackQuery(query) {
           );
         } catch (e) {}
       } else {
-        const keyboard = buildKeyboard(play, playId, currentLineIndex, progress);
+        const afterIndex = nextVisibleLine(play, currentLineIndex + 1, progress.adaptationMode);
+        const isLastLine = afterIndex >= play.lines.length;
+        const keyboard = buildKeyboard(play, playId, currentLineIndex, afterIndex, isLastLine, progress);
         try {
           await bot.editMessageReplyMarkup(
             { inline_keyboard: keyboard },
@@ -659,6 +723,16 @@ async function startServer() {
       await bot.setWebHook(webhookUrl);
       console.log(`Webhook set to: ${webhookUrl}`);
     }
+    await bot.setMyCommands([
+      { command: 'start',  description: 'Choose a play' },
+      { command: 'plays',  description: 'List available plays' },
+      { command: 'cast',   description: 'Show cast of current play' },
+      { command: 'scenes', description: 'Jump to a scene' },
+      { command: 'adapt',  description: 'Toggle text adaptation mode' },
+      { command: 'audio',  description: 'Toggle audio narration' },
+      { command: 'help',   description: 'Show help' },
+    ]);
+    console.log('Bot commands registered.');
   });
 }
 
