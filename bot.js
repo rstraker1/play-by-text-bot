@@ -293,12 +293,11 @@ function buildKeyboard(play, playId, lineIndex, afterIndex, isLastLine, progress
   const line = play.lines[lineIndex];
   const row = [];
 
-  // Mode on the left
+  // Next on the left
   if (!isLastLine) {
-    row.push({
-      text: MODE_EMOJI[progress.deliveryMode],
-      callback_data: `mode:${playId}:${afterIndex}`
-    });
+    row.push({ text: '\u25BD', callback_data: `next:${playId}:${afterIndex}` });
+  } else {
+    row.push({ text: '\u2705  Fin', callback_data: 'fin' });
   }
 
   // Annotation in the middle (when present)
@@ -306,11 +305,12 @@ function buildKeyboard(play, playId, lineIndex, afterIndex, isLastLine, progress
     row.push({ text: '\u{1F50D}', callback_data: `annotate:${playId}:${lineIndex}` });
   }
 
-  // ▽ always on the right
+  // Mode on the right
   if (!isLastLine) {
-    row.push({ text: '\u25BD', callback_data: `next:${playId}:${afterIndex}` });
-  } else {
-    row.push({ text: '\u2705  Fin', callback_data: 'fin' });
+    row.push({
+      text: MODE_EMOJI[progress.deliveryMode],
+      callback_data: `mode:${playId}:${afterIndex}`
+    });
   }
 
   return [row];
@@ -319,16 +319,16 @@ function buildKeyboard(play, playId, lineIndex, afterIndex, isLastLine, progress
 function buildDescriptionKeyboard(play, playId, progress) {
   const row = [];
 
-  row.push({
-    text: MODE_EMOJI[progress.deliveryMode],
-    callback_data: `mode:${playId}:0`
-  });
+  row.push({ text: '\u25BD', callback_data: `next:${playId}:0` });
 
   if (play.introAnnotation) {
     row.push({ text: '\u{1F50D}', callback_data: `annotate:${playId}:intro` });
   }
 
-  row.push({ text: '\u25BD', callback_data: `next:${playId}:0` });
+  row.push({
+    text: MODE_EMOJI[progress.deliveryMode],
+    callback_data: `mode:${playId}:0`
+  });
 
   return [row];
 }
