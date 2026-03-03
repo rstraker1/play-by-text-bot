@@ -5,7 +5,7 @@
   "emoji": "💍",
   "description": "a nervous neighbour, a disputed meadow, and a marriage proposal that keeps going off the rails",
   "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/proposal.jpg",
-  "introAnnotation": "Written in 1888, The Proposal is a one-act farce set in the drawing room of a minor Russian landowner. All three characters belong to the provincial gentry — a class defined less by wealth than by land, lineage, and the anxiety of maintaining both. The play was an immediate hit in its first season and Chekhov knocked it out quickly, calling it a 'French farce' somewhat dismissively. Whether or not he meant it as a throwaway, it has never really left the stage.",
+  "introAnnotation": "Written in 1888, The Proposal is a one-act farce set in the drawing room of a minor Russian landowner. All three characters belong to the provincial gentry — a class defined less by wealth than by land, lineage, and the anxiety of maintaining both. The play was an immediate hit in its first season and Chekhov knocked it out quickly, calling it a 'French farce' somewhat dismissively.  it has never really left the stage.",
   "narrator": "en-GB-ThomasNeural",
   "defaultVoice": "en-GB-RyanNeural",
   "dramatis": [
@@ -79,17 +79,27 @@
       "type": "character",
       "sender": "Lomov",
       "text": "Well, you see, it's like this. I've come to you, honoured Stepan Stepanovitch, to trouble you with a request.",
-      "annotation": "He's building up to a formal petition for a daughter's hand — the conventional approach required the suitor to ask the father's permission first."
+      "annotation": "A formal petition required the suitor to ask the father first — Lomov is following the exact protocol. The father's consent was legally and socially necessary before the daughter could even be approached."
     },
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Not once or twice have I already had the privilege of applying to you for help, and you have always, so to speak ... I must ask your pardon, I am getting excited. I shall drink some water, honoured Stepan Stepanovitch. [Drinks.]"
+      "text": "Not once or twice have I already had the privilege of applying to you for help, and you have always, so to speak ... I must ask your pardon, I am getting excited. I shall drink some water, honoured Stepan Stepanovitch."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov drinks."
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Aside] He's come to borrow money! Shan't give him any! [Aloud] What is it, my beauty?"
+      "text": "_Aside:_ He's come to borrow money! Shan't give him any!"
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "_Aloud:_ What is it, my beauty?"
     },
     {
       "type": "character",
@@ -109,7 +119,7 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Joyfully] By Jove! Ivan Vassilevitch! Say it again — I didn't hear it all!"
+      "text": "By Jove! Ivan Vassilevitch! Say it again — I didn't hear it all!"
     },
     {
       "type": "character",
@@ -119,7 +129,22 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Interrupting] My dear fellow ... I'm so glad, and so on. Yes, indeed, and all that sort of thing. [Embraces and kisses Lomov] I've been hoping for it for a long time. It's been my continual desire. [Sheds a tear]"
+      "text": "My dear fellow ... I'm so glad, and so on. Yes, indeed, and all that sort of thing."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Embraces and kisses Lomov."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "I've been hoping for it for a long time. It's been my continual desire."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov sheds a tear."
     },
     {
       "type": "character",
@@ -129,18 +154,23 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "[Greatly moved] Honoured Stepan Stepanovitch, do you think I may count on her consent?"
+      "text": "Honoured Stepan Stepanovitch, do you think I may count on her consent?"
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Why, of course, my darling. She's in love; egad, she's like a love-sick cat, and so on. Shan't be long! [Exit.]"
+      "text": "Why, of course, my darling. She's in love; egad, she's like a love-sick cat, and so on. Shan't be long!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov exits."
     },
     {
       "type": "character",
       "sender": "Lomov",
       "text": "It's cold ... I'm trembling all over, just as if I'd got an examination before me. The great thing is, I must have my mind made up. If I give myself time to think, to hesitate, to talk a lot, to look for an ideal, or for real love, then I'll never get married.",
-      "annotation": "Lomov is thirty-five and unmarried, which in the gentry world of 1880s Russia was a situation requiring remedy. His reasons for choosing Natalya are entirely practical — she's nearby, she can run a household, she's good enough."
+      "annotation": "Thirty-five and unmarried was genuinely awkward for a male landowner in 1880s Russia — property succession, household management, social standing all depended on marriage. Chekhov wrote this the same year as The Bear; both plays feature men in exactly this position."
     },
     {
       "type": "character",
@@ -150,13 +180,23 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "But I'm getting a noise in my ears from excitement. [Drinks.] And it's impossible for me not to marry. In the first place, I'm already 35 — a critical age. In the second place, I ought to lead a quiet and regular life."
+      "text": "But I'm getting a noise in my ears from excitement."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov drinks."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "And it's impossible for me not to marry. In the first place, I'm already 35 — a critical age. In the second place, I ought to lead a quiet and regular life."
     },
     {
       "type": "character",
       "sender": "Lomov",
       "text": "I suffer from palpitations, I'm excitable and always getting awfully upset. At this very moment my lips are trembling, and there's a twitch in my right eyebrow.",
-      "annotation": "Lomov's ailments — palpitations, facial twitches, numb limbs — recur throughout the play. Whether they're real or psychosomatic is left open."
+      "annotation": "Hypochondria was a stock comic type in Russian vaudeville, but Chekhov — a doctor — gives Lomov's symptoms (palpitations, numb extremities, facial twitching) clinical specificity. Whether they worsen under stress or are summoned by it is deliberately unclear."
     },
     {
       "type": "character",
@@ -182,7 +222,17 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "You must excuse my apron and négligé ... we're shelling peas for drying. Why haven't you been here for such a long time? Sit down. [They seat themselves.] Won't you have some lunch?"
+      "text": "You must excuse my apron and négligé ... we're shelling peas for drying. Why haven't you been here for such a long time? Sit down."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They seat themselves."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "Won't you have some lunch?"
     },
     {
       "type": "character",
@@ -202,18 +252,32 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "[Excited] You see, honoured Natalya Stepanovna ... the fact is, I've made up my mind to ask you to hear me out. Of course you'll be surprised and perhaps even angry, but a ... [Aside] It's awfully cold!"
-    },
-    {
-      "type": "character",
-      "sender": "Natalya",
-      "text": "What's the matter? [Pause.] Well?"
+      "text": "You see, honoured Natalya Stepanovna ... the fact is, I've made up my mind to ask you to hear me out. Of course you'll be surprised and perhaps even angry, but a ..."
     },
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "I shall try to be brief. You must know, honoured Natalya Stepanovna, that I have long, since my childhood, in fact, had the privilege of knowing your family.",
-      "annotation": "He's launching into a formal set-piece — the conventional courtship speech, rehearsed and stiff. He will never get to the actual proposal."
+      "text": "_Aside:_ It's awfully cold!"
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "What's the matter?"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Pause."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "Well?"
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "I shall try to be brief. You must know, honoured Natalya Stepanovna, that I have long, since my childhood, in fact, had the privilege of knowing your family."
     },
     {
       "type": "character",
@@ -284,7 +348,7 @@
       "type": "character",
       "sender": "Lomov",
       "text": "But you can see from the documents, honoured Natalya Stepanovna. Oxen Meadows, it's true, were once the subject of dispute, but now everybody knows that they are mine.",
-      "annotation": "The legal history he's about to recite is genuinely murky — a temporary grant of use by one family's peasants to another's, which over decades blurred into assumed ownership. Both sides have a case, which is part of the joke."
+      "annotation": "The legal tangle is real: a temporary grant of use by peasants of one estate to another could, over generations, be misremembered as a transfer of title. Russian land tenure after the 1861 emancipation was notoriously tangled, and minor gentry disputes over boundary strips were routine."
     },
     {
       "type": "character",
@@ -310,7 +374,7 @@
       "type": "character",
       "sender": "Natalya",
       "text": "No, you're simply joking, or making fun of me. We've had the land for nearly three hundred years, and then we're suddenly told that it isn't ours! I can hardly believe my own ears.",
-      "annotation": "Five dessiatins — roughly thirteen acres. Both characters acknowledge the Meadows aren't worth much; the argument is entirely about principle and pride."
+      "annotation": "A dessiatin was about 2.7 acres, so five dessiatins is roughly thirteen acres — a small, low-value strip. The characters themselves acknowledge this; the fight is entirely about principle."
     },
     {
       "type": "character",
@@ -360,7 +424,17 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Then you make out that I'm a land-grabber? Madam, never in my life have I grabbed anybody else's land, and I shan't allow anybody to accuse me of having done so. [Quickly steps to the carafe and drinks more water.] Oxen Meadows are mine!"
+      "text": "Then you make out that I'm a land-grabber? Madam, never in my life have I grabbed anybody else's land, and I shan't allow anybody to accuse me of having done so."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Quickly steps to the carafe and drinks more water."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "Oxen Meadows are mine!"
     },
     {
       "type": "character",
@@ -398,10 +472,14 @@
       "text": "You dare!"
     },
     {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov clutches at his heart."
+    },
+    {
       "type": "character",
       "sender": "Lomov",
-      "text": "[Clutches at his heart] Oxen Meadows are mine! You understand? Mine!",
-      "annotation": "The first cardiac episode. There will be several."
+      "text": "Oxen Meadows are mine! You understand? Mine!"
     },
     {
       "type": "character",
@@ -411,7 +489,12 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "If it wasn't, madam, for this awful, excruciating palpitation, if my whole inside wasn't upset, I'd talk to you in a different way! [Yells] Oxen Meadows are mine!"
+      "text": "If it wasn't, madam, for this awful, excruciating palpitation, if my whole inside wasn't upset, I'd talk to you in a different way!"
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "Oxen Meadows are mine!"
     },
     {
       "type": "character",
@@ -451,7 +534,7 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[To Lomov] Darling, the Meadows are ours!"
+      "text": "Darling, the Meadows are ours!"
     },
     {
       "type": "character",
@@ -532,7 +615,7 @@
       "type": "character",
       "sender": "Chubukov",
       "text": "To court? You can take it to court, and all that! You can! I know you; you're just on the look-out for a chance to go to court, and all that. You pettifogger! All your people were like that! All of them!",
-      "annotation": "'Pettifogger' — a contemptuous word for someone who pursues petty legal disputes. A serious insult in a world where litigation was a way of life among landowners."
+      "annotation": "'Pettifogger' — in the original, Chubukov uses the Russian term 'klyauznikh', meaning someone who files vexatious complaints. Litigation over land boundaries was so common among provincial gentry that it became a social type."
     },
     {
       "type": "character",
@@ -557,7 +640,17 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "And your mother was hump-backed. [Clutches at his heart.] Something pulling in my side. My head. Help! Water!"
+      "text": "And your mother was hump-backed."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov clutches at his heart."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "Something pulling in my side. My head. Help! Water!"
     },
     {
       "type": "character",
@@ -573,7 +666,7 @@
       "type": "character",
       "sender": "Lomov",
       "text": "My left foot has gone to sleep. You're an intriguer. Oh, my heart! And it's an open secret that before the last elections you bri ... I can see stars. Where's my hat?",
-      "annotation": "He stops himself mid-word — 'bri-' for 'bribed.' The accusation of electoral bribery lands harder for being unfinished."
+      "annotation": "He stops himself mid-syllable — 'bri-' is the start of the Russian word for 'bribed'. Leaving it unfinished was a way of making the accusation while technically not making it."
     },
     {
       "type": "character",
@@ -588,12 +681,22 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Here's my hat. My heart! Which way? Where's the door? Oh! I think I'm dying. My foot's quite numb. [Goes to the door.]"
+      "text": "Here's my hat. My heart! Which way? Where's the door? Oh! I think I'm dying. My foot's quite numb."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov goes to the door."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov follows him."
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Following him] And don't set foot in my house again!"
+      "text": "And don't set foot in my house again!"
     },
     {
       "type": "character",
@@ -608,7 +711,12 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Devil take him! [Walks about in excitement.]"
+      "text": "Devil take him!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov paces about."
     },
     {
       "type": "character",
@@ -653,7 +761,17 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "To propose to me? Ah! [Falls into an easy-chair and wails] Bring him back! Back! Ah! Bring him here."
+      "text": "To propose to me? Ah!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya falls into an armchair."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "Bring him back! Back! Ah! Bring him here."
     },
     {
       "type": "character",
@@ -663,12 +781,27 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "Quick, quick! I'm ill! Fetch him! [Hysterics.]"
+      "text": "Quick, quick! I'm ill! Fetch him!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya is in hysterics."
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "What's that? What's the matter with you? [Clutches at his head] Oh, unhappy man that I am! I'll shoot myself! I'll hang myself! We've done for her!"
+      "text": "What's that? What's the matter with you?"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov clutches at his head."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "Oh, unhappy man that I am! I'll shoot myself! I'll hang myself! We've done for her!"
     },
     {
       "type": "character",
@@ -678,8 +811,13 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Tfoo! At once. Don't yell! [Runs out.]",
-      "annotation": "'Tfoo' — a Russian expression of exasperation, something between a sigh and a spit."
+      "text": "Tfoo! At once. Don't yell!",
+      "annotation": "'Tfoo' — a Russian exclamation of disgust or exasperation, written out phonetically. Something between a spit and a sigh, untranslatable."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov exits."
     },
     {
       "type": "stage",
@@ -704,12 +842,12 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "[Wails] Fetch him!"
+      "text": "😭 Fetch him!"
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Yells] He's coming, I tell you. Oh, what a burden, Lord, to be the father of a grown-up daughter! I'll cut my throat! I will, indeed!"
+      "text": "He's coming, I tell you. Oh, what a burden, Lord, to be the father of a grown-up daughter! I'll cut my throat! I will, indeed!"
     },
     {
       "type": "character",
@@ -724,7 +862,22 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "I tell you it's not my fault. [Lomov appears at the door.] Now you talk to him yourself. [Exit.]"
+      "text": "I tell you it's not my fault."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov appears at the door."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "Now you talk to him yourself."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov exits."
     },
     {
       "type": "stage",
@@ -749,7 +902,17 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "The Meadows are yours, yes, yours. Do sit down. [They sit.] We were wrong."
+      "text": "The Meadows are yours, yes, yours. Do sit down."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They sit."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "We were wrong."
     },
     {
       "type": "character",
@@ -769,8 +932,18 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "Yes, yes, let that pass. [Aside] I wish I knew how to get him started. [Aloud] Are you going to start shooting soon?",
-      "annotation": "Hunting was the main outdoor occupation of the provincial gentry. 'Shooting' here means game shooting — the season she's asking about would be autumn, after harvest."
+      "text": "Yes, yes, let that pass."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "_Aside:_ I wish I knew how to get him started."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "_Aloud:_ Are you going to start shooting soon?",
+      "annotation": "Autumn after harvest was the main shooting season. Blackcock (also called black grouse) were a prized game bird on the Russian steppe — a step up from common quarry, associated with good sport and good land."
     },
     {
       "type": "character",
@@ -785,7 +958,7 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "I don't know. Must have got twisted, or bitten by some other dog. [Sighs] My very best dog, to say nothing of the expense. I gave Mironov 125 roubles for him."
+      "text": "I don't know. Must have got twisted, or bitten by some other dog. 😔 My very best dog, to say nothing of the expense. I gave Mironov 125 roubles for him."
     },
     {
       "type": "character",
@@ -805,19 +978,19 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Squeezer better than Guess? What an idea! [Laughs] Squeezer better than Guess!"
+      "text": "Squeezer better than Guess? What an idea! 😄 Squeezer better than Guess!"
     },
     {
       "type": "character",
       "sender": "Natalya",
       "text": "Of course he's better! Of course, Squeezer is young, he may develop a bit, but on points and pedigree he's better than anything that even Volchanetsky has got.",
-      "annotation": "Volchanetsky appears to be a local authority on dogs — someone whose kennels set the standard in the district."
+      "annotation": "Volchanetsky is presumably a local figure known for his kennels — someone whose dogs set the standard in the district. The name doesn't appear elsewhere in Chekhov."
     },
     {
       "type": "character",
       "sender": "Lomov",
       "text": "Excuse me, Natalya Stepanovna, but you forget that he is overshot, and an overshot always means the dog is a bad hunter!",
-      "annotation": "An overshot jaw means the upper jaw protrudes beyond the lower — considered a fault in hunting dogs."
+      "annotation": "An overshot jaw — upper jaw protruding beyond the lower — was a recognised disqualifying fault in hunting dogs. Chekhov is using real breed-assessment vocabulary."
     },
     {
       "type": "character",
@@ -852,8 +1025,7 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "There's some demon of contradiction in you today, Ivan Vassilevitch. First you pretend that the Meadows are yours; now, that Guess is better than Squeezer.",
-      "annotation": "She draws the connection between the two arguments without realising she's in the exact same position herself."
+      "text": "There's some demon of contradiction in you today, Ivan Vassilevitch. First you pretend that the Meadows are yours; now, that Guess is better than Squeezer."
     },
     {
       "type": "character",
@@ -903,7 +1075,12 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Madam, please be silent. My heart is going to pieces. [Shouts] Shut up!"
+      "text": "Madam, please be silent. My heart is going to pieces."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "Shut up!"
     },
     {
       "type": "character",
@@ -923,7 +1100,7 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "[Weeps] Shut up! My heart's bursting!"
+      "text": "😢 Shut up! My heart's bursting!"
     },
     {
       "type": "character",
@@ -964,7 +1141,7 @@
       "type": "character",
       "sender": "Chubukov",
       "text": "Don't excite yourself, my precious one. Allow me. Your Guess certainly has his good points. He's pure-bred, firm on his feet, has well-sprung ribs, and all that.",
-      "annotation": "'Well-sprung ribs' is genuine dog-show terminology — a rounded rib cage allowing good lung capacity."
+      "annotation": "'Well-sprung ribs' is genuine canine terminology — a broad, rounded rib cage indicating good lung capacity, valued in dogs required to run at pace."
     },
     {
       "type": "character",
@@ -975,7 +1152,7 @@
       "type": "character",
       "sender": "Lomov",
       "text": "Excuse me, my heart. Let's take the facts. You will remember that on the Marusinsky hunt my Guess ran neck-and-neck with the Count's dog, while your Squeezer was left a whole verst behind.",
-      "annotation": "A verst is roughly two-thirds of a mile."
+      "annotation": "A verst was roughly two-thirds of a mile."
     },
     {
       "type": "character",
@@ -1005,7 +1182,7 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Teasing him] I remember, too. What do you remember?"
+      "text": "_Teasing:_ I remember, too. What do you remember?"
     },
     {
       "type": "character",
@@ -1015,8 +1192,8 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "[Teasing] My heart. What sort of a hunter are you? You ought to go and lie on the kitchen oven and catch blackbeetles, not go after foxes! My heart!",
-      "annotation": "Lying on the kitchen oven — the large tiled stove common in Russian houses — was what elderly or infirm people did to keep warm. An image of uselessness."
+      "text": "_Teasing:_ My heart. What sort of a hunter are you? You ought to go and lie on the kitchen oven and catch blackbeetles, not go after foxes! My heart!",
+      "annotation": "The kitchen oven — a large tiled structure used for both cooking and heating — had a flat top where the elderly or infirm would sleep to keep warm. Telling someone to go lie on it was an image of complete uselessness."
     },
     {
       "type": "character",
@@ -1031,7 +1208,12 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "What? I an intriguer? [Shouts] Shut up!"
+      "text": "What? I an intriguer?"
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "Shut up!"
     },
     {
       "type": "character",
@@ -1056,17 +1238,52 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Everybody knows that — oh my heart! — your late wife used to beat you. My feet ... temples ... sparks. I fall, I fall! [Falls into an armchair.] A doctor! [Faints.]"
+      "text": "Everybody knows that — oh my heart! — your late wife used to beat you. My feet ... temples ... sparks. I fall, I fall!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov falls into an armchair."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "A doctor!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov faints."
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Boy! Milksop! Fool! I'm sick! [Drinks water.] Sick!"
+      "text": "Boy! Milksop! Fool! I'm sick!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov drinks water."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "Sick!"
     },
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "What sort of a hunter are you? You can't even sit on a horse! [To her father] Papa, what's the matter with him? Papa! Look, papa! [Screams] Ivan Vassilevitch! He's dead!"
+      "text": "What sort of a hunter are you? You can't even sit on a horse! Papa, what's the matter with him? Papa! Look, papa!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya screams."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "Ivan Vassilevitch! He's dead!"
     },
     {
       "type": "character",
@@ -1076,7 +1293,32 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "He's dead. [Pulls Lomov's sleeve.] Ivan Vassilevitch! Ivan Vassilevitch! What have you done to me? He's dead. [Falls into an armchair.] A doctor, a doctor! [Hysterics.]"
+      "text": "He's dead."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya pulls his sleeve."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "Ivan Vassilevitch! Ivan Vassilevitch! What have you done to me? He's dead."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya falls into an armchair."
+    },
+    {
+      "type": "character",
+      "sender": "Natalya",
+      "text": "A doctor, a doctor!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Natalya is in hysterics."
     },
     {
       "type": "character",
@@ -1086,12 +1328,32 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "[Wails] He's dead ... dead!"
+      "text": "😭 He's dead ... dead!"
     },
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Who's dead? [Looks at Lomov.] So he is! My word! Water! A doctor! [Lifts a tumbler to Lomov's mouth.] Drink this! No, he doesn't drink. It means he's dead, and all that."
+      "text": "Who's dead?"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov looks at Lomov."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "So he is! My word! Water! A doctor!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov lifts a tumbler to Lomov's mouth."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "Drink this! No, he doesn't drink. It means he's dead, and all that."
     },
     {
       "type": "character",
@@ -1116,12 +1378,22 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Hurry up and get married and — well, to the devil with you! She's willing! [He puts Lomov's hand into his daughter's.] She's willing and all that. I give you my blessing and so on. Only leave me in peace!"
+      "text": "Hurry up and get married and — well, to the devil with you! She's willing!"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Chubukov puts their hands together."
+    },
+    {
+      "type": "character",
+      "sender": "Chubukov",
+      "text": "She's willing and all that. I give you my blessing and so on. Only leave me in peace!"
     },
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "[Getting up] Eh? What? To whom?"
+      "text": "Eh? What? To whom?"
     },
     {
       "type": "character",
@@ -1131,7 +1403,7 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "[Wails] He's alive. Yes, yes, I'm willing."
+      "text": "😭 He's alive. Yes, yes, I'm willing."
     },
     {
       "type": "character",
@@ -1141,7 +1413,27 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "Eh? Kiss whom? [They kiss.] Very nice, too. Excuse me, what's it all about? Oh, now I understand ... my heart ... stars ... I'm happy. Natalya Stepanovna. [Kisses her hand.] My foot's gone to sleep."
+      "text": "Eh? Kiss whom?"
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "They kiss."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "Very nice, too. Excuse me, what's it all about? Oh, now I understand ... my heart ... stars ... I'm happy. Natalya Stepanovna."
+    },
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Lomov kisses her hand."
+    },
+    {
+      "type": "character",
+      "sender": "Lomov",
+      "text": "My foot's gone to sleep."
     },
     {
       "type": "character",
@@ -1186,8 +1478,7 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "[Trying to shout her down] Champagne! Champagne!",
-      "annotation": "The play ends mid-argument. The engagement is settled; nothing else is."
+      "text": "Champagne! Champagne!"
     },
     {
       "type": "stage",

@@ -4,7 +4,7 @@ Great plays delivered line by line via Telegram.
 
 ## How it works
 
-Users find 'Play by Text' on Telegram via username or direct link. They choose a play, then receive it one line at a time — like reading a text conversation. Each line has optional annotations explaining unobvious language, context, or other significance.
+Users find 'Play by Text' on Telegram via username or direct link. They choose a play, then receive it one line at a time — like reading a text conversation. Each line has optional annotations explaining difficult language, context, or other significance.
 
 ### Buttons
 
@@ -14,7 +14,7 @@ Users find 'Play by Text' on Telegram via username or direct link. They choose a
 | 🔍 | Show annotation for current line |
 | ⏸ | Manual mode — tap ▽ yourself |
 | 🕯️ | Ambient mode — next line arrives in 10–60 min |
-| ▶ | Active mode — next line arrives at ~reading pace |
+| ▶ | Active mode — next line arrives at ~reading pace with pause every 15 lines |
 
 Tapping the mode button cycles through all three modes. Replying `?` to any past line retrieves its annotation.
 
@@ -28,7 +28,7 @@ Audio works in all delivery modes. In ambient mode, voice messages accumulate wi
 
 | Command | Function |
 |---------|----------|
-| `/start` | Choose a play |
+| `/start` | Front page |
 | `/plays` | List available plays |
 | `/cast` | Show cast of current play |
 | `/scenes` | Jump to a scene |
@@ -139,3 +139,140 @@ TTS audio is cached by Telegram file_id after first generation — subsequent se
 - Tapping ▽ on any existing message still delivers the correct next line
 - Starting a new play works normally
 - Audio preference resets to off (default)
+
+Example play excerpt:
+
+{
+  "id": "tempest",
+  "title": "The Tempest",
+  "author": "William Shakespeare",
+  "emoji": "🌊",
+  "description": "magic, shipwreck, and revenge on a remote island",
+  "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/tempest-1-opening-storm.jpg",
+  "introAnnotation": "Written around 1610–11, The Tempest is believed to be the last play Shakespeare wrote on his own. It was partly inspired by real accounts of the Sea Venture, an English ship wrecked on Bermuda in 1609 while sailing to the Virginia colony. The play explores power, forgiveness, colonialism, and the nature of art itself — themes that feel remarkably current four centuries later. Unusually for Shakespeare, the plot appears to be entirely original rather than adapted from an existing source.",
+  "narrator": "en-GB-ThomasNeural",
+  "defaultVoice": "en-GB-RyanNeural",
+  "dramatis": [
+    "Prospero — the rightful Duke of Milan, exiled to a remote island",
+    "Miranda — his daughter, raised on the island",
+    "Ariel — a spirit bound to serve Prospero",
+    "Caliban — a native of the island, enslaved by Prospero",
+    "Alonso — King of Naples",
+    "Ferdinand — his son",
+    "Sebastian — Alonso's brother",
+    "Antonio — Prospero's brother, usurper of his dukedom",
+    "Gonzalo — an honest old counselor",
+    "Adrian & Francisco — lords attending the King",
+    "Trinculo — a jester",
+    "Stephano — a drunken butler",
+    "Shipmaster — captain of the ship",
+    "Boatswain — officer in charge of the deck crew",
+    "Iris, Ceres, Juno — spirits appearing in a masque"
+  ],
+  "characters": {
+    "Stage": {
+      "emoji": "📜",
+      "voice": null
+    },
+    "Prospero": {
+      "emoji": "📖",
+      "voice": "en-GB-ElliotNeural"
+    },
+    "Miranda": {
+      "emoji": "✨",
+      "voice": "en-GB-LibbyNeural"
+    },
+    "Ariel": {
+      "emoji": "🌬️",
+      "voice": "en-GB-SoniaNeural"
+    },
+    "Caliban": {
+      "emoji": "🪨",
+      "voice": "en-AU-DarrenNeural"
+    },
+    "Alonso": {
+      "emoji": "👑",
+      "voice": "en-GB-RyanNeural"
+    },
+    "Ferdinand": {
+      "emoji": "🪵",
+      "voice": "en-US-AndrewNeural"
+    },
+    "Sebastian": {
+      "emoji": "🗡️",
+      "voice": "en-US-ChristopherNeural"
+    },
+    "Antonio": {
+      "emoji": "🎭",
+      "voice": "en-US-GuyNeural"
+    },
+    "Gonzalo": {
+      "emoji": "🧓",
+      "voice": "en-GB-OliverNeural"
+    },
+    "Adrian": {
+      "emoji": "🏛️",
+      "voice": "en-US-BrandonNeural"
+    },
+    "Francisco": {
+      "emoji": "🏛️",
+      "voice": "en-US-DavisNeural"
+    },
+    "Trinculo": {
+      "emoji": "🃏",
+      "voice": "en-IE-ConnorNeural"
+    },
+    "Stephano": {
+      "emoji": "🍷",
+      "voice": "en-AU-WilliamNeural"
+    },
+    "Shipmaster": {
+      "emoji": "🚢",
+      "voice": "en-AU-WilliamNeural"
+    },
+    "Boatswain": {
+      "emoji": "⚓",
+      "voice": "en-GB-AlfieNeural"
+    },
+    "Iris": {
+      "emoji": "🌈",
+      "voice": "en-US-JennyNeural"
+    },
+    "Ceres": {
+      "emoji": "🌾",
+      "voice": "en-US-AriaNeural"
+    },
+    "Juno": {
+      "emoji": "🕊️",
+      "voice": "en-GB-MaisieNeural"
+    },
+    "Mariners": {
+      "emoji": "⛵",
+      "voice": "en-GB-AlfieNeural"
+    }
+  },
+  "lines": [
+    {
+      "type": "stage",
+      "sender": "Stage",
+      "text": "Act I, Scene 1 — A ship at sea. A tempestuous noise of thunder and lightning heard.",
+      "annotation": "The play opens in medias res — in the middle of the action."
+    },
+    {
+      "type": "character",
+      "sender": "Shipmaster",
+      "text": "Boatswain!",
+      "annotation": "Boatswain (pronounced 'BOH-sun'), the officer in charge of the deck crew and rigging."
+    },
+    {
+      "type": "character",
+      "sender": "Boatswain",
+      "text": "Here, master. What cheer?",
+      "annotation": "'What cheer?' means 'What's the situation?' or 'What are your orders?' — a common sailor's greeting."
+    },
+    {
+      "type": "character",
+      "sender": "Shipmaster",
+      "text": "Good, speak to the mariners. Fall to't yarely, or we run ourselves aground. Bestir, bestir!",
+      "annotation": "'Yarely' means quickly, nimbly. 'Bestir' means hurry, get moving."
+    },

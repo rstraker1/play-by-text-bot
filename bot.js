@@ -544,7 +544,7 @@ async function handleMessage(msg) {
 
   } else if (text === '/help') {
     await bot.sendMessage(chatId,
-      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace\n\u2022 /adapt \u2014 toggle text adaptation (txt spk version)\n\u2022 /audio \u2014 toggle audio narration`,
+      `\u{1F3AD} *Play by Text \u2014 Help*\n\n\u2022 Press *\u25BD* to advance\n\u2022 Press *\u{1F50D}* on any line for its annotation\n\u2022 Reply to any line with *?* to get its annotation later\n\u2022 Press the mode button to cycle delivery:\n    \u23F8 Manual \u2014 tap \u25BD yourself\n    \u{1F56F}\uFE0F Ambient \u2014 next line arrives in 10\u201360 min\n    \u25B6 Active \u2014 lines delivered approx reading pace with pause every 15msgs\n\u2022 /adapt \u2014 toggle text spk adaptation (only 'the stronger' at moment)\n\u2022 /audio \u2014 toggle audio narration`,
       { parse_mode: 'Markdown' }
     );
 
