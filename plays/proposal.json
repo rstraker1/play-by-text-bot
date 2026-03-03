@@ -5,7 +5,7 @@
   "emoji": "💍",
   "description": "a nervous neighbour, a disputed meadow, and a marriage proposal that keeps going off the rails",
   "image": "https://raw.githubusercontent.com/rstraker1/play-by-text-bot/master/images/proposal.jpg",
-  "introAnnotation": "Written in 1888, The Proposal is a one-act farce set in the drawing room of a minor Russian landowner. All three characters belong to the provincial gentry — a class defined less by wealth than by land, lineage, and the anxiety of maintaining both. The play was an immediate hit in its first season and Chekhov knocked it out quickly, calling it a 'French farce' somewhat dismissively.  it has never really left the stage.",
+  "introAnnotation": "Written in 1888, The Proposal is a one-act farce set in the drawing room of a minor Russian landowner. All three characters belong to the provincial gentry — a class defined less by wealth than by land, lineage, and the anxiety of maintaining both. The play was an immediate hit in its first season and it has never really left the stage.",
   "narrator": "en-GB-ThomasNeural",
   "defaultVoice": "en-GB-RyanNeural",
   "dramatis": [
