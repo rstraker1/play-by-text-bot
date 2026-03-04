@@ -595,6 +595,23 @@ async function handleMessage(msg) {
       parse_mode: 'Markdown',
       reply_markup: { inline_keyboard: playList }
     });
+
+  } else if (text && !text.startsWith('/')) {
+    const progress = getUserProgress(chatId);
+    const play = progress.currentPlay ? plays[progress.currentPlay] : null;
+    const stageEmoji = play ? getEmoji(play, 'Stage') : '📜';
+
+    const tail = play?.groupUrl
+  ? `Perhaps it would find purchase in [the ${play.title} room](${play.groupUrl}).`
+  : play?.title
+    ? `Perhaps there are similar such voices to be found in a ${play.title} room — though one is yet to be created.`
+    : `Perhaps it would find purchase elsewhere.`;
+
+    await bot.sendMessage(
+      chatId,
+      `${stageEmoji} *Stage*\n_A voice, incorporeal, drifts across the fourth wall — its meaning lost to us. ${tail}_`,
+      { parse_mode: 'Markdown' }
+    );
   }
 }
 
