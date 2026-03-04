@@ -604,8 +604,8 @@ async function handleMessage(msg) {
     const tail = play?.groupUrl
   ? `Perhaps it would find purchase in [the ${play.title} room](${play.groupUrl}).`
   : play?.title
-    ? `Perhaps there are similar such voices to be found in a ${play.title} room — though one is yet to be created.`
-    : `Perhaps it would find purchase elsewhere.`;
+    ? `Perhaps there are similar such voices to be found in [the Play by Text room](https://t.me/playbytext) — (a room for ${play.title} is yet to be created)`
+    : `Perhaps it would find purchase in [the Play by Text room](https://t.me/playbytext).`;
 
     await bot.sendMessage(
       chatId,
