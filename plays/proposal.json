@@ -207,8 +207,7 @@
     {
       "type": "stage",
       "sender": "Stage",
-      "text": "Natalya Stepanovna comes in.",
-      "annotation": "She's in an apron, having been at work in the house — the contrast with his white gloves and evening dress is immediate."
+      "text": "Natalya Stepanovna comes in."
     },
     {
       "type": "character",
@@ -375,7 +374,7 @@
       "type": "character",
       "sender": "Natalya",
       "text": "No, you're simply joking, or making fun of me. We've had the land for nearly three hundred years, and then we're suddenly told that it isn't ours! I can hardly believe my own ears.",
-      "annotation": "A dessiatin was about 2.7 acres, so five dessiatins is roughly thirteen acres — a small, low-value strip. The characters themselves acknowledge this; the fight is entirely about principle."
+      "annotation": "A dessiatin was about 2.7 acres, so five dessiatins is roughly thirteen acres — a small, low-value strip."
     },
     {
       "type": "character",
@@ -666,8 +665,7 @@
     {
       "type": "character",
       "sender": "Lomov",
-      "text": "My left foot has gone to sleep. You're an intriguer. Oh, my heart! And it's an open secret that before the last elections you bri ... I can see stars. Where's my hat?",
-      "annotation": "He stops himself mid-syllable — 'bri-' is the start of the Russian word for 'bribed'. Leaving it unfinished was a way of making the accusation while technically not making it."
+      "text": "My left foot has gone to sleep. You're an intriguer. Oh, my heart! And it's an open secret that before the last elections you bri ... I can see stars. Where's my hat?"
     },
     {
       "type": "character",
@@ -984,14 +982,13 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "Of course he's better! Of course, Squeezer is young, he may develop a bit, but on points and pedigree he's better than anything that even Volchanetsky has got.",
-      "annotation": "Volchanetsky is presumably a local figure known for his kennels — someone whose dogs set the standard in the district. The name doesn't appear elsewhere in Chekhov."
+      "text": "Of course he's better! Of course, Squeezer is young, he may develop a bit, but on points and pedigree he's better than anything that even Volchanetsky has got."
     },
     {
       "type": "character",
       "sender": "Lomov",
       "text": "Excuse me, Natalya Stepanovna, but you forget that he is overshot, and an overshot always means the dog is a bad hunter!",
-      "annotation": "An overshot jaw — upper jaw protruding beyond the lower — was a recognised disqualifying fault in hunting dogs. Chekhov is using real breed-assessment vocabulary."
+      "annotation": "An overshot jaw — upper jaw protruding beyond the lower — was a recognised disqualifying fault in hunting dogs"
     },
     {
       "type": "character",
@@ -1141,8 +1138,7 @@
     {
       "type": "character",
       "sender": "Chubukov",
-      "text": "Don't excite yourself, my precious one. Allow me. Your Guess certainly has his good points. He's pure-bred, firm on his feet, has well-sprung ribs, and all that.",
-      "annotation": "'Well-sprung ribs' is genuine canine terminology — a broad, rounded rib cage indicating good lung capacity, valued in dogs required to run at pace."
+      "text": "Don't excite yourself, my precious one. Allow me. Your Guess certainly has his good points. He's pure-bred, firm on his feet, has well-sprung ribs, and all that."
     },
     {
       "type": "character",
@@ -1193,8 +1189,7 @@
     {
       "type": "character",
       "sender": "Natalya",
-      "text": "_Teasing:_ My heart. What sort of a hunter are you? You ought to go and lie on the kitchen oven and catch blackbeetles, not go after foxes! My heart!",
-      "annotation": "The kitchen oven — a large tiled structure used for both cooking and heating — had a flat top where the elderly or infirm would sleep to keep warm. Telling someone to go lie on it was an image of complete uselessness."
+      "text": "_Teasing:_ My heart. What sort of a hunter are you? You ought to go and lie on the kitchen oven and catch blackbeetles, not go after foxes! My heart!"
     },
     {
       "type": "character",
