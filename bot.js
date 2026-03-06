@@ -133,7 +133,7 @@ function formatCast(play) {
 // ── Delivery modes ──
 
 const MODE_EMOJI = { manual: '\u23F8', ambient: '\u{1F56F}\uFE0F', active: '\u25B6' };
-const MODE_NEXT  = { manual: 'ambient', ambient: 'active', active: 'manual' };
+const MODE_NEXT = { manual: 'ambient', ambient: 'active', active: 'manual' };
 
 function clearTimers(progress) {
   if (progress.pendingTimer) {
@@ -216,7 +216,7 @@ function scheduleNextLine(chatId, playId, lineIndex) {
     progress.typingTimer = null;
     try {
       await bot.sendChatAction(chatId, 'typing');
-    } catch (e) {}
+    } catch (e) { }
   }, typingDelay);
 
   progress.pendingTimer = setTimeout(async () => {
@@ -232,7 +232,7 @@ async function generateTTSClip(text, voice) {
   const tts = new EdgeTTS({ voice, outputFormat: TTS_OUTPUT_FORMAT });
   await tts.ttsPromise(text, tmpFile);
   const buf = fs.readFileSync(tmpFile);
-  try { fs.unlinkSync(tmpFile); } catch (e) {}
+  try { fs.unlinkSync(tmpFile); } catch (e) { }
   return buf;
 }
 
@@ -344,14 +344,14 @@ async function cleanupPrevious(chatId, manualAdvance = false) {
         { inline_keyboard: [] },
         { chat_id: chatId, message_id: progress.lastMessageId }
       );
-    } catch (e) {}
+    } catch (e) { }
     progress.lastMessageId = null;
   }
 
   if (progress.lastAnnotationId && (progress.deliveryMode === 'manual' || manualAdvance)) {
     try {
       await bot.deleteMessage(chatId, progress.lastAnnotationId);
-    } catch (e) {}
+    } catch (e) { }
     progress.lastAnnotationId = null;
   }
 }
@@ -423,7 +423,7 @@ async function sendLine(chatId, playId, lineIndex, manualAdvance = false) {
           { inline_keyboard: pausedKeyboard },
           { chat_id: chatId, message_id: progress.lastMessageId }
         );
-      } catch (e) {}
+      } catch (e) { }
 
       return;
     }
@@ -585,7 +585,7 @@ async function handleMessage(msg) {
       reply_markup: { inline_keyboard: buttons }
     });
 
-} else if (text === '/plays') {
+  } else if (text === '/plays') {
     const playList = Object.entries(plays).map(([id, play]) => {
       const author = play.author ? ` — ${play.author.split(' ').pop()}` : '';
       const lines = play.lines ? ` · ${play.lines.length} lines` : '';
@@ -602,10 +602,10 @@ async function handleMessage(msg) {
     const stageEmoji = play ? getEmoji(play, 'Stage') : '📜';
 
     const tail = play?.groupUrl
-  ? `Perhaps it would find purchase in [the ${play.title} room](${play.groupUrl}).`
-  : play?.title
-    ? `Perhaps there are similar such voices to be found in [the Play by Text room](https://t.me/playbytext) — (a room for ${play.title} is yet to be created)`
-    : `Perhaps it would find purchase in [the Play by Text room](https://t.me/playbytext).`;
+      ? `Perhaps it would find purchase in [the ${play.title} room](${play.groupUrl}).`
+      : play?.title
+        ? `Perhaps there are similar such voices to be found in [the Play by Text room](https://t.me/playbytext) — (a room for ${play.title} is yet to be created)`
+        : `Perhaps it would find purchase in [the Play by Text room](https://t.me/playbytext).`;
 
     await bot.sendMessage(
       chatId,
@@ -628,6 +628,15 @@ async function handleCallbackQuery(query) {
     if (play) {
       const progress = getUserProgress(chatId);
       clearTimers(progress);
+
+      // If adaptation mode is on but this play has no adaptation content, silently disable it
+      if (progress.adaptationMode) {
+        const hasAdaptation = play.lines?.some(l => l.adaptation || l.adaptationOnly);
+        if (!hasAdaptation) {
+          progress.adaptationMode = false;
+          await bot.sendMessage(chatId, '💬 _Text adaptation off — this play has no adaptation._', { parse_mode: 'Markdown' });
+        }
+      }
 
       // Title + author
       await bot.sendMessage(
@@ -719,7 +728,7 @@ async function handleCallbackQuery(query) {
             { inline_keyboard: keyboard },
             { chat_id: chatId, message_id: progress.lastMessageId }
           );
-        } catch (e) {}
+        } catch (e) { }
       } else {
         const afterIndex = nextVisibleLine(play, currentLineIndex + 1, progress.adaptationMode);
         const isLastLine = afterIndex >= play.lines.length;
@@ -729,7 +738,7 @@ async function handleCallbackQuery(query) {
             { inline_keyboard: keyboard },
             { chat_id: chatId, message_id: progress.lastMessageId }
           );
-        } catch (e) {}
+        } catch (e) { }
       }
     }
 
@@ -769,13 +778,13 @@ async function startServer() {
       console.log(`Webhook set to: ${webhookUrl}`);
     }
     await bot.setMyCommands([
-      { command: 'start',  description: 'Home screen' },
-      { command: 'plays',  description: 'List available plays' },
-      { command: 'cast',   description: 'Show cast of current play' },
+      { command: 'start', description: 'Home screen' },
+      { command: 'plays', description: 'List available plays' },
+      { command: 'cast', description: 'Show cast of current play' },
       { command: 'scenes', description: 'Jump to a scene' },
-      { command: 'adapt',  description: 'Adaptation mode on/off' },
-      { command: 'audio',  description: 'Audio narration on/off' },
-      { command: 'help',   description: 'More info' },
+      { command: 'adapt', description: 'Adaptation mode on/off' },
+      { command: 'audio', description: 'Audio narration on/off' },
+      { command: 'help', description: 'More info' },
     ]);
     console.log('Bot commands registered.');
   });
