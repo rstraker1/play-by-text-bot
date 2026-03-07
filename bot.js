@@ -602,10 +602,10 @@ async function handleMessage(msg) {
     const stageEmoji = play ? getEmoji(play, 'Stage') : '📜';
 
     const tail = play?.groupUrl
-      ? `Perhaps it would find purchase in [the ${play.title} room](${play.groupUrl}).`
+      ? `Perhaps it would find attending ears in [the ${play.title} room](${play.groupUrl}).`
       : play?.title
         ? `Perhaps there are similar such voices to be found in [the Play by Text room](https://t.me/playbytext) — (a room for ${play.title} is yet to be created)`
-        : `Perhaps it would find purchase in [the Play by Text room](https://t.me/playbytext).`;
+        : `Perhaps it would find attending ears in [the Play by Text room](https://t.me/playbytext).`;
 
     await bot.sendMessage(
       chatId,
